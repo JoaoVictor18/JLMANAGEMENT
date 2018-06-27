@@ -13,18 +13,11 @@ import java.util.Date;
  */
 public class Funcionario extends Pessoa {
 
-    private boolean admin;
-
     public Funcionario() {
     }
 
-    public Funcionario(boolean admin, String nome, String cpf, String rg, String numeroPis, String email, String telefone, Date dataNasc, Endereco moradia) {
-        super(nome, cpf, rg, numeroPis, email, telefone, dataNasc, moradia);
-        this.admin = admin;
-    }
-
-    public boolean isAdmin() {
-        return admin;
+    public Funcionario(String nome, String cpf, String rg, String numeroPis, String email, String telefone, Date dataNasc, Endereco moradia, String senha, String resp) {
+        super(nome, cpf, rg, numeroPis, email, telefone, dataNasc, moradia, senha, resp);
     }
 
     public String consultaMercadoria(String nomeMercadoria) {
