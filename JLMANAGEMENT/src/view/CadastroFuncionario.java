@@ -472,9 +472,11 @@ public class CadastroFuncionario extends javax.swing.JPanel {
             novaPessoa.setAdmin(true);
         }
         if (PessoaController.criaPessoa(novaPessoa)) {
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso.", "Usuário cadastrado!", JOptionPane.INFORMATION_MESSAGE);
             limpaCampos();
         } else {
-            JOptionPane.showMessageDialog(null, "Este usuário já possui cadastro no banco de dados.", "Usuário já cadastrado!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Este usuário já possui cadastro no banco de dados.", "Usuário já cadastrado!", JOptionPane.WARNING_MESSAGE);
+            limpaCampos();
         }
     }//GEN-LAST:event_cadastrarFuncActionPerformed
 
