@@ -51,40 +51,6 @@ public class PessoaDAO {
         }
     }
 
-    /* public static Pessoa infoUser(String login) {
-        Pessoa novoUser = new Pessoa();
-        try (Connection con = FabricaConexao.criaConexao()) {
-            String sql = "select * from pessoa where email = ?";
-            PreparedStatement busca = con.prepareStatement(sql);
-            busca.setString(1, login);
-            ResultSet resultado = busca.executeQuery();
-            while(resultado.next()){
-                String nome = resultado.getString("nome");
-                String cpf = resultado.getString("cpf");
-                String rg = resultado.getString("rg");
-                String pis = resultado.getString("numeroPis");
-                String email = resultado.getString("email");
-                String telefone = resultado.getString("telefone");
-                Date dataNasc = resultado.getDate("dataNascimento");
-                String rua = resultado.getString("rua");
-                String bairro = resultado.getString("bairro");
-                int numero = resultado.getInt("numero");
-                String complemento = resultado.getString("complemento");
-                String referencia = resultado.getString("referencia");
-                String cep = resultado.getString("cep");
-                String cidade = resultado.getString("cidade");
-                String estado = resultado.getString("estado");
-                boolean admin = resultado.getBoolean("admin");
-                String senha = resultado.getString("senha");
-                String respSeguranca = resultado.getString("respSeguranca");
-                Endereco novoEnd = new Endereco(rua, bairro, estado, cidade, cep, complemento, referencia, numero);
-                novoUser = new Pessoa(nome, cpf, rg, pis, email, telefone, dataNasc, novoEnd, senha, respSeguranca);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Erro na execução da sql!!");
-        }
-        return novoUser;
-    }*/
     public static Pessoa verificaUsuario(String login, String senha) {
         String pass = "";
         Pessoa novoUser = new Pessoa();

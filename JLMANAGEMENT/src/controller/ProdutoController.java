@@ -5,12 +5,18 @@
  */
 package controller;
 
+import DAO.ProdutoDAO;
 import java.util.Vector;
+import model.Produto;
 
 /**
  *
  * @author LEANDRO
  */
 public class ProdutoController {
-    public static Vector
+
+    public static Vector<String> buscaProduto(String nomeMerc) {
+        Vector<String> listaProdutos = ProdutoDAO.buscaProduto(nomeMerc);
+        return listaProdutos;
+    }
 }

@@ -2,15 +2,20 @@
 package view;
 
 import controller.ProdutoController;
+import java.util.Vector;
+import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
+import model.Produto;
 
 
 public class AtualizarMercadoria extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
+    private DefaultListModel listaMercadorias;
     public AtualizarMercadoria(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
+        this.listaMercadorias = new DefaultListModel();
     }
 
     
@@ -26,6 +31,8 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         quantComprada = new javax.swing.JTextField();
         dataCompra = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaMercadorias = new javax.swing.JList();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -60,6 +67,8 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
 
         dataCompra.setEnabled(false);
 
+        jScrollPane1.setViewportView(listaMercadorias);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,14 +77,6 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
@@ -83,8 +84,20 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(buscaMercText, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(44, 44, 44)
-                        .addComponent(buscaMerc)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addComponent(buscaMerc))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,20 +109,25 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(buscaMercText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscaMerc))
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaMercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaMercActionPerformed
-        ProdutoController consultaProduto = 
+        Vector <String> listaProdutos = ProdutoController.buscaProduto(this.buscaMercText.getText());
     }//GEN-LAST:event_buscaMercActionPerformed
 
     private void buscaMercTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaMercTextActionPerformed
@@ -129,6 +147,8 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList listaMercadorias;
     private javax.swing.JTextField quantComprada;
     // End of variables declaration//GEN-END:variables
 }
