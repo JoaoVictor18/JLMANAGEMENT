@@ -471,8 +471,11 @@ public class CadastroFuncionario extends javax.swing.JPanel {
         if (checkAdmin.isSelected()) {
             novaPessoa.setAdmin(true);
         }
-        PessoaController.criaPessoa(novaPessoa);
-        limpaCampos();
+        if (PessoaController.criaPessoa(novaPessoa)) {
+            limpaCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "Este usuário já possui cadastro no banco de dados.", "Usuário já cadastrado!", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_cadastrarFuncActionPerformed
 
     private void pergSegComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pergSegComboActionPerformed
