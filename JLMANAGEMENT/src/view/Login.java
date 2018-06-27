@@ -115,7 +115,7 @@ public class Login extends javax.swing.JPanel {
             //verificando se possui o usuário no banco de dados e se as informações de login estão corretas
             Pessoa novoUser = PessoaController.verificaUsuario(login, senha);
             if(novoUser != null){
-                TelaPrincipal telaPrincipal = new TelaPrincipal(novoUser);
+                TelaPrincipal telaPrincipal = new TelaPrincipal(novoUser, this.painelTrocas);
             }
         } else {
             JOptionPane.showMessageDialog(null, "O campo de usuário ou senha não foram preenchidos corretamente.", "Preenchimento incorreto!", JOptionPane.ERROR_MESSAGE);

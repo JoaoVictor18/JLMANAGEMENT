@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.JScrollPane;
 import model.Pessoa;
 
 /**
@@ -12,9 +13,11 @@ import model.Pessoa;
  * @author LEANDRO
  */
 public class TelaPrincipal extends javax.swing.JPanel {
+    private JScrollPane painelTrocas;
 
-    public TelaPrincipal(Pessoa novoUser) {
+    public TelaPrincipal(Pessoa novoUser, JScrollPane painelTrocas) {
         initComponents();
+        this.painelTrocas = painelTrocas;
         if (novoUser.isAdmin()) {
             //habilita todas as funções do administrador
             ssss
@@ -156,7 +159,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
