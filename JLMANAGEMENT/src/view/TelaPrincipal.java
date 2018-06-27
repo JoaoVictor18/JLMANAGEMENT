@@ -203,6 +203,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
 =======*/
     private void cadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioActionPerformed
         CadastroFuncionario novoFunc = new CadastroFuncionario(this.painelTrocas);
+        this.painelTrocas.setViewportView(novoFunc);
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
@@ -216,6 +217,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
     private void atualizaMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaMercadoriaActionPerformed
         AtualizarMercadoria atualizaMerc = new AtualizarMercadoria(this.painelTrocas);
+        this.painelTrocas.setViewportView(atualizaMerc);
     }//GEN-LAST:event_atualizaMercadoriaActionPerformed
 
 
