@@ -17,18 +17,19 @@ public class Produto {
     protected String tipo;
     protected String fornecedor;
     protected String infoAdicionais;
-    protected int percentualImposto;
-    protected int percentualFrete;
-    protected int qntMax;
-    protected int qntMin;
+    protected double percentualImposto;
+    protected double percentualFrete;
+    protected double qntMax;
+    protected double qntMin;
     protected double custo;
     protected double qntCompra;
     protected Date dataCompra;
+    protected String referencia;
 
     public Produto() {
     }
 
-    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, int percentualImposto, int percentualFrete, int qntMax, int qntMin, double custo, double qntCompra, Date dataCompra) {
+    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete, double qntMax, double qntMin, double custo, double qntCompra, Date dataCompra, String referencia) {
         this.nome = nome;
         this.tipo = tipo;
         this.fornecedor = fornecedor;
@@ -40,6 +41,7 @@ public class Produto {
         this.custo = custo;
         this.qntCompra = qntCompra;
         this.dataCompra = dataCompra;
+        this.referencia = referencia;
     }
 
     public String getNome() {
@@ -58,19 +60,19 @@ public class Produto {
         return infoAdicionais;
     }
 
-    public int getPercentualImposto() {
+    public double getPercentualImposto() {
         return percentualImposto;
     }
 
-    public int getPercentualFrete() {
+    public double getPercentualFrete() {
         return percentualFrete;
     }
 
-    public int getQntMax() {
+    public double getQntMax() {
         return qntMax;
     }
 
-    public int getQntMin() {
+    public double getQntMin() {
         return qntMin;
     }
 
@@ -120,6 +122,10 @@ public class Produto {
 
     public void setDataCompra(Date dataCompra) {
         this.dataCompra = dataCompra;
+    }
+
+    public String getReferencia() {
+        return referencia;
     }
 
 }

@@ -19,4 +19,9 @@ public class ProdutoController {
         Vector<String> listaProdutos = ProdutoDAO.buscaProduto(nomeMerc);
         return listaProdutos;
     }
+    
+    public static boolean buscaProdutoExistente(Produto produto){
+        boolean retorno = ProdutoDAO.buscaProdutoExistente(produto);
+        return retorno;
+    }
 }
