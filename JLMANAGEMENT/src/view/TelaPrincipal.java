@@ -13,14 +13,14 @@ import model.Pessoa;
  * @author LEANDRO
  */
 public class TelaPrincipal extends javax.swing.JPanel {
-
+    
     private JScrollPane painelTrocas;
     private Pessoa novoUser;
-
+    
     public TelaPrincipal() {
         initComponents();
     }
-
+    
     public TelaPrincipal(Pessoa novoUser, JScrollPane painelTrocas) {
         initComponents();
         this.novoUser = novoUser;
@@ -38,7 +38,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.solicitacaoCompra.setEnabled(true);
             this.sac.setEnabled(true);
             this.sair.setEnabled(true);
-
+            
         } else {
             this.atualizaMercadoria.setEnabled(false);
             this.balanco.setEnabled(false);
@@ -53,7 +53,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.sair.setEnabled(true);
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -207,12 +207,10 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
-<<<<<<< HEAD
-       
         
-=======
-       CadastroMercadorias novaMerc = new CadastroMercadorias(this.painelTrocas);
->>>>>>> 7d8c34482abf34ef35af314502619c400d69a584
+        CadastroMercadorias cadastroMercadoria = new CadastroMercadorias(this.painelTrocas);
+        this.painelTrocas.setViewportView(cadastroMercadoria);
+
     }//GEN-LAST:event_cadastroMercadoriaActionPerformed
 
     private void atualizaMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaMercadoriaActionPerformed
