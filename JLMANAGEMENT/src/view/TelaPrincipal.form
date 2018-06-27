@@ -150,6 +150,9 @@
           <Color id="Cursor Padr&#xe3;o"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atualizaMercadoriaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="controleEstoque">
       <Properties>
