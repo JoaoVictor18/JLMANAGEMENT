@@ -163,11 +163,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
+/*
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
     }//GEN-LAST:event_jButton2ActionPerformed
-=======
+=======*/
     private void cadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioActionPerformed
 
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
@@ -175,7 +175,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastroMercadoriaActionPerformed
->>>>>>> 9aa9e4fa81288e0d4c49a014658b3dc2c5829572
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
