@@ -16,10 +16,6 @@ public class ProdutoDAO {
                     + "values(?, ?, ?)";
             //configurando a sql para ser executada em banco de dados
             PreparedStatement x = con.prepareStatement(sql);
-            x.setString(1, novoProduto.getNome());
-            x.setDouble(2, novoProduto.getPreco());
-            x.setDouble(3, novoProduto.getQuantidade());
-            x.execute();
         } catch (SQLException ex) {
             System.err.println("Erro na sql...");
         }
