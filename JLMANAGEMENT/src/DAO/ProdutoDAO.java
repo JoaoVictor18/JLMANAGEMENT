@@ -37,5 +37,6 @@ public class ProdutoDAO {
         } catch (SQLException ex) {
             System.err.println("Erro na sql...");
         }
+        return listaProdutos;
     }
 }
