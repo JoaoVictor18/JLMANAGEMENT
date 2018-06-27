@@ -15,12 +15,13 @@ import model.Pessoa;
  */
 public class PessoaController {
 
-    public static void criaPessoa(Pessoa novaPessoa) {
+    public static boolean criaPessoa(Pessoa novaPessoa) {
         boolean retorno = PessoaDAO.buscaUsuarioCpf(novaPessoa.getCpf());
         if (retorno == false) {
             PessoaDAO.criaPessoa(novaPessoa);
+            return true;
         } else {
-            JOptionPane.showMessageDialog(null, "Este usuário já possui cadastro no banco de dados.", "Usuário já cadastrado!", JOptionPane.INFORMATION_MESSAGE);
+            return false;
         }
     }
 

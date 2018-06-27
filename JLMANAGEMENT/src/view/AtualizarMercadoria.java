@@ -1,4 +1,3 @@
-
 package view;
 
 import controller.ProdutoController;
@@ -7,18 +6,18 @@ import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
 import model.Produto;
 
-
 public class AtualizarMercadoria extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
-    private DefaultListModel listaMercadorias;
+    private DefaultListModel listaMerc;
+
     public AtualizarMercadoria(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
-        this.listaMercadorias = new DefaultListModel();
+        this.listaMerc = new DefaultListModel();
+        this.listaMercadorias.setModel(listaMerc);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,8 +125,18 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void atualizaMerc(String mercadoriaModificar) {
+        this.quantComprada.setEnabled(true);
+        this.dataCompra.setEnabled(true);
+        ProdutoController.atualizaMerc(this.quantComprada.getText(), this.dataCompra.getText());
+    }
     private void buscaMercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaMercActionPerformed
-        Vector <String> listaProdutos = ProdutoController.buscaProduto(this.buscaMercText.getText());
+        Vector<String> listaProdutos = ProdutoController.buscaProduto(this.buscaMercText.getText());
+        this.listaMerc.addElement(listaProdutos);
+        String mercadoriaModificar = (String) listaMercadorias.getSelectedValue();
+        if (mercadoriaModificar != null) {
+            atualizaMerc(mercadoriaModificar);
+        }
     }//GEN-LAST:event_buscaMercActionPerformed
 
     private void buscaMercTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaMercTextActionPerformed
