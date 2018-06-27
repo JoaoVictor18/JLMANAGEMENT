@@ -33,16 +33,16 @@ public class TelaPrincipal extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         sair = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        consultaMercadoria = new javax.swing.JButton();
+        cadastroFuncionario = new javax.swing.JButton();
+        cadastroMercadoria = new javax.swing.JButton();
+        atualizaMercadoria = new javax.swing.JButton();
+        controleEstoque = new javax.swing.JButton();
+        relatorioVendas = new javax.swing.JButton();
+        balanco = new javax.swing.JButton();
+        solicitacaoCompra = new javax.swing.JButton();
+        epocaMaiorVenda = new javax.swing.JButton();
+        sac = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -54,41 +54,46 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
         sair.setText("Sair");
 
-        jButton1.setBackground(new java.awt.Color(51, 153, 255));
-        jButton1.setText("Consulta Mercadoria");
+        consultaMercadoria.setBackground(new java.awt.Color(51, 153, 255));
+        consultaMercadoria.setText("Consulta Mercadoria");
 
-        jButton2.setBackground(new java.awt.Color(51, 153, 255));
-        jButton2.setText("Cadastrar Funcionário");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cadastroFuncionario.setBackground(new java.awt.Color(51, 153, 255));
+        cadastroFuncionario.setText("Cadastrar Funcionário");
+        cadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cadastroFuncionarioActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(51, 153, 255));
-        jButton3.setText("Cadastrar Mercadorias");
+        cadastroMercadoria.setBackground(new java.awt.Color(51, 153, 255));
+        cadastroMercadoria.setText("Cadastrar Mercadorias");
+        cadastroMercadoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroMercadoriaActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(51, 153, 255));
-        jButton4.setText("Atualizar Mercadorias");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        atualizaMercadoria.setBackground(new java.awt.Color(51, 153, 255));
+        atualizaMercadoria.setText("Atualizar Mercadorias");
+        atualizaMercadoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jButton5.setBackground(new java.awt.Color(51, 153, 255));
-        jButton5.setText("Controle de Estoque");
+        controleEstoque.setBackground(new java.awt.Color(51, 153, 255));
+        controleEstoque.setText("Controle de Estoque");
 
-        jButton6.setBackground(new java.awt.Color(51, 153, 255));
-        jButton6.setText("Relatório de Vendas");
+        relatorioVendas.setBackground(new java.awt.Color(51, 153, 255));
+        relatorioVendas.setText("Relatório de Vendas");
 
-        jButton7.setBackground(new java.awt.Color(51, 153, 255));
-        jButton7.setText("Balanço");
+        balanco.setBackground(new java.awt.Color(51, 153, 255));
+        balanco.setText("Balanço");
 
-        jButton8.setBackground(new java.awt.Color(51, 153, 255));
-        jButton8.setText("Solicitação de Compra");
+        solicitacaoCompra.setBackground(new java.awt.Color(51, 153, 255));
+        solicitacaoCompra.setText("Solicitação de Compra");
 
-        jButton9.setBackground(new java.awt.Color(51, 153, 255));
-        jButton9.setText("Época de Maior Venda");
+        epocaMaiorVenda.setBackground(new java.awt.Color(51, 153, 255));
+        epocaMaiorVenda.setText("Época de Maior Venda");
 
-        jButton10.setBackground(new java.awt.Color(51, 153, 255));
-        jButton10.setText("SAC");
+        sac.setBackground(new java.awt.Color(51, 153, 255));
+        sac.setText("SAC");
 
         jLabel3.setText("Segurança e Controle do seu Estoque!!");
 
@@ -105,16 +110,16 @@ public class TelaPrincipal extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cadastroMercadoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cadastroFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(balanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(atualizaMercadoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(consultaMercadoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(controleEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(epocaMaiorVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(relatorioVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(solicitacaoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(576, Short.MAX_VALUE)
@@ -131,25 +136,25 @@ public class TelaPrincipal extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(sair))
                 .addGap(22, 22, 22)
-                .addComponent(jButton4)
+                .addComponent(atualizaMercadoria)
                 .addGap(0, 0, 0)
-                .addComponent(jButton7)
+                .addComponent(balanco)
                 .addGap(0, 0, 0)
-                .addComponent(jButton2)
+                .addComponent(cadastroFuncionario)
                 .addGap(0, 0, 0)
-                .addComponent(jButton3)
+                .addComponent(cadastroMercadoria)
                 .addGap(0, 0, 0)
-                .addComponent(jButton1)
+                .addComponent(consultaMercadoria)
                 .addGap(0, 0, 0)
-                .addComponent(jButton5)
+                .addComponent(controleEstoque)
                 .addGap(0, 0, 0)
-                .addComponent(jButton9)
+                .addComponent(epocaMaiorVenda)
                 .addGap(0, 0, 0)
-                .addComponent(jButton6)
+                .addComponent(relatorioVendas)
                 .addGap(0, 0, 0)
-                .addComponent(jButton8)
+                .addComponent(solicitacaoCompra)
                 .addGap(0, 0, 0)
-                .addComponent(jButton10)
+                .addComponent(sac)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,25 +163,35 @@ public class TelaPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
     }//GEN-LAST:event_jButton2ActionPerformed
+=======
+    private void cadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioActionPerformed
+
+    }//GEN-LAST:event_cadastroFuncionarioActionPerformed
+
+    private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastroMercadoriaActionPerformed
+>>>>>>> 9aa9e4fa81288e0d4c49a014658b3dc2c5829572
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton atualizaMercadoria;
+    private javax.swing.JButton balanco;
+    private javax.swing.JButton cadastroFuncionario;
+    private javax.swing.JButton cadastroMercadoria;
+    private javax.swing.JButton consultaMercadoria;
+    private javax.swing.JButton controleEstoque;
+    private javax.swing.JButton epocaMaiorVenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton relatorioVendas;
+    private javax.swing.JButton sac;
     private javax.swing.JButton sair;
+    private javax.swing.JButton solicitacaoCompra;
     // End of variables declaration//GEN-END:variables
 }
