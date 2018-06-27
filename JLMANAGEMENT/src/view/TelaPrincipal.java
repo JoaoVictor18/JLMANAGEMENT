@@ -13,6 +13,7 @@ import model.Pessoa;
  * @author LEANDRO
  */
 public class TelaPrincipal extends javax.swing.JPanel {
+
     private JScrollPane painelTrocas;
 
     public TelaPrincipal(Pessoa novoUser, JScrollPane painelTrocas) {
@@ -20,7 +21,18 @@ public class TelaPrincipal extends javax.swing.JPanel {
         this.painelTrocas = painelTrocas;
         if (novoUser.isAdmin()) {
             //habilita todas as funções do administrador
-            ssss
+            this.atualizaMercadoria.setEnabled(true);
+            this.balanco.setEnabled(true);
+            this.cadastroFuncionario.setEnabled(true);
+            this.cadastroMercadoria.setEnabled(true);
+            this.consultaMercadoria.setEnabled(true);
+            this.controleEstoque.setEnabled(true);
+            this.epocaMaiorVenda.setEnabled(true);
+            this.relatorioVendas.setEnabled(true);
+            this.solicitacaoCompra.setEnabled(true);
+            this.sac.setEnabled(true);
+            this.sair.setEnabled(true);
+
         } else {
             //habilita apenas as funções de um funcionário
         }
@@ -163,19 +175,18 @@ public class TelaPrincipal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-/*
+    /*
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
     }//GEN-LAST:event_jButton2ActionPerformed
 =======*/
     private void cadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioActionPerformed
-
+        CadastroFuncionario novoFunc = new CadastroFuncionario(painelTrocas);
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastroMercadoriaActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
