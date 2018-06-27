@@ -173,7 +173,8 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
-        // TODO add your handling code here:
+       
+        
     }//GEN-LAST:event_cadastroMercadoriaActionPerformed
 
 
