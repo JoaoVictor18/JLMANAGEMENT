@@ -15,9 +15,15 @@ import model.Pessoa;
 public class TelaPrincipal extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
+    private Pessoa novoUser;
+
+    public TelaPrincipal() {
+        initComponents();
+    }
 
     public TelaPrincipal(Pessoa novoUser, JScrollPane painelTrocas) {
         initComponents();
+        this.novoUser = novoUser;
         this.painelTrocas = painelTrocas;
         if (novoUser.isAdmin()) {
             //habilita todas as funções do administrador
@@ -34,7 +40,17 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.sair.setEnabled(true);
 
         } else {
-            //habilita apenas as funções de um funcionário
+            this.atualizaMercadoria.setEnabled(false);
+            this.balanco.setEnabled(false);
+            this.cadastroFuncionario.setEnabled(false);
+            this.cadastroMercadoria.setEnabled(false);
+            this.consultaMercadoria.setEnabled(true);
+            this.controleEstoque.setEnabled(false);
+            this.epocaMaiorVenda.setEnabled(false);
+            this.relatorioVendas.setEnabled(false);
+            this.solicitacaoCompra.setEnabled(false);
+            this.sac.setEnabled(false);
+            this.sair.setEnabled(true);
         }
     }
 
@@ -88,6 +104,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
         atualizaMercadoria.setBackground(new java.awt.Color(51, 153, 255));
         atualizaMercadoria.setText("Atualizar Mercadorias");
         atualizaMercadoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        atualizaMercadoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizaMercadoriaActionPerformed(evt);
+            }
+        });
 
         controleEstoque.setBackground(new java.awt.Color(51, 153, 255));
         controleEstoque.setText("Controle de Estoque");
@@ -181,12 +202,16 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 =======*/
     private void cadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioActionPerformed
-        CadastroFuncionario novoFunc = new CadastroFuncionario(painelTrocas);
+        CadastroFuncionario novoFunc = new CadastroFuncionario(this.painelTrocas);
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
-        // TODO add your handling code here:
+       CadastroMercadorias novaMerc = new CadastroMercadorias(this.painelTrocas);
     }//GEN-LAST:event_cadastroMercadoriaActionPerformed
+
+    private void atualizaMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaMercadoriaActionPerformed
+        AtualizarMercadoria atualizaMerc = new AtualizarMercadoria(this.painelTrocas);
+    }//GEN-LAST:event_atualizaMercadoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
