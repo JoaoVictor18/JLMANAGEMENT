@@ -43,6 +43,7 @@ public class ProdutoDAO {
 
     public static boolean buscaProdutoExistente(Produto produto) {
         try (Connection con = FabricaConexao.criaConexao()) {
+            //verificar com saulo sobre a 
             String sqlSelect = "select * from produto where nomeProduto = ? and referenciaProduto = ?";
             PreparedStatement consultaSelect = con.prepareStatement(sqlSelect);
             consultaSelect.setString(1, produto.getNome());

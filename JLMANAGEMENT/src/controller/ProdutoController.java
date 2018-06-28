@@ -15,8 +15,8 @@ import model.Produto;
  */
 public class ProdutoController {
 
-    public static Vector<String> buscaProduto(String nomeMerc) {
-        Vector<String> listaProdutos = ProdutoDAO.buscaProduto(nomeMerc);
+    public static Vector<Produto> buscaProduto(String nomeMerc) {
+        Vector<Produto> listaProdutos = ProdutoDAO.buscaProduto(nomeMerc);
         return listaProdutos;
     }
     

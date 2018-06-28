@@ -304,12 +304,12 @@ public class CadastroMercadorias extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        //mudar para tela principal caso o usuário cancele o cadastro. verificar os parametros
+        //mudar para tela principal caso o usuário cancele o cadastro. verificar os parametros discutir
         TelaPrincipal telaPrincipal = new TelaPrincipal();
         this.painelTrocas.setViewportView(telaPrincipal);
     }//GEN-LAST:event_cancelarActionPerformed
     //limpa os campos se o produto existir no banco de dados
-    public void limpaCampos(){
+    public void limpaCampos() {
         nomeText.setText("");
         tipoMercText.setText("");
         fornecedor.setText("");
@@ -324,28 +324,35 @@ public class CadastroMercadorias extends javax.swing.JPanel {
         referenciaText.setText("");
     }
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-        String dataCadastro = dataCompra.getText();
-        String cadastro[] = dataCadastro.split("/");
-        int dia = Integer.parseInt(cadastro[0]);
-        int mes = Integer.parseInt(cadastro[1]);
-        int ano = Integer.parseInt(cadastro[2]);
-        Calendar novoCalendar = Calendar.getInstance();
-        novoCalendar.set(Calendar.DAY_OF_MONTH, dia);
-        novoCalendar.set(Calendar.MONTH, mes);
-        novoCalendar.set(Calendar.YEAR, ano);
-        Date dataCompra = novoCalendar.getTime();
+       //verificar na execução
+        boolean retorno = verificaCampos();
+        if (!retorno) {
+            JOptionPane.showMessageDialog(this, "Não foi possível efetuar o cadastro do produto!", "Erro de cadastro!", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String dataCadastro = dataCompra.getText();
+            String cadastro[] = dataCadastro.split("/");
+            int dia = Integer.parseInt(cadastro[0]);
+            int mes = Integer.parseInt(cadastro[1]);
+            int ano = Integer.parseInt(cadastro[2]);
+            Calendar novoCalendar = Calendar.getInstance();
+            novoCalendar.set(Calendar.DAY_OF_MONTH, dia);
+            novoCalendar.set(Calendar.MONTH, mes);
+            novoCalendar.set(Calendar.YEAR, ano);
+            Date dataCompra = novoCalendar.getTime();
 
-        Produto novoProduto = new Produto(nomeText.getText(), tipoMercText.getText(), fornecedor.getText(), informacoesAdicionais.getText(), Double.parseDouble(percentualImposto.getText()), Double.parseDouble(percentualFrete.getText()), Double.parseDouble(quantMaxEstoque.getText()), Double.parseDouble(quantMinEstoque.getText()),
-                Double.parseDouble(precoCustoText.getText()), Integer.parseInt(quantidadeComprada.getText()), dataCompra, referenciaText.getText());
-        if (ProdutoController.buscaProdutoExistente(novoProduto)) {
-            //metodo para inserir produto no banco
-            JOptionPane.showMessageDialog(this, "O produto já foi cadastrado!", "Erro de cadastro!", JOptionPane.WARNING_MESSAGE);
-            limpaCampos();
-        }else{
-           JOptionPane.showMessageDialog(this, "Produdo cadastrado co sucesso!", "Cadastro de produto!",JOptionPane.INFORMATION_MESSAGE);
-           //criar outra tela
-           TelaPrincipal telaPrincipal = new TelaPrincipal();
-           this.painelTrocas.setViewportView(telaPrincipal);
+            Produto novoProduto = new Produto(nomeText.getText(), tipoMercText.getText(), fornecedor.getText(), informacoesAdicionais.getText(), Double.parseDouble(percentualImposto.getText()), Double.parseDouble(percentualFrete.getText()), Double.parseDouble(quantMaxEstoque.getText()), Double.parseDouble(quantMinEstoque.getText()),
+                    Double.parseDouble(precoCustoText.getText()), Integer.parseInt(quantidadeComprada.getText()), dataCompra, referenciaText.getText());
+            if (ProdutoController.buscaProdutoExistente(novoProduto)) {
+                //metodo para inserir produto no banco
+                JOptionPane.showMessageDialog(this, "O produto já foi cadastrado!", "Erro de cadastro!", JOptionPane.WARNING_MESSAGE);
+                limpaCampos();
+            } else {
+                JOptionPane.showMessageDialog(this, "Produdo cadastrado co sucesso!", "Cadastro de produto!", JOptionPane.INFORMATION_MESSAGE);
+                //criar outra tela
+                TelaPrincipal telaPrincipal = new TelaPrincipal();
+                this.painelTrocas.setViewportView(telaPrincipal);
+            }
+
         }
 
 
