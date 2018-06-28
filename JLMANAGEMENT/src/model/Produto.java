@@ -25,12 +25,12 @@ public class Produto {
     protected double qntCompra;
     protected Date dataCompra;
     protected String referencia;
-    
+    protected int idProduto;
 
     public Produto() {
     }
 
-    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete, 
+    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete,
             double qntEstoque, double qntMin, double custo, double qntCompra, Date dataCompra, String referencia) {
         this.nome = nome;
         this.tipo = tipo;
@@ -44,6 +44,22 @@ public class Produto {
         this.qntCompra = qntCompra;
         this.dataCompra = dataCompra;
         this.referencia = referencia;
+    }
+
+    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete, double qntEstoque, double qntMin, double custo, double qntCompra, Date dataCompra, String referencia, int idProduto) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.fornecedor = fornecedor;
+        this.infoAdicionais = infoAdicionais;
+        this.percentualImposto = percentualImposto;
+        this.percentualFrete = percentualFrete;
+        this.qntEstoque = qntEstoque;
+        this.qntMin = qntMin;
+        this.custo = custo;
+        this.qntCompra = qntCompra;
+        this.dataCompra = dataCompra;
+        this.referencia = referencia;
+        this.idProduto = idProduto;
     }
 
     public String getNome() {
@@ -128,6 +144,10 @@ public class Produto {
 
     public String getReferencia() {
         return referencia;
+    }
+
+    public int getIdProduto() {
+        return idProduto;
     }
 
 }

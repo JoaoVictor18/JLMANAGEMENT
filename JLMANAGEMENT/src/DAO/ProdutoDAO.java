@@ -34,7 +34,8 @@ public class ProdutoDAO {
                 String refProd = resultado.getString("referenciaProduto");
                 Date dataCompra = resultado.getDate("dataCompra");
                 double qntEstoque = resultado.getDouble("quantidadeEstoque");
-                Produto novoProduto = new Produto(nome, tipo, fornecedor, infAdd, percImposto, percFrete, qntEstoque, qntMin, custo, 0, dataCompra, refProd);
+                int idProd = resultado.getInt("idProduto");
+                Produto novoProduto = new Produto(nome, tipo, fornecedor, infAdd, percImposto, percFrete, qntEstoque, qntMin, custo, 0, dataCompra, refProd, idProd);
                 listaProdutos.add(novoProduto);
             }
         } catch (SQLException ex) {
@@ -82,19 +83,12 @@ public class ProdutoDAO {
 
     public static void atualizaMerc(Produto mercadoria) {
         try (Connection con = FabricaConexao.criaConexao()) {
-            String sqlSelect = "select * from produto where nomeProduto = ? and referenciaProduto = ?";
-            PreparedStatement consultaSelect = con.prepareStatement(sqlSelect);
-            consultaSelect.setString(1, mercadoria.getNome());
-            consultaSelect.setString(2, mercadoria.getReferencia());
-            ResultSet resultado = consultaSelect.executeQuery();
-
-            if (resultado.next()) {
-                String sqlInsert = "insert into produto (dataCompra, quantidadeEstoque) values (?, ?, )";
-                PreparedStatement consultaInsert = con.prepareStatement(sqlInsert);
-                consultaInsert.setTimestamp(1, new Timestamp(mercadoria.getDataCompra().getTime()));
-                consultaInsert.setDouble(2, mercadoria.getQntEstoque());
-                consultaInsert.execute();
-            }
+            String sqlUpdate = "update produto set dataCompra = ?, quantidadeEstoque = ?, where idProduto =?";
+            PreparedStatement consultaInsert = con.prepareStatement(sqlUpdate);
+            consultaInsert.setTimestamp(1, new Timestamp(mercadoria.getDataCompra().getTime()));
+            consultaInsert.setDouble(2, mercadoria.getQntEstoque());
+            consultaInsert.setInt(3, mercadoria.getIdProduto());
+            consultaInsert.execute();
         } catch (Exception ex) {
             System.err.println("Erro de execução da SQL..");
         }
