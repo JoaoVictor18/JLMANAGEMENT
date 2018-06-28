@@ -1,1 +1,2 @@
 tirar duvida com saulo sobre o comando selec na busca se o produto foi cadastrado. ProdutoDao
+verificar botao cadastrar. CadastroMercadorias
