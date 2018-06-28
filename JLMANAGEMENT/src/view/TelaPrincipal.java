@@ -123,6 +123,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
         balanco.setBackground(new java.awt.Color(51, 153, 255));
         balanco.setText("Balanço");
+        balanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                balancoActionPerformed(evt);
+            }
+        });
 
         solicitacaoCompra.setBackground(new java.awt.Color(51, 153, 255));
         solicitacaoCompra.setText("Solicitação de Compra");
@@ -227,6 +232,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
         ConsultaMercadorias consultaMercadoria  = new ConsultaMercadorias();
         this.painelTrocas.setViewportView(consultaMercadoria);
     }//GEN-LAST:event_consultaMercadoriaActionPerformed
+
+    private void balancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balancoActionPerformed
+        Balanco novoBalanco = new Balanco(this.painelTrocas, novoUser);
+        this.painelTrocas.setViewportView(novoBalanco);
+    }//GEN-LAST:event_balancoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

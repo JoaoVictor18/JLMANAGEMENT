@@ -28,4 +28,8 @@ public class PessoaController {
     public static Pessoa verificaUsuario(String login, String senha) {
         return PessoaDAO.verificaUsuario(login, senha);
     }
+
+    public static void geraBalanco() {
+
+    }
 }

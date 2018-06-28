@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import model.Endereco;
 import model.Pessoa;
@@ -114,4 +115,17 @@ public class PessoaDAO {
         }
         return false;
     }
-}
+
+    public static void geraBalanco() {
+        Vector <Double> resposta = new Vector();
+        try (Connection con = FabricaConexao.criaConexao()) {
+            String sql = "Select sum(custo*quantidadeEstoque) as custoTotal, sum(quantidadeEstoque) as quantidadeTotal from produto";
+            PreparedStatement calcula = con.prepareStatement(sql);
+            ResultSet resultado = calcula.executeQuery();
+            while(resultado.next()){
+                
+            }
+        }catch(SQLException ex){
+            System.err.println("Erro com a sql...");
+        }
+    }
