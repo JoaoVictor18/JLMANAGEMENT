@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DAO.PessoaDAO;
 import DAO.ProdutoDAO;
 import java.util.Vector;
 import model.Produto;
@@ -23,5 +24,8 @@ public class ProdutoController {
     public static boolean buscaProdutoExistente(Produto produto){
         boolean retorno = ProdutoDAO.buscaProdutoExistente(produto);
         return retorno;
+    }
+    public static void atualizaMerc(Produto mercadoria){
+        ProdutoDAO.atualizaMerc(mercadoria);
     }
 }
