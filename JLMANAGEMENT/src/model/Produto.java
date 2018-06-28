@@ -19,24 +19,26 @@ public class Produto {
     protected String infoAdicionais;
     protected double percentualImposto;
     protected double percentualFrete;
-    protected double qntMax;
+    protected double qntEstoque;
     protected double qntMin;
     protected double custo;
     protected double qntCompra;
     protected Date dataCompra;
     protected String referencia;
+    
 
     public Produto() {
     }
 
-    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete, double qntMax, double qntMin, double custo, double qntCompra, Date dataCompra, String referencia) {
+    public Produto(String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete, 
+            double qntEstoque, double qntMin, double custo, double qntCompra, Date dataCompra, String referencia) {
         this.nome = nome;
         this.tipo = tipo;
         this.fornecedor = fornecedor;
         this.infoAdicionais = infoAdicionais;
         this.percentualImposto = percentualImposto;
         this.percentualFrete = percentualFrete;
-        this.qntMax = qntMax;
+        this.qntEstoque = qntEstoque;
         this.qntMin = qntMin;
         this.custo = custo;
         this.qntCompra = qntCompra;
@@ -68,8 +70,8 @@ public class Produto {
         return percentualFrete;
     }
 
-    public double getQntMax() {
-        return qntMax;
+    public double getQntEstoque() {
+        return qntEstoque;
     }
 
     public double getQntMin() {
@@ -104,8 +106,8 @@ public class Produto {
         this.percentualFrete = percentualFrete;
     }
 
-    public void setQntMax(int qntMax) {
-        this.qntMax = qntMax;
+    public void setQntEstoque(double qntEstoque) {
+        this.qntEstoque = qntEstoque;
     }
 
     public void setQntMin(int qntMin) {

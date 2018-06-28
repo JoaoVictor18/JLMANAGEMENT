@@ -1,6 +1,8 @@
 package view;
 
 import controller.ProdutoController;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
@@ -125,17 +127,52 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void atualizaMerc(String mercadoriaModificar) {
+    public void atualizaMerc(Produto prodModificar) {
         this.quantComprada.setEnabled(true);
         this.dataCompra.setEnabled(true);
-        ProdutoController.atualizaMerc(this.quantComprada.getText(), this.dataCompra.getText());
+        prodModificar.setDataCompra(criaData(this.dataCompra.getText()));
+        prodModificar.setQntEstoque(prodModificar.getQntEstoque() + prodModificar.getQntCompra());
+        ProdutoController.atualizaMerc(prodModificar);
+        this.quantComprada.setText("");
+        this.dataCompra.setText("");
+        this.buscaMercText.setText("");
+        this.quantComprada.setEnabled(false);
+        this.dataCompra.setEnabled(false);
+        this.buscaMerc.setEnabled(false);
+    }
+
+    public Date criaData(String data) {
+        String[] datas = data.split("/");
+        int dia = Integer.parseInt(datas[0]);
+        int mes = Integer.parseInt(datas[1]);
+        int ano = Integer.parseInt(datas[2]);
+        Calendar novoCalendar = Calendar.getInstance();
+        novoCalendar.set(Calendar.DAY_OF_MONTH, dia);
+        novoCalendar.set(Calendar.MONTH, mes);
+        novoCalendar.set(Calendar.YEAR, ano);
+        Date dataCompra = novoCalendar.getTime();
+        return dataCompra;
+    }
+
+    public void procuraMercadoria(Vector<Produto> listaProdutos, String nomeMercadoria) {
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            if (listaProdutos.get(i).getNome().equals(nomeMercadoria)) {
+                atualizaMerc(listaProdutos.get(i));
+            }
+        }
+    }
+
+    private void preencheLista(Vector<Produto> listaProdutos) {
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            this.listaMerc.addElement(listaProdutos.get(i).getNome());
+        }
     }
     private void buscaMercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaMercActionPerformed
-        Vector<String> listaProdutos = ProdutoController.buscaProduto(this.buscaMercText.getText());
-        this.listaMerc.addElement(listaProdutos);
+        Vector<Produto> listaProdutos = ProdutoController.buscaProduto(this.buscaMercText.getText());
+        preencheLista(listaProdutos);
         String mercadoriaModificar = (String) listaMercadorias.getSelectedValue();
         if (mercadoriaModificar != null) {
-            atualizaMerc(mercadoriaModificar);
+            procuraMercadoria(listaProdutos, mercadoriaModificar);
         }
     }//GEN-LAST:event_buscaMercActionPerformed
 
