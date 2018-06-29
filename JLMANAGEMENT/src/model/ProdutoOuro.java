@@ -16,8 +16,8 @@ public class ProdutoOuro extends Produto {
     private double indiceProduto;
     private double cotacaoOuro;
 
-    public ProdutoOuro(double indiceProduto, double cotacaoOuro, String nome, String tipo, String fornecedor, String infoAdicionais, int percentualImposto, int percentualFrete, int qntMax, int qntMin, double custo, double qntCompra, Date dataCompra) {
-        super(nome, tipo, fornecedor, infoAdicionais, percentualImposto, percentualFrete, qntMax, qntMin, custo, qntCompra, dataCompra);
+    public ProdutoOuro(double indiceProduto, double cotacaoOuro, String nome, String tipo, String fornecedor, String infoAdicionais, double percentualImposto, double percentualFrete, double qntEstoque, double qntMin, double custo, double qntCompra, Date dataCompra, String referencia) {
+        super(nome, tipo, fornecedor, infoAdicionais, percentualImposto, percentualFrete, qntEstoque, qntMin, custo, qntCompra, dataCompra, referencia);
         this.indiceProduto = indiceProduto;
         this.cotacaoOuro = cotacaoOuro;
     }

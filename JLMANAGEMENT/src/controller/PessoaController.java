@@ -6,6 +6,7 @@
 package controller;
 
 import DAO.PessoaDAO;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import model.Pessoa;
 
@@ -27,5 +28,9 @@ public class PessoaController {
 
     public static Pessoa verificaUsuario(String login, String senha) {
         return PessoaDAO.verificaUsuario(login, senha);
+    }
+
+    public static Vector<Double> geraBalanco() {
+        return PessoaDAO.geraBalanco();
     }
 }

@@ -106,7 +106,6 @@ public class ProdutoDAO {
                 consultaInsert.setString(8, produto.getReferencia());
                 consultaInsert.setTimestamp(9, new Timestamp(produto.getDataCompra().getTime()));
                 consultaInsert.setDouble(10, produto.getQntEstoque());
-
                 consultaInsert.execute();
                 return false;
             }
