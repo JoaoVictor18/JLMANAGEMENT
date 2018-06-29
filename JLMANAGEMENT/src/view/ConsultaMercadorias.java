@@ -3,6 +3,7 @@ package view;
 import controller.ProdutoController;
 import java.awt.Color;
 import java.util.Vector;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import model.Produto;
@@ -11,16 +12,21 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
     private Vector<Produto> listaProdutos;
+    private DefaultListModel listaUser;
 
     public ConsultaMercadorias() {
         initComponents();
         this.listaProdutos = new Vector<>();
+        this.listaUser = new DefaultListModel();
+        this.listaMercadorias.setModel(listaUser);
     }
 
     public ConsultaMercadorias(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
         this.listaProdutos = new Vector<>();
+        this.listaUser = new DefaultListModel();
+        this.listaMercadorias.setModel(listaUser);
     }
 
     public boolean verificaCampos() {
@@ -68,7 +74,7 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
         exibir = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaMercadorias = new javax.swing.JList<>();
+        listaMercadorias = new javax.swing.JList();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -105,6 +111,11 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
         });
 
         cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(listaMercadorias);
 
@@ -187,27 +198,58 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
                 .addGap(171, 171, 171))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void preencheLista(Vector<Produto> produtos) {
+        for (int i = 0; i < produtos.size(); i++) {
+            listaUser.addElement(produtos.get(i));
+        }
+    }
+    public String recebeNomeLista(){
+        String nome ="";
+        nome = (String) listaMercadorias.getSelectedValue();
+        return nome;
+    }
     private void exibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirActionPerformed
+        MercadoriaExibida mercadoriaEx = new MercadoriaExibida();
+        String exibir = this.recebeNomeLista();
+        
+        //add informações no painel
+
+    }//GEN-LAST:event_exibirActionPerformed
+
+    private void consultaMercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMercActionPerformed
+        //metodo para verificar se a mercadoria existe no banco
         boolean retorno = verificaCampos();
         if (!retorno) {
             JOptionPane.showMessageDialog(this, "Verifique o preenchimentos dos campos obrigatórios!", "Erro de busca!", JOptionPane.WARNING_MESSAGE);
         } else {
             //chamar metodo controller
-            .
+            //informações adicionais ativo
+            if (filtrosAdicCombo.isSelected()) {
+                listaProdutos = ProdutoController.buscaProdutoInfAdd(nomeMercText.getText(), tipoMercText.getText(), Double.parseDouble(precoMercText.getText()), fornecedorMercText.getText());
+                if (listaProdutos.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "A mercadora informada não possui cadastro!", "Erro de consulta", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    //somente nome da mercadoria preenchido
+                    this.preencheLista(listaProdutos);
+                }
+            } else {
+                listaProdutos = ProdutoController.buscaProduto(nomeMercText.getText());
+                if (listaProdutos.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "A mercadora informada não possui cadastro!", "Erro de consulta", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    this.preencheLista(listaProdutos);
+                    //chamar metodo que pega a mercadoria selecionada
+                    
+                }
+            }
         }
-    }//GEN-LAST:event_exibirActionPerformed
-
-    private void consultaMercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMercActionPerformed
-        //metodo para verificar se a mercadoria existe no banco
-        listaProdutos = ProdutoController.buscaProduto(nomeMercText.getText());
-        if (listaProdutos.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "A mercadora informada não possui cadastro!", "Erro de consulta", JOptionPane.WARNING_MESSAGE);
-        } else {
-            //continuar implementação
-        }
-
     }//GEN-LAST:event_consultaMercActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        //retorna para tela principal ao cancelar
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        this.painelTrocas.setViewportView(telaPrincipal);
+    }//GEN-LAST:event_cancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -222,7 +264,7 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaMercadorias;
+    private javax.swing.JList listaMercadorias;
     private javax.swing.JTextField nomeMercText;
     private javax.swing.JTextField precoMercText;
     private javax.swing.JTextField tipoMercText;

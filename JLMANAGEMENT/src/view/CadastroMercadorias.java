@@ -154,7 +154,7 @@ public class CadastroMercadorias extends javax.swing.JPanel {
 
         checkInfoAdi.setText("Informações adicionais.");
 
-        jLabel10.setText("Quantidade Max. Estoque:");
+        jLabel10.setText("Quantidade em Estoque:");
 
         jLabel11.setText("Quantidade Min. Estoque:");
 

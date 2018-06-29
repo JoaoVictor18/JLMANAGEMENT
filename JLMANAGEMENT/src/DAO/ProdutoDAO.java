@@ -16,7 +16,7 @@ public class ProdutoDAO {
     public static Vector<Produto> buscaProduto(String nomeMerc) {
         Vector<Produto> listaProdutos = new Vector<>();
         try (Connection con = FabricaConexao.criaConexao()) {
-            String sql = "select * from produto where nome = ";
+            String sql = "select * from produto where nome = ?";
             //configurando a sql para ser executada em banco de dados
             PreparedStatement consulta = con.prepareStatement(sql);
             consulta.setString(1, nomeMerc);
@@ -44,6 +44,41 @@ public class ProdutoDAO {
         return listaProdutos;
     }
 
+     public static Vector<Produto> buscaProdutoInfAdd(String nomeMerc,String tipoMerc, Double precoMerc, String fornecedorMerc) {
+        Vector<Produto> listaProdutos = new Vector<>();
+        try (Connection con = FabricaConexao.criaConexao()) {
+            //verifica os nomes no banco se estao corretos
+            String sql = "select * from produto where nomeProduto = ?, tipo = ?, custo = ?, fornecedor = ?";
+            //configurando a sql para ser executada em banco de dados
+            PreparedStatement consulta = con.prepareStatement(sql);
+            consulta.setString(1, nomeMerc);
+            consulta.setString(2, tipoMerc);
+            consulta.setDouble(3, precoMerc);
+            consulta.setString(4, fornecedorMerc);
+            ResultSet resultado = consulta.executeQuery();
+            while (resultado.next()) {
+                String nome = resultado.getString("nomeProduto");
+                String idProduto = resultado.getString("idProduto");
+                String tipo = resultado.getString("tipo");
+                String fornecedor = resultado.getString("fornecedor");
+                double custo = resultado.getDouble("custo");
+                double percImposto = resultado.getDouble("percentualImposto");
+                double percFrete = resultado.getDouble("percentualFrete");
+                double qntMin = resultado.getDouble("quantidadeMinima");
+                String infAdd = resultado.getString("infromacoesAdicionais");
+                String refProd = resultado.getString("referenciaProduto");
+                Date dataCompra = resultado.getDate("dataCompra");
+                double qntEstoque = resultado.getDouble("quantidadeEstoque");
+                int idProd = resultado.getInt("idProduto");
+                Produto novoProduto = new Produto(nome, tipo, fornecedor, infAdd, percImposto, percFrete, qntEstoque, qntMin, custo, 0, dataCompra, refProd, idProd);
+                listaProdutos.add(novoProduto);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Erro na sql...");
+        }
+        return listaProdutos;
+    }
+     
     public static boolean buscaProdutoExistente(Produto produto) {
         try (Connection con = FabricaConexao.criaConexao()) {
             //verificar com saulo sobre a 
