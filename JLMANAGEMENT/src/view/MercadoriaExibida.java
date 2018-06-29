@@ -1,29 +1,58 @@
-
 package view;
 
 import javax.swing.JScrollPane;
 import model.Produto;
 
-
 public class MercadoriaExibida extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
     private Produto produtoExib;
+
     public MercadoriaExibida() {
         initComponents();
     }
-    public MercadoriaExibida(JScrollPane painelTrocas, Produto produtoExibido){
+
+    public MercadoriaExibida(JScrollPane painelTrocas, Produto produtoExibido) {
         initComponents();
         this.painelTrocas = painelTrocas;
         this.produtoExib = produtoExibido;
     }
-    
-    public void preencheCampos(Produto produto){
+    //preenche os campos da mercadoria a ser exibida
+    public void preencheCampos(Produto produto) {
         nomeTextEx.setText(produto.getNome());
-        tipoTextEx.setText(TOOL_TIP_TEXT_KEY);
-        .
+        tipoTextEx.setText(produto.getTipo());
+        fornecedorTextEx.setText(produto.getFornecedor());
+        precoTextEx.setText(produto.getCusto() + "");
+        perceutualImpostoTextEx.setText(produto.getPercentualImposto() + "");
+        percentualFreteTextEx.setText(produto.getPercentualFrete() + "");
+        dataCompraTextEx.setText(produto.getDataCompra() + "");
+        if (produto.getInfoAdicionais().isEmpty()) {
+            informacoesAdLabel.setVisible(false);
+            informacoesAdTextEx.setVisible(false);
+        } else {
+            informacoesAdTextEx.setText(produto.getInfoAdicionais());
+        }
+        quantCompradaTextEx.setText(produto.getQntCompra() + "");
+        quantEstoqueTextEx.setText(produto.getQntEstoque() + "");
+        quantMinEstoqueTextEx.setText(produto.getQntMin() + "");
+        referenciaTextEx.setText(produto.getReferencia());
     }
-    
+    //ira desabilitar os campos de textos
+    public void desabilitaText(){
+        nomeTextEx.setEnabled(false);
+        tipoTextEx.setEnabled(false);
+        fornecedorTextEx.setEnabled(false);
+        precoTextEx.setEnabled(false);
+        perceutualImpostoTextEx.setEnabled(false);
+        percentualFreteTextEx.setEnabled(false);
+        dataCompraTextEx.setEnabled(false);
+        informacoesAdTextEx.setEnabled(false);
+        quantCompradaTextEx.setEnabled(false);
+        quantEstoqueTextEx.setEnabled(false);
+        quantMinEstoqueTextEx.setEnabled(false);
+        referenciaTextEx.setEnabled(false);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -54,6 +83,7 @@ public class MercadoriaExibida extends javax.swing.JPanel {
         quantMinEstoqueTextEx = new javax.swing.JTextField();
         referenciaTextEx = new javax.swing.JTextField();
         editarInformações = new javax.swing.JButton();
+        sair = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -85,6 +115,13 @@ public class MercadoriaExibida extends javax.swing.JPanel {
         informacoesAdLabel.setText("Informações Adicionais:");
 
         editarInformações.setText("Editar Informações");
+
+        sair.setText("Sair");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -142,12 +179,15 @@ public class MercadoriaExibida extends javax.swing.JPanel {
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(quantCompradaTextEx, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(referenciaTextEx, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(88, 88, 88)
                                 .addComponent(editarInformações)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(referenciaTextEx, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGap(133, 133, 133)
+                                .addComponent(sair)))))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -204,11 +244,21 @@ public class MercadoriaExibida extends javax.swing.JPanel {
                             .addComponent(jLabel15)
                             .addComponent(referenciaTextEx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(precoTextEx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(74, 74, 74)
-                .addComponent(editarInformações)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editarInformações)
+                    .addComponent(sair))
+                .addGap(195, 195, 195))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+       ConsultaMercadorias telaConsulta = new ConsultaMercadorias();
+        //chamar metodo limpa campos
+       this.painelTrocas.setViewportView(telaConsulta);
+       //criar metodo para limpara os campos
+       .
+    }//GEN-LAST:event_sairActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -237,6 +287,7 @@ public class MercadoriaExibida extends javax.swing.JPanel {
     private javax.swing.JTextField quantEstoqueTextEx;
     private javax.swing.JTextField quantMinEstoqueTextEx;
     private javax.swing.JTextField referenciaTextEx;
+    private javax.swing.JButton sair;
     private javax.swing.JTextField tipoTextEx;
     // End of variables declaration//GEN-END:variables
 }

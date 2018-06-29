@@ -3,3 +3,5 @@ verificar botao cadastrar. CadastroMercadorias
 tirar duvida com saulo se atualização de produto os metodos tem de estador ne produtoController e produtoDAO ou pessoaController e pessoaDAO
 tirar duvida com saulo se temos que utilizar atravez das classes administrador e funcionario ou se pode usar atraves de pessoa
 tirar duvida com saulo em gerar balanço como fazer a sql e o resultset
+verificar metodo selecionaProduto. view consultaMercadoria
+discutir parametro da tela de exibiçao. botao exibir consultaMercadoria
