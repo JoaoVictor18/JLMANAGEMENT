@@ -1,6 +1,7 @@
 package view;
 
 import controller.PessoaController;
+import controller.ProdutoController;
 import java.util.Vector;
 import javax.swing.JScrollPane;
 import model.Pessoa;
@@ -96,8 +97,7 @@ public class Balanco extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void gerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarActionPerformed
-        Vector<Double> retorno = new Vector<>();
-        retorno.add(PessoaController.geraBalanco());
+        Vector<Double> retorno = ProdutoController.geraBalanco();
         this.quantEstoqueText.setText(retorno.get(0) + "");
         this.custoTotalText.setText(retorno.get(1) + "");
     }//GEN-LAST:event_gerarActionPerformed

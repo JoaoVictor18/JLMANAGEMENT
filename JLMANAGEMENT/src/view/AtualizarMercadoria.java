@@ -68,6 +68,7 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
 
         dataCompra.setEnabled(false);
 
+        listaMercadorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         jScrollPane1.setViewportView(listaMercadorias);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

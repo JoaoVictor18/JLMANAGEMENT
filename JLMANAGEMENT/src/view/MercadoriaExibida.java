@@ -253,7 +253,7 @@ public class MercadoriaExibida extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-       ConsultaMercadorias telaConsulta = new ConsultaMercadorias();
+       ConsultaMercadorias telaConsulta = new ConsultaMercadorias(painelTrocas);
         //chamar metodo limpa campos
        this.painelTrocas.setViewportView(telaConsulta);
        //criar metodo para limpara os campos

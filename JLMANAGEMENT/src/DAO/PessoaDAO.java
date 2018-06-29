@@ -116,19 +116,5 @@ public class PessoaDAO {
         return false;
     }
 
-    public static Vector<Double> geraBalanco() {
-        Vector <Double> resposta = new Vector<>();
-        try (Connection con = FabricaConexao.criaConexao()) {
-            String sql = "Select sum(custo*quantidadeEstoque) as custoTotal, sum(quantidadeEstoque) as quantidadeTotal from produto";
-            PreparedStatement calcula = con.prepareStatement(sql);
-            ResultSet resultado = calcula.executeQuery();
-            while(resultado.next()){
-                resposta.add(resultado.getDouble("quantidadeTotal"));
-                resposta.add(resultado.getDouble("custoTotal"));
-            }
-        }catch(SQLException ex){
-            System.err.println("Erro com a sql...");
-        }
-        return resposta;
-    }
+
 }

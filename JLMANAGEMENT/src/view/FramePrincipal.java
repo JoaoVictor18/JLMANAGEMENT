@@ -19,10 +19,15 @@ public class FramePrincipal extends javax.swing.JFrame {
     public FramePrincipal() {
         initComponents();
         this.painelTrocas = new JScrollPane();
-        meuInicia();
+        //meuInicia();
+        Teste();
 
     }
-
+public void Teste(){
+    this.setLayout(new BorderLayout());
+    AtualizarMercadoria teste = new AtualizarMercadoria(painelTrocas);
+    this.add(teste,BorderLayout.CENTER);
+}
     public void meuInicia() {
         this.setLayout(new BorderLayout());
         this.add(this.painelTrocas, BorderLayout.CENTER);
@@ -40,11 +45,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 532, Short.MAX_VALUE)
         );
 
         pack();

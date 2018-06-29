@@ -9,6 +9,7 @@ import DAO.PessoaDAO;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import model.Pessoa;
+import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
  *
@@ -18,6 +19,9 @@ public class PessoaController {
 
     public static boolean criaPessoa(Pessoa novaPessoa) {
         boolean retorno = PessoaDAO.buscaUsuarioCpf(novaPessoa.getCpf());
+        String senha = novaPessoa.getSenha();
+        senha = new Md5Hash(senha).toString();
+        novaPessoa.setSenha(senha);
         if (retorno == false) {
             PessoaDAO.criaPessoa(novaPessoa);
             return true;
@@ -27,10 +31,7 @@ public class PessoaController {
     }
 
     public static Pessoa verificaUsuario(String login, String senha) {
+        senha = new Md5Hash(senha).toString();
         return PessoaDAO.verificaUsuario(login, senha);
-    }
-
-    public static Vector<Double> geraBalanco() {
-        return PessoaDAO.geraBalanco();
     }
 }

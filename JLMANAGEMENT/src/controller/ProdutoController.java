@@ -21,17 +21,23 @@ public class ProdutoController {
         Vector<Produto> listaProdutos = ProdutoDAO.buscaProduto(nomeMerc);
         return listaProdutos;
     }
-   //busca o produto passando os parametros das informações adicionais
-    public static Vector<Produto> buscaProdutoInfAdd(String nomeMerc,String tipoMerc, Double precoMerc, String fornecedorMerc) {
-        Vector<Produto> listaProdutos = ProdutoDAO.buscaProdutoInfAdd(nomeMerc,tipoMerc,precoMerc,fornecedorMerc);
+    //busca o produto passando os parametros das informações adicionais
+
+    public static Vector<Produto> buscaProdutoInfAdd(String nomeMerc, String tipoMerc, Double precoMerc, String fornecedorMerc) {
+        Vector<Produto> listaProdutos = ProdutoDAO.buscaProdutoInfAdd(nomeMerc, tipoMerc, precoMerc, fornecedorMerc);
         return listaProdutos;
     }
-    
-    public static boolean buscaProdutoExistente(Produto produto){
+
+    public static boolean buscaProdutoExistente(Produto produto) {
         boolean retorno = ProdutoDAO.buscaProdutoExistente(produto);
         return retorno;
     }
-    public static void atualizaMerc(Produto mercadoria){
+
+    public static void atualizaMerc(Produto mercadoria) {
         ProdutoDAO.atualizaMerc(mercadoria);
+    }
+
+    public static Vector<Double> geraBalanco() {
+        return ProdutoDAO.geraBalanco();
     }
 }
