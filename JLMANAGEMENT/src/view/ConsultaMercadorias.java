@@ -238,7 +238,7 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
     private void exibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirActionPerformed
         String exibir = this.recebeNomeLista();
         Produto produtoEx = selecionaProduto(listaProdutos, exibir);
-        MercadoriaExibida mercadoriaEx = new MercadoriaExibida(painelTrocas, produtoEx);
+        MercadoriaExibidaConsulta mercadoriaEx = new MercadoriaExibidaConsulta(painelTrocas, produtoEx);
         this.painelTrocas.setViewportView(mercadoriaEx);
     }//GEN-LAST:event_exibirActionPerformed
 
@@ -271,7 +271,7 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         //retorna para tela principal ao cancelar
-        TelaPrincipal telaPrincipal = new TelaPrincipal(painelTrocas);
+        TelaPrincipal telaPrincipal = new TelaPrincipal(this.painelTrocas);
         this.painelTrocas.setViewportView(telaPrincipal);
     }//GEN-LAST:event_cancelarActionPerformed
 

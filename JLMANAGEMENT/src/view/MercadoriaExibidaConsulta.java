@@ -3,17 +3,17 @@ package view;
 import javax.swing.JScrollPane;
 import model.Produto;
 
-public class MercadoriaExibida extends javax.swing.JPanel {
+public class MercadoriaExibidaConsulta extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
     private Produto produtoExib;
 
-    public MercadoriaExibida() {
+    public MercadoriaExibidaConsulta() {
         initComponents();
         desabilitaText();
     }
 
-    public MercadoriaExibida(JScrollPane painelTrocas, Produto produtoExibido) {
+    public MercadoriaExibidaConsulta(JScrollPane painelTrocas, Produto produtoExibido) {
         initComponents();
         this.painelTrocas = painelTrocas;
         this.produtoExib = produtoExibido;

@@ -121,6 +121,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
         controleEstoque.setBackground(new java.awt.Color(51, 153, 255));
         controleEstoque.setText("Controle de Estoque");
+        controleEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                controleEstoqueActionPerformed(evt);
+            }
+        });
 
         relatorioVendas.setBackground(new java.awt.Color(51, 153, 255));
         relatorioVendas.setText("Relatório de Vendas");
@@ -221,10 +226,8 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed
-        
         CadastroMercadorias cadastroMercadoria = new CadastroMercadorias(this.painelTrocas);
         this.painelTrocas.setViewportView(cadastroMercadoria);
-
     }//GEN-LAST:event_cadastroMercadoriaActionPerformed
 
     private void atualizaMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizaMercadoriaActionPerformed
@@ -233,7 +236,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_atualizaMercadoriaActionPerformed
 
     private void consultaMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMercadoriaActionPerformed
-        ConsultaMercadorias consultaMercadoria  = new ConsultaMercadorias();
+        ConsultaMercadorias consultaMercadoria  = new ConsultaMercadorias(this.painelTrocas);
         this.painelTrocas.setViewportView(consultaMercadoria);
     }//GEN-LAST:event_consultaMercadoriaActionPerformed
 
@@ -241,6 +244,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
         Balanco novoBalanco = new Balanco(this.painelTrocas, novoUser);
         this.painelTrocas.setViewportView(novoBalanco);
     }//GEN-LAST:event_balancoActionPerformed
+
+    private void controleEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controleEstoqueActionPerformed
+        ControleDeEstoque telaControle = new ControleDeEstoque(this.painelTrocas);
+        this.painelTrocas.setViewportView(telaControle);
+    }//GEN-LAST:event_controleEstoqueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
