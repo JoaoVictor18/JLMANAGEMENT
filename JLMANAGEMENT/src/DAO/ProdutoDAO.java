@@ -92,13 +92,8 @@ public class ProdutoDAO {
                 return true;
             } else {
                 //insere o produto no banco de dados
-<<<<<<< HEAD
-                String sqlInsert = "insert into produto (nomeProduto, tipo, fornecedor, custo, percentualImposto, percentualFrete, "
-                        + "quantidadeMinima, informacoesAdicionais, referenciaProduto, dataCompra, quantidadeEstoque) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-=======
                 String sqlInsert = "insert into produto (nomeproduto, tipo, fornecedor, custo, percentualimposto, percentualfrete,"
                         + "quantidademinima, referenciaproduto, datacompra, quantidadeestoque) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
->>>>>>> 03c292998ded4371bdf7b164baba12f56f67e177
                 PreparedStatement consultaInsert = con.prepareStatement(sqlInsert);
                 consultaInsert.setString(1, produto.getNome());
                 consultaInsert.setString(2, produto.getTipo());
