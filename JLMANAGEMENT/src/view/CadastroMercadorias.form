@@ -233,6 +233,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es adicionais."/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkInfoAdiActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="informacoesAdicionais">
     </Component>

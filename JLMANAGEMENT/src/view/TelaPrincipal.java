@@ -53,6 +53,10 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.sair.setEnabled(true);
         }
     }
+    public TelaPrincipal(JScrollPane painelTrocas){
+        initComponents();
+        this.painelTrocas = painelTrocas;
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

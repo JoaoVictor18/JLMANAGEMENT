@@ -10,12 +10,15 @@ public class MercadoriaExibida extends javax.swing.JPanel {
 
     public MercadoriaExibida() {
         initComponents();
+        desabilitaText();
     }
 
     public MercadoriaExibida(JScrollPane painelTrocas, Produto produtoExibido) {
         initComponents();
         this.painelTrocas = painelTrocas;
         this.produtoExib = produtoExibido;
+        desabilitaText();
+        preencheCampos(produtoExib);
     }
     //preenche os campos da mercadoria a ser exibida
     public void preencheCampos(Produto produto) {
@@ -257,7 +260,6 @@ public class MercadoriaExibida extends javax.swing.JPanel {
         //chamar metodo limpa campos
        this.painelTrocas.setViewportView(telaConsulta);
        //criar metodo para limpara os campos
-       .
     }//GEN-LAST:event_sairActionPerformed
 
 

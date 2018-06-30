@@ -153,6 +153,11 @@ public class CadastroMercadorias extends javax.swing.JPanel {
         jLabel9.setText("Quantidade comprada:");
 
         checkInfoAdi.setText("Informações adicionais.");
+        checkInfoAdi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkInfoAdiActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Quantidade em Estoque:");
 
@@ -357,6 +362,10 @@ public class CadastroMercadorias extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_cadastrarActionPerformed
+
+    private void checkInfoAdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInfoAdiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkInfoAdiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
