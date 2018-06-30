@@ -9,25 +9,28 @@ import javax.swing.JScrollPane;
 import model.Produto;
 
 public class ConsultaMercadorias extends javax.swing.JPanel {
-    
+
     private JScrollPane painelTrocas;
     private Vector<Produto> listaProdutos;
     private DefaultListModel listaUser;
-    
+
     public ConsultaMercadorias() {
         initComponents();
         this.listaProdutos = new Vector<>();
         this.listaUser = new DefaultListModel();
         this.listaMercadorias.setModel(listaUser);
+        limpaCampos();
     }
-    
+
     public ConsultaMercadorias(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
         this.listaProdutos = new Vector<>();
         this.listaUser = new DefaultListModel();
         this.listaMercadorias.setModel(listaUser);
+        limpaCampos();
     }
+
     //verificar metodo
     public Produto selecionaProduto(Vector<Produto> produtos, String nomeProd) {
         Produto retornaProduto = new Produto();
@@ -36,17 +39,15 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
                 retornaProduto = produtos.get(i);
             }
         }
-        
         return retornaProduto;
     }
-    
+
     public boolean verificaCampos() {
         if (nomeMercText.getText().isEmpty()) {
             this.nomeMercText.setBackground(Color.RED);
             JOptionPane.showMessageDialog(this, "Verifique se preencheu todos os campos de busca!", "Preenchimento com erro!", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        
         if (filtrosAdicCombo.isSelected()) {
             if (tipoMercText.getText().isEmpty()) {
                 this.tipoMercText.setBackground(Color.RED);
@@ -66,7 +67,7 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
         }
         return true;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -103,6 +104,11 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
         jLabel4.setText("Tipo da Mercadoria:");
 
         filtrosAdicCombo.setText("Filtros Adicionais");
+        filtrosAdicCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filtrosAdicComboActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Preço:");
 
@@ -220,8 +226,9 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
         nome = (String) listaMercadorias.getSelectedValue();
         return nome;
     }
+
     //limpa os campos
-    public void limpaCampos(){
+    public void limpaCampos() {
         nomeMercText.setText("");
         tipoMercText.setText("");
         precoMercText.setText("");
@@ -231,11 +238,8 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
     private void exibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirActionPerformed
         String exibir = this.recebeNomeLista();
         Produto produtoEx = selecionaProduto(listaProdutos, exibir);
-        MercadoriaExibida mercadoriaEx = new MercadoriaExibida(painelTrocas, produtoEx);
-        .
-        //trocar o painel
+        MercadoriaExibidaConsulta mercadoriaEx = new MercadoriaExibidaConsulta(painelTrocas, produtoEx);
         this.painelTrocas.setViewportView(mercadoriaEx);
-
     }//GEN-LAST:event_exibirActionPerformed
 
     private void consultaMercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMercActionPerformed
@@ -260,8 +264,6 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "A mercadora informada não possui cadastro!", "Erro de consulta", JOptionPane.WARNING_MESSAGE);
                 } else {
                     this.preencheLista(listaProdutos);
-                    //chamar metodo que pega a mercadoria selecionada
-                    
                 }
             }
         }
@@ -269,9 +271,15 @@ public class ConsultaMercadorias extends javax.swing.JPanel {
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         //retorna para tela principal ao cancelar
-        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        TelaPrincipal telaPrincipal = new TelaPrincipal(this.painelTrocas);
         this.painelTrocas.setViewportView(telaPrincipal);
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void filtrosAdicComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtrosAdicComboActionPerformed
+        tipoMercText.setEnabled(true);
+        precoMercText.setEnabled(true);
+        fornecedorMercText.setEnabled(true);
+    }//GEN-LAST:event_filtrosAdicComboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,3 +5,5 @@ tirar duvida com saulo se temos que utilizar atravez das classes administrador e
 tirar duvida com saulo em gerar balanço como fazer a sql e o resultset
 verificar metodo selecionaProduto. view consultaMercadoria
 discutir parametro da tela de exibiçao. botao exibir consultaMercadoria
+metodo buscaProduto, verificar idProduto. produtoDao
+discutir controle de estoque e consultaMercadoria

@@ -158,8 +158,11 @@ public class CadastroMercadorias extends javax.swing.JPanel {
                 checkInfoAdiActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
 
         informacoesAdicionais.setEnabled(false);
+=======
+>>>>>>> 03c292998ded4371bdf7b164baba12f56f67e177
 
         jLabel10.setText("Quantidade em Estoque:");
 
@@ -369,11 +372,15 @@ public class CadastroMercadorias extends javax.swing.JPanel {
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void checkInfoAdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInfoAdiActionPerformed
+<<<<<<< HEAD
         if (checkInfoAdi.isSelected()) {
             informacoesAdicionais.setEnabled(true);
         } else {
             informacoesAdicionais.setEnabled(false);
         }
+=======
+        // TODO add your handling code here:
+>>>>>>> 03c292998ded4371bdf7b164baba12f56f67e177
     }//GEN-LAST:event_checkInfoAdiActionPerformed
 
 

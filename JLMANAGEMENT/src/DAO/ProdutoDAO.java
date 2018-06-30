@@ -17,6 +17,7 @@ public class ProdutoDAO {
         Vector<Produto> listaProdutos = new Vector<>();
         try (Connection con = FabricaConexao.criaConexao()) {
             String sql = "select * from produto where nome = ?";
+            String sql = "select * from produto where nomeproduto = ?";
             //configurando a sql para ser executada em banco de dados
             PreparedStatement consulta = con.prepareStatement(sql);
             consulta.setString(1, nomeMerc);
@@ -24,6 +25,8 @@ public class ProdutoDAO {
             while (resultado.next()) {
                 String nome = resultado.getString("nomeProduto");
                 String idProduto = resultado.getString("idProduto");
+                String nome = resultado.getString("nomeproduto");
+                String idProduto = resultado.getString("idproduto");
                 String tipo = resultado.getString("tipo");
                 String fornecedor = resultado.getString("fornecedor");
                 double custo = resultado.getDouble("custo");
@@ -35,6 +38,14 @@ public class ProdutoDAO {
                 Date dataCompra = resultado.getDate("dataCompra");
                 double qntEstoque = resultado.getDouble("quantidadeEstoque");
                 int idProd = resultado.getInt("idProduto");
+                double percImposto = resultado.getDouble("percentualimposto");
+                double percFrete = resultado.getDouble("percentualfrete");
+                double qntMin = resultado.getDouble("quantidademinima");
+                String infAdd = resultado.getString("infromacoesadicionais");
+                String refProd = resultado.getString("referenciaproduto");
+                Date dataCompra = resultado.getDate("datacompra");
+                double qntEstoque = resultado.getDouble("quantidadeestoque");
+                int idProd = resultado.getInt("idproduto");
                 Produto novoProduto = new Produto(nome, tipo, fornecedor, infAdd, percImposto, percFrete, qntEstoque, qntMin, custo, 0, dataCompra, refProd, idProd);
                 listaProdutos.add(novoProduto);
             }
@@ -49,6 +60,7 @@ public class ProdutoDAO {
         try (Connection con = FabricaConexao.criaConexao()) {
             //verifica os nomes no banco se estao corretos
             String sql = "select * from produto where nomeProduto = ?, tipo = ?, custo = ?, fornecedor = ?";
+            String sql = "select * from produto where nomeproduto = ?, tipo = ?, custo = ?, fornecedor = ?";
             //configurando a sql para ser executada em banco de dados
             PreparedStatement consulta = con.prepareStatement(sql);
             consulta.setString(1, nomeMerc);
@@ -59,6 +71,8 @@ public class ProdutoDAO {
             while (resultado.next()) {
                 String nome = resultado.getString("nomeProduto");
                 String idProduto = resultado.getString("idProduto");
+                String nome = resultado.getString("nomeproduto");
+                String idProduto = resultado.getString("idproduto");
                 String tipo = resultado.getString("tipo");
                 String fornecedor = resultado.getString("fornecedor");
                 double custo = resultado.getDouble("custo");
@@ -70,6 +84,14 @@ public class ProdutoDAO {
                 Date dataCompra = resultado.getDate("dataCompra");
                 double qntEstoque = resultado.getDouble("quantidadeEstoque");
                 int idProd = resultado.getInt("idProduto");
+                double percImposto = resultado.getDouble("percentualimposto");
+                double percFrete = resultado.getDouble("percentualfrete");
+                double qntMin = resultado.getDouble("quantidademinima");
+                String infAdd = resultado.getString("infromacoesadicionais");
+                String refProd = resultado.getString("referenciaproduto");
+                Date dataCompra = resultado.getDate("datacompra");
+                double qntEstoque = resultado.getDouble("quantidadeestoque");
+                int idProd = resultado.getInt("idproduto");
                 Produto novoProduto = new Produto(nome, tipo, fornecedor, infAdd, percImposto, percFrete, qntEstoque, qntMin, custo, 0, dataCompra, refProd, idProd);
                 listaProdutos.add(novoProduto);
             }
@@ -83,6 +105,7 @@ public class ProdutoDAO {
         try (Connection con = FabricaConexao.criaConexao()) {
             //verificar com saulo sobre a 
             String sqlSelect = "select * from produto where nomeProduto = ? and referenciaProduto = ?";
+            String sqlSelect = "select * from produto where nomeproduto = ? and referenciaproduto = ?";
             PreparedStatement consultaSelect = con.prepareStatement(sqlSelect);
             consultaSelect.setString(1, produto.getNome());
             consultaSelect.setString(2, produto.getReferencia());
@@ -92,8 +115,13 @@ public class ProdutoDAO {
                 return true;
             } else {
                 //insere o produto no banco de dados
+<<<<<<< HEAD
                 String sqlInsert = "insert into produto (nomeProduto, tipo, fornecedor, custo, percentualImposto, percentualFrete, "
                         + "quantidadeMinima, informacoesAdicionais, referenciaProduto, dataCompra, quantidadeEstoque) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+=======
+                String sqlInsert = "insert into produto (nomeproduto, tipo, fornecedor, custo, percentualimposto, percentualfrete,"
+                        + "quantidademinima, referenciaproduto, datacompra, quantidadeestoque) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+>>>>>>> 03c292998ded4371bdf7b164baba12f56f67e177
                 PreparedStatement consultaInsert = con.prepareStatement(sqlInsert);
                 consultaInsert.setString(1, produto.getNome());
                 consultaInsert.setString(2, produto.getTipo());
@@ -119,6 +147,7 @@ public class ProdutoDAO {
     public static void atualizaMerc(Produto mercadoria) {
         try (Connection con = FabricaConexao.criaConexao()) {
             String sqlUpdate = "update produto set dataCompra = ?, quantidadeEstoque = ?, where idProduto =?";
+            String sqlUpdate = "update produto set datacompra = ?, quantidadeestoque = ?, where idproduto =?";
             PreparedStatement consultaInsert = con.prepareStatement(sqlUpdate);
             consultaInsert.setTimestamp(1, new Timestamp(mercadoria.getDataCompra().getTime()));
             consultaInsert.setDouble(2, mercadoria.getQntEstoque());
@@ -132,11 +161,14 @@ public class ProdutoDAO {
         Vector <Double> resposta = new Vector<>();
         try (Connection con = FabricaConexao.criaConexao()) {
             String sql = "Select sum(custo*quantidadeEstoque) as custoTotal, sum(quantidadeEstoque) as quantidadeTotal from produto";
+            String sql = "Select sum(custo*quantidadeestoque) as custototal, sum(quantidadeestoque) as quantidadetotal from produto";
             PreparedStatement calcula = con.prepareStatement(sql);
             ResultSet resultado = calcula.executeQuery();
             while(resultado.next()){
                 resposta.add(resultado.getDouble("quantidadeTotal"));
                 resposta.add(resultado.getDouble("custoTotal"));
+                resposta.add(resultado.getDouble("quantidadetotal"));
+                resposta.add(resultado.getDouble("custototal"));
             }
         }catch(SQLException ex){
             System.err.println("Erro com a sql...");
