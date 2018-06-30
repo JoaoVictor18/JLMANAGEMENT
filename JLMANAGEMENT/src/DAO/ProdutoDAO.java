@@ -87,14 +87,13 @@ public class ProdutoDAO {
             consultaSelect.setString(1, produto.getNome());
             consultaSelect.setString(2, produto.getReferencia());
             ResultSet resultado = consultaSelect.executeQuery();
-
             if (resultado.next()) {
                 //se existe a informação buscada
                 return true;
             } else {
                 //insere o produto no banco de dados
-                String sqlInsert = "insert into produto (nomeProduto, tipo, fornecedor, custo, percentualImposto, percentualFrete,"
-                        + "quantidadeMinima, referencia, dataCompra, quantidadeEstoque) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String sqlInsert = "insert into produto (nomeProduto, tipo, fornecedor, custo, percentualImposto, percentualFrete, "
+                        + "quantidadeMinima, informacoesAdicionais, referenciaProduto, dataCompra, quantidadeEstoque) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement consultaInsert = con.prepareStatement(sqlInsert);
                 consultaInsert.setString(1, produto.getNome());
                 consultaInsert.setString(2, produto.getTipo());
@@ -103,13 +102,15 @@ public class ProdutoDAO {
                 consultaInsert.setDouble(5, produto.getPercentualImposto());
                 consultaInsert.setDouble(6, produto.getPercentualFrete());
                 consultaInsert.setDouble(7, produto.getQntMin());
-                consultaInsert.setString(8, produto.getReferencia());
-                consultaInsert.setTimestamp(9, new Timestamp(produto.getDataCompra().getTime()));
-                consultaInsert.setDouble(10, produto.getQntEstoque());
+                consultaInsert.setString(8, produto.getInfoAdicionais());
+                consultaInsert.setString(9, produto.getReferencia());
+                consultaInsert.setTimestamp(10, new Timestamp(produto.getDataCompra().getTime()));
+                consultaInsert.setDouble(11, produto.getQntEstoque());
                 consultaInsert.execute();
                 return false;
             }
         } catch (Exception ex) {
+            ex.printStackTrace();
             System.err.println("Erro de execução da SQL..");
         }
         return true;

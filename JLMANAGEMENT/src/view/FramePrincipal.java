@@ -25,7 +25,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }
 public void Teste(){
     this.setLayout(new BorderLayout());
-    AtualizarMercadoria teste = new AtualizarMercadoria(painelTrocas);
+    CadastroMercadorias teste = new CadastroMercadorias(painelTrocas);
     this.add(teste,BorderLayout.CENTER);
 }
     public void meuInicia() {

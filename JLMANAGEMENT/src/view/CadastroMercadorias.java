@@ -81,8 +81,8 @@ public class CadastroMercadorias extends javax.swing.JPanel {
                 return false;
             }
         }
-        if (quantMaxEstoque.getText().isEmpty()) {
-            this.quantMaxEstoque.setBackground(Color.RED);
+        if (quantEstoque.getText().isEmpty()) {
+            this.quantEstoque.setBackground(Color.RED);
             JOptionPane.showMessageDialog(this, "Verifique se preencheu todos os campos de cadastro!", "Preenchimento com erro!", JOptionPane.WARNING_MESSAGE);
             return false;
         }
@@ -124,7 +124,7 @@ public class CadastroMercadorias extends javax.swing.JPanel {
         percentualFrete = new javax.swing.JTextField();
         dataCompra = new javax.swing.JTextField();
         quantidadeComprada = new javax.swing.JTextField();
-        quantMaxEstoque = new javax.swing.JTextField();
+        quantEstoque = new javax.swing.JTextField();
         quantMinEstoque = new javax.swing.JTextField();
         cadastrar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
@@ -153,6 +153,13 @@ public class CadastroMercadorias extends javax.swing.JPanel {
         jLabel9.setText("Quantidade comprada:");
 
         checkInfoAdi.setText("Informações adicionais.");
+        checkInfoAdi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkInfoAdiActionPerformed(evt);
+            }
+        });
+
+        informacoesAdicionais.setEnabled(false);
 
         jLabel10.setText("Quantidade em Estoque:");
 
@@ -179,67 +186,66 @@ public class CadastroMercadorias extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(294, 294, 294)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(tipoMercText))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(nomeText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(fornecedor))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(percentualFrete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(quantidadeComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(percentualImposto))
+                                .addComponent(checkInfoAdi)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(precoCustoText, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(informacoesAdicionais)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(tipoMercText))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
+                                        .addComponent(quantEstoque))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nomeText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(fornecedor))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(percentualFrete, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(quantidadeComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(percentualImposto))
-                                    .addComponent(checkInfoAdi)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(precoCustoText, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(informacoesAdicionais)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(cadastrar)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(quantMaxEstoque))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(quantMinEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancelar))
+                                        .addComponent(quantMinEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(referenciaText, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cadastrar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cancelar))
+                                    .addComponent(referenciaText, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(283, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -286,7 +292,7 @@ public class CadastroMercadorias extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(quantMaxEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(quantEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -295,11 +301,11 @@ public class CadastroMercadorias extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(referenciaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrar)
                     .addComponent(cancelar))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -319,12 +325,12 @@ public class CadastroMercadorias extends javax.swing.JPanel {
         dataCompra.setText("");
         quantidadeComprada.setText("");
         informacoesAdicionais.setText("");
-        quantMaxEstoque.setText("");
+        quantEstoque.setText("");
         quantMinEstoque.setText("");
         referenciaText.setText("");
     }
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-       //verificar na execução
+        //verificar na execução
         boolean retorno = verificaCampos();
         if (!retorno) {
             JOptionPane.showMessageDialog(this, "Não foi possível efetuar o cadastro do produto!", "Erro de cadastro!", JOptionPane.WARNING_MESSAGE);
@@ -339,24 +345,36 @@ public class CadastroMercadorias extends javax.swing.JPanel {
             novoCalendar.set(Calendar.MONTH, mes);
             novoCalendar.set(Calendar.YEAR, ano);
             Date dataCompra = novoCalendar.getTime();
-
-            Produto novoProduto = new Produto(nomeText.getText(), tipoMercText.getText(), fornecedor.getText(), informacoesAdicionais.getText(), Double.parseDouble(percentualImposto.getText()), Double.parseDouble(percentualFrete.getText()), Double.parseDouble(quantMaxEstoque.getText()), Double.parseDouble(quantMinEstoque.getText()),
-                    Double.parseDouble(precoCustoText.getText()), Integer.parseInt(quantidadeComprada.getText()), dataCompra, referenciaText.getText());
-            if (ProdutoController.buscaProdutoExistente(novoProduto)) {
-                //metodo para inserir produto no banco
-                JOptionPane.showMessageDialog(this, "O produto já foi cadastrado!", "Erro de cadastro!", JOptionPane.WARNING_MESSAGE);
-                limpaCampos();
-            } else {
-                JOptionPane.showMessageDialog(this, "Produdo cadastrado co sucesso!", "Cadastro de produto!", JOptionPane.INFORMATION_MESSAGE);
-                //criar outra tela
-                TelaPrincipal telaPrincipal = new TelaPrincipal();
-                this.painelTrocas.setViewportView(telaPrincipal);
+            try {
+                Produto novoProduto = new Produto(nomeText.getText(), tipoMercText.getText(), fornecedor.getText(), informacoesAdicionais.getText(),
+                        Double.parseDouble(percentualImposto.getText()), Double.parseDouble(percentualFrete.getText()), Double.parseDouble(quantEstoque.getText()), Double.parseDouble(quantMinEstoque.getText()),
+                        Double.parseDouble(precoCustoText.getText()), Integer.parseInt(quantidadeComprada.getText()), dataCompra, referenciaText.getText());
+                if (ProdutoController.buscaProdutoExistente(novoProduto)) {
+                    //metodo para inserir produto no banco
+                    JOptionPane.showMessageDialog(this, "O produto já foi cadastrado!", "Erro de cadastro!", JOptionPane.WARNING_MESSAGE);
+                    limpaCampos();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Produdo cadastrado co sucesso!", "Cadastro de produto!", JOptionPane.INFORMATION_MESSAGE);
+                    //criar outra tela
+                    TelaPrincipal telaPrincipal = new TelaPrincipal();
+                    this.painelTrocas.setViewportView(telaPrincipal);
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Os números reais devem ser informados com vírgula e não com pontos.", "Erro de preenchimento!", JOptionPane.ERROR_MESSAGE);
             }
 
         }
 
 
     }//GEN-LAST:event_cadastrarActionPerformed
+
+    private void checkInfoAdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInfoAdiActionPerformed
+        if (checkInfoAdi.isSelected()) {
+            informacoesAdicionais.setEnabled(true);
+        } else {
+            informacoesAdicionais.setEnabled(false);
+        }
+    }//GEN-LAST:event_checkInfoAdiActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -382,7 +400,7 @@ public class CadastroMercadorias extends javax.swing.JPanel {
     private javax.swing.JTextField percentualFrete;
     private javax.swing.JTextField percentualImposto;
     private javax.swing.JTextField precoCustoText;
-    private javax.swing.JTextField quantMaxEstoque;
+    private javax.swing.JTextField quantEstoque;
     private javax.swing.JTextField quantMinEstoque;
     private javax.swing.JTextField quantidadeComprada;
     private javax.swing.JTextField referenciaText;
