@@ -1,33 +1,38 @@
-
 package view;
 
+import controller.ProdutoController;
 import java.util.Vector;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-
+import view.menusPopUp.RelatorioVendasPopUP;
 
 public class RelatorioDeVendas extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
+
     public RelatorioDeVendas(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
         habilitaGera();
     }
 
-   public void habilitaGera(){
-       boolean result = false;
-       if(this.anoText.getText().isEmpty()){
-           result = false;
-       }else{
-           result = true;
-       }
-       if(this.mesText.getText().isEmpty()){
-           result = false;
-       }else{
-           result = true;
-       }
-       this.gerarRelatorio.setEnabled(result);
-   }
+    public void habilitaGera() {
+        boolean result = false;
+        if (this.anoText.getText().isEmpty()) {
+            result = false;
+        } else {
+            result = true;
+        }
+        if (this.mesText.getText().isEmpty()) {
+            result = false;
+        } else {
+            result = true;
+        }
+        this.gerarRelatorio.setEnabled(result);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -110,12 +115,24 @@ public class RelatorioDeVendas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void gerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerarRelatorioActionPerformed
-        Vector <String> info = new Vector<>();
+        Vector<String> info = new Vector<>();
         info.add(this.mesText.getText());
         info.add(this.anoText.getText());
-        ver qual tipo de retorno da consulta ao banco
+        double totalVendido = ProdutoController.relatorioVendas(info);
+        if (totalVendido == 0) {
+            JOptionPane.showMessageDialog(this, "Este mês não possui vendas registradas!", "Não há vendas!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            info.add(totalVendido + "");
+            RelatorioVendasPopUP novoJDialog = new RelatorioVendasPopUP(info);
+            JDialog cxDialog = new JDialog();
+            cxDialog.add(novoJDialog);
+            cxDialog.setSize(110, 101);
+            cxDialog.setLocationRelativeTo(this.getParent());
+            cxDialog.setVisible(true);
+            this.getParent().setVisible(false);
+        }
     }//GEN-LAST:event_gerarRelatorioActionPerformed
 
 

@@ -42,6 +42,8 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         mesVendaText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         anoVendaText = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        valorVendaText = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -95,6 +97,10 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
 
         jLabel7.setText("Ano da Venda:");
 
+        anoVendaText.setEnabled(false);
+
+        jLabel8.setText("Valor da Venda:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,6 +126,10 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                             .addComponent(checkCompra)
                             .addComponent(checkVenda)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(valorVendaText))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addGap(18, 18, 18)
@@ -175,7 +185,11 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(anoVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(anoVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(valorVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -201,19 +215,23 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
             this.qntVendidaText.setEnabled(true);
             this.mesVendaText.setEnabled(true);
             this.anoVendaText.setEnabled(true);
+            this.valorVendaText.setEnabled(true);
             prodModificar.setQntEstoque(prodModificar.getQntCompra() - Double.parseDouble(qntVendidaText.getText()));
-            String[] mes = new String[3];
-            mes[0] = qntVendidaText.getText();
-            mes[1] = mesVendaText.getText();
-            mes[2] = anoVendaText.getText();
+            String[] mes = new String[4];
+            mes[0] = this.qntVendidaText.getText();
+            mes[1] = this.mesVendaText.getText();
+            mes[2] = this.anoVendaText.getText();
+            mes[3] = this.valorVendaText.getText();
             ProdutoController.atualizaMercVenda(prodModificar, mes);
             this.qntVendidaText.setText("");
             this.mesVendaText.setText("");
             this.anoVendaText.setText("");
+            this.valorVendaText.setText("");
             this.buscaMercText.setText("");
             this.qntVendidaText.setEnabled(false);
             this.mesVendaText.setEnabled(false);
             this.anoVendaText.setEnabled(false);
+            this.valorVendaText.setEnabled(false);
             this.buscaMercText.setEnabled(false);
         }
     }
@@ -277,10 +295,12 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listaMercadorias;
     private javax.swing.JTextField mesVendaText;
     private javax.swing.JTextField qntVendidaText;
     private javax.swing.JTextField quantComprada;
+    private javax.swing.JTextField valorVendaText;
     // End of variables declaration//GEN-END:variables
 }
