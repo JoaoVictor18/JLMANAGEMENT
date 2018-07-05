@@ -365,10 +365,7 @@ public class CadastroMercadorias extends javax.swing.JPanel {
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Os números reais devem ser informados com vírgula e não com pontos.", "Erro de preenchimento!", JOptionPane.ERROR_MESSAGE);
             }
-
         }
-
-
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void checkInfoAdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInfoAdiActionPerformed
