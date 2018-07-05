@@ -44,7 +44,7 @@ public class ProdutoDAO {
         return listaProdutos;
     }
 
-     public static Vector<Produto> buscaProdutoInfAdd(String nomeMerc,String tipoMerc, Double precoMerc, String fornecedorMerc) {
+    public static Vector<Produto> buscaProdutoInfAdd(String nomeMerc, String tipoMerc, Double precoMerc, String fornecedorMerc) {
         Vector<Produto> listaProdutos = new Vector<>();
         try (Connection con = FabricaConexao.criaConexao()) {
             //verifica os nomes no banco se estao corretos
@@ -78,7 +78,7 @@ public class ProdutoDAO {
         }
         return listaProdutos;
     }
-     
+
     public static boolean buscaProdutoExistente(Produto produto) {
         try (Connection con = FabricaConexao.criaConexao()) {
             //verificar com saulo sobre a 
@@ -116,7 +116,7 @@ public class ProdutoDAO {
         return true;
     }
 
-    public static void atualizaMerc(Produto mercadoria) {
+    public static void atualizaMercCompra(Produto mercadoria) {
         try (Connection con = FabricaConexao.criaConexao()) {
             String sqlUpdate = "update produto set datacompra = ?, quantidadeestoque = ?, where idproduto =?";
             PreparedStatement consultaInsert = con.prepareStatement(sqlUpdate);
@@ -128,17 +128,39 @@ public class ProdutoDAO {
             System.err.println("Erro de execução da SQL..");
         }
     }
-        public static Vector<Double> geraBalanco() {
-        Vector <Double> resposta = new Vector<>();
+
+    public static void atualizaMercVenda(Produto mercadoria, String [] mes) {
+        try (Connection con = FabricaConexao.criaConexao()) {
+            //atualiza a quantidade em estoque
+            String sqlUpdate = "update produto set quantidadeestoque = ?, where idproduto =?";
+            PreparedStatement consultaInsert = con.prepareStatement(sqlUpdate);
+            consultaInsert.setDouble(2, mercadoria.getQntEstoque());
+            consultaInsert.setInt(3, mercadoria.getIdProduto());
+            consultaInsert.execute();
+            //insere uma modificação na tabela vendas
+            String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, qntvendida) values (?, ?, ?, ?)";
+            consultaInsert = con.prepareStatement(sqlVenda);
+            consultaInsert.setString(1, mes[1]);
+            consultaInsert.setString(2, mes[2]);
+            consultaInsert.setString(3, mercadoria.getNome());
+            consultaInsert.setDouble(4, Double.parseDouble(mes[0]));
+            consultaInsert.execute();
+        } catch (Exception ex) {
+            System.err.println("Erro de execução da SQL..");
+        }
+    }
+
+    public static Vector<Double> geraBalanco() {
+        Vector<Double> resposta = new Vector<>();
         try (Connection con = FabricaConexao.criaConexao()) {
             String sql = "Select sum(custo*quantidadeestoque) as custototal, sum(quantidadeestoque) as quantidadetotal from produto";
             PreparedStatement calcula = con.prepareStatement(sql);
             ResultSet resultado = calcula.executeQuery();
-            while(resultado.next()){
+            while (resultado.next()) {
                 resposta.add(resultado.getDouble("quantidadetotal"));
                 resposta.add(resultado.getDouble("custototal"));
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             System.err.println("Erro com a sql...");
         }
         return resposta;

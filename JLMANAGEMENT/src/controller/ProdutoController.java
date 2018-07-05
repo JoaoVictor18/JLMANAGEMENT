@@ -33,8 +33,12 @@ public class ProdutoController {
         return retorno;
     }
 
-    public static void atualizaMerc(Produto mercadoria) {
-        ProdutoDAO.atualizaMerc(mercadoria);
+    public static void atualizaMercCompra(Produto mercadoria) {
+        ProdutoDAO.atualizaMercCompra(mercadoria);
+    }
+
+    public static void atualizaMercVenda(Produto mercadoria, String [] mes) {
+        ProdutoDAO.atualizaMercVenda(mercadoria, mes);
     }
 
     public static Vector<Double> geraBalanco() {

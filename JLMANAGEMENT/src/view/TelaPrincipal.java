@@ -32,7 +32,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.cadastroFuncionario.setEnabled(true);
             this.cadastroMercadoria.setEnabled(true);
             this.consultaMercadoria.setEnabled(true);
-            this.controleEstoque.setEnabled(true);
             this.epocaMaiorVenda.setEnabled(true);
             this.relatorioVendas.setEnabled(true);
             this.solicitacaoCompra.setEnabled(true);
@@ -45,7 +44,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.cadastroFuncionario.setEnabled(false);
             this.cadastroMercadoria.setEnabled(false);
             this.consultaMercadoria.setEnabled(true);
-            this.controleEstoque.setEnabled(false);
             this.epocaMaiorVenda.setEnabled(false);
             this.relatorioVendas.setEnabled(false);
             this.solicitacaoCompra.setEnabled(false);
@@ -121,6 +119,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
         relatorioVendas.setBackground(new java.awt.Color(51, 153, 255));
         relatorioVendas.setText("Relatório de Vendas");
+        relatorioVendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                relatorioVendasActionPerformed(evt);
+            }
+        });
 
         balanco.setBackground(new java.awt.Color(51, 153, 255));
         balanco.setText("Balanço");
@@ -243,6 +246,10 @@ public class TelaPrincipal extends javax.swing.JPanel {
         EpocaDeMaiorVenda epocaVenda = new EpocaDeMaiorVenda(this.painelTrocas);
         this.painelTrocas.setViewportView(epocaVenda);
     }//GEN-LAST:event_epocaMaiorVendaActionPerformed
+    private void relatorioVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatorioVendasActionPerformed
+        RelatorioDeVendas novoRelatorio = new RelatorioDeVendas(painelTrocas);
+        this.painelTrocas.setViewportView(novoRelatorio);
+    }//GEN-LAST:event_relatorioVendasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

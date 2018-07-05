@@ -34,6 +34,14 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         dataCompra = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaMercadorias = new javax.swing.JList();
+        checkCompra = new javax.swing.JCheckBox();
+        checkVenda = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        qntVendidaText = new javax.swing.JTextField();
+        mesVendaText = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        anoVendaText = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -71,6 +79,22 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         listaMercadorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         jScrollPane1.setViewportView(listaMercadorias);
 
+        checkCompra.setText("Compra");
+        checkCompra.setEnabled(false);
+
+        checkVenda.setText("Venda");
+        checkVenda.setEnabled(false);
+
+        jLabel5.setText("Quantidade Vendida:");
+
+        jLabel6.setText("Mês da Venda:");
+
+        qntVendidaText.setEnabled(false);
+
+        mesVendaText.setEnabled(false);
+
+        jLabel7.setText("Ano da Venda:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,13 +114,28 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(checkCompra)
+                            .addComponent(checkVenda)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(anoVendaText))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(mesVendaText))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(qntVendidaText))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(47, 47, 47)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(62, Short.MAX_VALUE))
@@ -113,14 +152,30 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
                     .addComponent(buscaMerc))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(48, 48, 48)
+                        .addComponent(checkCompra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(quantComprada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(dataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addComponent(checkVenda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(qntVendidaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(mesVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(anoVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -129,17 +184,38 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     public void atualizaMerc(Produto prodModificar) {
-        this.quantComprada.setEnabled(true);
-        this.dataCompra.setEnabled(true);
-        prodModificar.setDataCompra(criaData(this.dataCompra.getText()));
-        prodModificar.setQntEstoque(prodModificar.getQntEstoque() + prodModificar.getQntCompra());
-        ProdutoController.atualizaMerc(prodModificar);
-        this.quantComprada.setText("");
-        this.dataCompra.setText("");
-        this.buscaMercText.setText("");
-        this.quantComprada.setEnabled(false);
-        this.dataCompra.setEnabled(false);
-        this.buscaMerc.setEnabled(false);
+        if (checkCompra.isSelected()) {
+            this.quantComprada.setEnabled(true);
+            this.dataCompra.setEnabled(true);
+            prodModificar.setDataCompra(criaData(this.dataCompra.getText()));
+            prodModificar.setQntEstoque(prodModificar.getQntEstoque() + prodModificar.getQntCompra());
+            ProdutoController.atualizaMercCompra(prodModificar);
+            this.quantComprada.setText("");
+            this.dataCompra.setText("");
+            this.buscaMercText.setText("");
+            this.quantComprada.setEnabled(false);
+            this.dataCompra.setEnabled(false);
+            this.buscaMerc.setEnabled(false);
+        }
+        if (checkVenda.isSelected()) {
+            this.qntVendidaText.setEnabled(true);
+            this.mesVendaText.setEnabled(true);
+            this.anoVendaText.setEnabled(true);
+            prodModificar.setQntEstoque(prodModificar.getQntCompra() - Double.parseDouble(qntVendidaText.getText()));
+            String[] mes = new String[3];
+            mes[0] = qntVendidaText.getText();
+            mes[1] = mesVendaText.getText();
+            mes[2] = anoVendaText.getText();
+            ProdutoController.atualizaMercVenda(prodModificar, mes);
+            this.qntVendidaText.setText("");
+            this.mesVendaText.setText("");
+            this.anoVendaText.setText("");
+            this.buscaMercText.setText("");
+            this.qntVendidaText.setEnabled(false);
+            this.mesVendaText.setEnabled(false);
+            this.anoVendaText.setEnabled(false);
+            this.buscaMercText.setEnabled(false);
+        }
     }
 
     public Date criaData(String data) {
@@ -182,20 +258,29 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
     }//GEN-LAST:event_buscaMercTextActionPerformed
 
     private void buscaMercTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaMercTextKeyReleased
-        this.buscaMerc.setEnabled(true);
+        this.checkCompra.setEnabled(true);
+        this.checkVenda.setEnabled(true);
     }//GEN-LAST:event_buscaMercTextKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField anoVendaText;
     private javax.swing.JButton buscaMerc;
     private javax.swing.JTextField buscaMercText;
+    private javax.swing.JCheckBox checkCompra;
+    private javax.swing.JCheckBox checkVenda;
     private javax.swing.JTextField dataCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listaMercadorias;
+    private javax.swing.JTextField mesVendaText;
+    private javax.swing.JTextField qntVendidaText;
     private javax.swing.JTextField quantComprada;
     // End of variables declaration//GEN-END:variables
 }
