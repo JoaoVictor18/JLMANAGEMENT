@@ -7,3 +7,8 @@ verificar metodo selecionaProduto. view consultaMercadoria
 discutir parametro da tela de exibiçao. botao exibir consultaMercadoria
 metodo buscaProduto, verificar idProduto. produtoDao
 discutir controle de estoque e consultaMercadoria
+
+
+
+
+adicionar atributo pergunta segurança e fazer as demais alterações

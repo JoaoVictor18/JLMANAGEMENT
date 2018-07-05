@@ -18,7 +18,7 @@ import model.Pessoa;
 public class Login extends javax.swing.JPanel {
     
     private JScrollPane painelTrocas;
-
+    
     public Login() {
         initComponents();
     }
@@ -39,6 +39,7 @@ public class Login extends javax.swing.JPanel {
         entrar = new javax.swing.JButton();
         senhaText = new javax.swing.JPasswordField();
         cadastrar = new javax.swing.JButton();
+        recuperaSenha = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Login");
@@ -61,6 +62,13 @@ public class Login extends javax.swing.JPanel {
             }
         });
 
+        recuperaSenha.setText("Recuperar Senha");
+        recuperaSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recuperaSenhaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,20 +80,25 @@ public class Login extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(257, 257, 257)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(senhaText))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cpfText, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
                                 .addComponent(entrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cadastrar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(senhaText))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(cpfText, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(352, Short.MAX_VALUE))
+                                .addGap(48, 48, 48)
+                                .addComponent(cadastrar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(recuperaSenha)))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +117,9 @@ public class Login extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entrar)
                     .addComponent(cadastrar))
-                .addContainerGap(534, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(recuperaSenha)
+                .addContainerGap(493, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -114,7 +129,7 @@ public class Login extends javax.swing.JPanel {
             String senha = senhaText.getText();
             //verificando se possui o usuário no banco de dados e se as informações de login estão corretas
             Pessoa novoUser = PessoaController.verificaUsuario(login, senha);
-            if(novoUser != null){
+            if (novoUser != null) {
                 TelaPrincipal telaPrincipal = new TelaPrincipal(novoUser, this.painelTrocas);
             }
         } else {
@@ -127,6 +142,11 @@ public class Login extends javax.swing.JPanel {
         this.painelTrocas.setViewportView(painelCadastro);
     }//GEN-LAST:event_cadastrarActionPerformed
 
+    private void recuperaSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recuperaSenhaActionPerformed
+        RecuperaSenha telaRecupera = new RecuperaSenha(this.painelTrocas);
+        this.painelTrocas.setViewportView(telaRecupera);
+    }//GEN-LAST:event_recuperaSenhaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrar;
@@ -135,6 +155,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton recuperaSenha;
     private javax.swing.JPasswordField senhaText;
     // End of variables declaration//GEN-END:variables
 }

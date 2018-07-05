@@ -53,7 +53,8 @@ public class TelaPrincipal extends javax.swing.JPanel {
             this.sair.setEnabled(true);
         }
     }
-    public TelaPrincipal(JScrollPane painelTrocas){
+
+    public TelaPrincipal(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
     }
@@ -134,6 +135,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
         epocaMaiorVenda.setBackground(new java.awt.Color(51, 153, 255));
         epocaMaiorVenda.setText("Época de Maior Venda");
+        epocaMaiorVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                epocaMaiorVendaActionPerformed(evt);
+            }
+        });
 
         sac.setBackground(new java.awt.Color(51, 153, 255));
         sac.setText("SAC");
@@ -224,7 +230,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_atualizaMercadoriaActionPerformed
 
     private void consultaMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMercadoriaActionPerformed
-        ConsultaMercadorias consultaMercadoria  = new ConsultaMercadorias(this.painelTrocas);
+        ConsultaMercadorias consultaMercadoria = new ConsultaMercadorias(this.painelTrocas);
         this.painelTrocas.setViewportView(consultaMercadoria);
     }//GEN-LAST:event_consultaMercadoriaActionPerformed
 
@@ -232,6 +238,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
         Balanco novoBalanco = new Balanco(this.painelTrocas, novoUser);
         this.painelTrocas.setViewportView(novoBalanco);
     }//GEN-LAST:event_balancoActionPerformed
+
+    private void epocaMaiorVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_epocaMaiorVendaActionPerformed
+        EpocaDeMaiorVenda epocaVenda = new EpocaDeMaiorVenda(this.painelTrocas);
+        this.painelTrocas.setViewportView(epocaVenda);
+    }//GEN-LAST:event_epocaMaiorVendaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

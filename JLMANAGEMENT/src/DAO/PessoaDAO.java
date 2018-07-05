@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DAO;
 
 import ferramentas.FabricaConexao;
@@ -17,10 +13,7 @@ import javax.swing.JOptionPane;
 import model.Endereco;
 import model.Pessoa;
 
-/**
- *
- * @author LEANDRO
- */
+
 public class PessoaDAO {
 
     public static void criaPessoa(Pessoa novaPessoa) {
@@ -88,7 +81,7 @@ public class PessoaDAO {
                     String estado = resultado.getString("estado");
                     boolean admin = resultado.getBoolean("admin");
                     String senhaS = resultado.getString("senha");
-                    String respSeguranca = resultado.getString("respSeguranca");
+                    String respSeguranca = resultado.getString("respseguranca");
                     Endereco novoEnd = new Endereco(rua, bairro, estado, cidade, cep, complemento, referencia, numero);
                     novoUser = new Pessoa(nome, cpf, rg, pis, email, telefone, dataNasc, novoEnd, senhaS, respSeguranca);
                 }
@@ -114,6 +107,25 @@ public class PessoaDAO {
             System.err.println("Erro na execução da sql...");
         }
         return false;
+    }
+    
+    public static Vector<String> buscaUsuarioEmail(String usuario){
+        Vector<String> informacaoRecSenha;
+        try(Connection con = FabricaConexao.criaConexao()){
+            String sql = "selec * from pessoa where email = ?";
+            PreparedStatement verifica = con.prepareStatement(sql);
+            verifica.setString(1, usuario);
+            ResultSet resultado = verifica.executeQuery();
+            
+            while(resultado.next()){
+                String email = resultado.getString("email");
+                String respostaSeg = resultado.getString("respseguranca");
+                
+                
+            }
+        }catch(SQLException ex){
+            
+        }
     }
 
 
