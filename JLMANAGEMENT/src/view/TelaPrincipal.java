@@ -69,7 +69,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
         cadastroFuncionario = new javax.swing.JButton();
         cadastroMercadoria = new javax.swing.JButton();
         atualizaMercadoria = new javax.swing.JButton();
-        controleEstoque = new javax.swing.JButton();
         relatorioVendas = new javax.swing.JButton();
         balanco = new javax.swing.JButton();
         solicitacaoCompra = new javax.swing.JButton();
@@ -119,14 +118,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
             }
         });
 
-        controleEstoque.setBackground(new java.awt.Color(51, 153, 255));
-        controleEstoque.setText("Controle de Estoque");
-        controleEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                controleEstoqueActionPerformed(evt);
-            }
-        });
-
         relatorioVendas.setBackground(new java.awt.Color(51, 153, 255));
         relatorioVendas.setText("Relatório de Vendas");
 
@@ -167,7 +158,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
                     .addComponent(balanco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(atualizaMercadoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(consultaMercadoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(controleEstoque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(epocaMaiorVenda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(relatorioVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(solicitacaoCompra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,8 +188,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(consultaMercadoria)
                 .addGap(0, 0, 0)
-                .addComponent(controleEstoque)
-                .addGap(0, 0, 0)
                 .addComponent(epocaMaiorVenda)
                 .addGap(0, 0, 0)
                 .addComponent(relatorioVendas)
@@ -207,7 +195,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
                 .addComponent(solicitacaoCompra)
                 .addGap(0, 0, 0)
                 .addComponent(sac)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
@@ -245,11 +233,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
         this.painelTrocas.setViewportView(novoBalanco);
     }//GEN-LAST:event_balancoActionPerformed
 
-    private void controleEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controleEstoqueActionPerformed
-        ControleDeEstoque telaControle = new ControleDeEstoque(this.painelTrocas);
-        this.painelTrocas.setViewportView(telaControle);
-    }//GEN-LAST:event_controleEstoqueActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atualizaMercadoria;
@@ -257,7 +240,6 @@ public class TelaPrincipal extends javax.swing.JPanel {
     private javax.swing.JButton cadastroFuncionario;
     private javax.swing.JButton cadastroMercadoria;
     private javax.swing.JButton consultaMercadoria;
-    private javax.swing.JButton controleEstoque;
     private javax.swing.JButton epocaMaiorVenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

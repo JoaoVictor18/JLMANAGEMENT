@@ -36,7 +36,6 @@
                   <Component id="balanco" alignment="0" max="32767" attributes="0"/>
                   <Component id="atualizaMercadoria" alignment="0" max="32767" attributes="0"/>
                   <Component id="consultaMercadoria" alignment="0" max="32767" attributes="0"/>
-                  <Component id="controleEstoque" alignment="0" max="32767" attributes="0"/>
                   <Component id="epocaMaiorVenda" alignment="0" max="32767" attributes="0"/>
                   <Component id="relatorioVendas" alignment="0" max="32767" attributes="0"/>
                   <Component id="solicitacaoCompra" alignment="0" max="32767" attributes="0"/>
@@ -73,8 +72,6 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="consultaMercadoria" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="controleEstoque" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="epocaMaiorVenda" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="relatorioVendas" min="-2" max="-2" attributes="0"/>
@@ -82,7 +79,7 @@
               <Component id="solicitacaoCompra" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="sac" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="237" max="32767" attributes="0"/>
+              <EmptySpace pref="260" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -155,17 +152,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atualizaMercadoriaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="controleEstoque">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="99" red="33" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Controle de Estoque"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="controleEstoqueActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="relatorioVendas">
