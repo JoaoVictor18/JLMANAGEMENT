@@ -44,4 +44,7 @@ public class ProdutoController {
     public static Vector<Double> geraBalanco() {
         return ProdutoDAO.geraBalanco();
     }
+    public static Double relatorioVendas(Vector <String> info){
+        return ProdutoDAO.relatorioVendas(info);
+    }
 }

@@ -138,12 +138,13 @@ public class ProdutoDAO {
             consultaInsert.setInt(3, mercadoria.getIdProduto());
             consultaInsert.execute();
             //insere uma modificação na tabela vendas
-            String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, qntvendida) values (?, ?, ?, ?)";
+            String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, qntvendida, valorvendido) values (?, ?, ?, ?, ?)";
             consultaInsert = con.prepareStatement(sqlVenda);
             consultaInsert.setString(1, mes[1]);
             consultaInsert.setString(2, mes[2]);
             consultaInsert.setString(3, mercadoria.getNome());
             consultaInsert.setDouble(4, Double.parseDouble(mes[0]));
+            consultaInsert.setDouble(5, Double.parseDouble(mes[3]));
             consultaInsert.execute();
         } catch (Exception ex) {
             System.err.println("Erro de execução da SQL..");
@@ -164,5 +165,21 @@ public class ProdutoDAO {
             System.err.println("Erro com a sql...");
         }
         return resposta;
+    }
+    public static Double relatorioVendas(Vector <String> info){
+        double vendaTotal = 0;
+        try(Connection con = FabricaConexao.criaConexao()){
+            String sql = "Select sum(valorvendido) from vendas where mes = ? and ano = ?";
+            PreparedStatement consulta = con.prepareStatement(sql);
+            consulta.setString(1, info.get(0));
+            consulta.setString(2, info.get(1));
+            ResultSet resultado = consulta.executeQuery();
+            while(resultado.next()){
+                vendaTotal += resultado.getDouble("valorvendido");
+            }
+        }catch(SQLException ex){
+            System.err.println("Erro com a sql...");
+        }
+        return vendaTotal;
     }
 }
