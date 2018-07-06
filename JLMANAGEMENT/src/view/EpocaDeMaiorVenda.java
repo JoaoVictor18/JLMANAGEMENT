@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
@@ -20,6 +21,13 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
         if (nomeMercadoriaText.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Verifique se os campos foram preenchidos corretamente!",
                     "Erro de preenchimento!", JOptionPane.WARNING_MESSAGE);
+            nomeMercadoriaText.setBackground(Color.RED);
+            return false;
+        }
+        if(anoText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Verifique se os campos foram preenchidos corretamente!",
+                    "Erro de preenchimento!", JOptionPane.WARNING_MESSAGE);
+            anoText.setBackground(Color.RED);
             return false;
         }
         return true;
@@ -34,6 +42,8 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
         nomeMercadoriaText = new javax.swing.JTextField();
         efetuaBusca = new javax.swing.JButton();
         encerrarBusca = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        anoText = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -41,6 +51,12 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
         jLabel1.setText("Época de Maior Venda");
 
         jLabel2.setText("Nome da Mercadoria:");
+
+        nomeMercadoriaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeMercadoriaTextActionPerformed(evt);
+            }
+        });
 
         efetuaBusca.setText("Efetuar Busca");
         efetuaBusca.addActionListener(new java.awt.event.ActionListener() {
@@ -56,16 +72,12 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setText("Ano:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nomeMercadoriaText, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -77,6 +89,17 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)))
                 .addGap(290, 290, 290))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(anoText))
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nomeMercadoriaText, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,11 +110,15 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nomeMercadoriaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(anoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(efetuaBusca)
                     .addComponent(encerrarBusca))
-                .addContainerGap(582, Short.MAX_VALUE))
+                .addContainerGap(579, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -109,12 +136,18 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_efetuaBuscaActionPerformed
 
+    private void nomeMercadoriaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeMercadoriaTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeMercadoriaTextActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField anoText;
     private javax.swing.JButton efetuaBusca;
     private javax.swing.JButton encerrarBusca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField nomeMercadoriaText;
     // End of variables declaration//GEN-END:variables
 }

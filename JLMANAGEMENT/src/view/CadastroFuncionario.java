@@ -467,7 +467,7 @@ public class CadastroFuncionario extends javax.swing.JPanel {
         Pessoa novaPessoa = new Pessoa(nomeText.getText(), cpfText.getText(), rgText.getText(), pisText.getText(),
                 emailText.getText(), telefoneText.getText(), dataNascimento,
                 novoEnd = new Endereco(ruaText.getText(), bairroText.getText(), estadoText.getText(), cidadeText.getText(), cepText.getText(),
-                        complementoText.getText(), referenciaText.getText(), Integer.parseInt(numEnderecoText.getText())), senhaText.getText(), respSegText.getText());
+                        complementoText.getText(), referenciaText.getText(), Integer.parseInt(numEnderecoText.getText())), senhaText.getText(), respSegText.getText(), (String)pergSegCombo.getSelectedItem());
         if (checkAdmin.isSelected()) {
             novaPessoa.setAdmin(true);
         }
