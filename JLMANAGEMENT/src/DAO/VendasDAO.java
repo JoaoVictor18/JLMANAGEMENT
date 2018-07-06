@@ -25,7 +25,7 @@ public class VendasDAO {
         }
     }
 
-    public static Vendas buscaVenda(String nome, String ano) {
+    public static Vector<Vendas> buscaVenda(String nome, String ano) {
         Vector<Vendas> vendas = new Vector<>();
         try (Connection con = FabricaConexao.criaConexao()) {
             String sqlVenda = "select * from vendas where nomemercadoria = ? and ano = ?";
