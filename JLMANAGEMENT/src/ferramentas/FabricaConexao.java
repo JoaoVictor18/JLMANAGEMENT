@@ -12,7 +12,7 @@ public class FabricaConexao {
         //sempre adicionar o driver no projeto
         Connection conexao = null;
         try {
-            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/J&LMANAGEMENT", "postgres", "leandro106074");
+            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/JLMANAGEMENT", "postgres", "leandro106074");
         } catch (SQLException ex) {
             System.err.println("Erro com a conexão com o bando de dados...");
         }

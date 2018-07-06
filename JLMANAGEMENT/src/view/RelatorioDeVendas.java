@@ -128,7 +128,7 @@ public class RelatorioDeVendas extends javax.swing.JPanel {
             RelatorioVendasPopUP novoJDialog = new RelatorioVendasPopUP(info);
             JDialog cxDialog = new JDialog();
             cxDialog.add(novoJDialog);
-            cxDialog.setSize(110, 101);
+            cxDialog.setSize(405, 310);
             cxDialog.setLocationRelativeTo(this.getParent());
             cxDialog.setVisible(true);
             this.getParent().setVisible(false);

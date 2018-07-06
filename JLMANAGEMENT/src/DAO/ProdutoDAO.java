@@ -129,22 +129,13 @@ public class ProdutoDAO {
         }
     }
 
-    public static void atualizaMercVenda(Produto mercadoria, String [] mes) {
+    public static void atualizaMercVenda(Produto mercadoria) {
         try (Connection con = FabricaConexao.criaConexao()) {
             //atualiza a quantidade em estoque
             String sqlUpdate = "update produto set quantidadeestoque = ?, where idproduto =?";
             PreparedStatement consultaInsert = con.prepareStatement(sqlUpdate);
             consultaInsert.setDouble(2, mercadoria.getQntEstoque());
             consultaInsert.setInt(3, mercadoria.getIdProduto());
-            consultaInsert.execute();
-            //insere uma modificação na tabela vendas
-            String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, qntvendida, valorvendido) values (?, ?, ?, ?, ?)";
-            consultaInsert = con.prepareStatement(sqlVenda);
-            consultaInsert.setString(1, mes[1]);
-            consultaInsert.setString(2, mes[2]);
-            consultaInsert.setString(3, mercadoria.getNome());
-            consultaInsert.setDouble(4, Double.parseDouble(mes[0]));
-            consultaInsert.setDouble(5, Double.parseDouble(mes[3]));
             consultaInsert.execute();
         } catch (Exception ex) {
             System.err.println("Erro de execução da SQL..");

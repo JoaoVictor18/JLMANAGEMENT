@@ -78,7 +78,6 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
 
         dataCompra.setEnabled(false);
 
-        listaMercadorias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         jScrollPane1.setViewportView(listaMercadorias);
 
         checkCompra.setText("Compra");
@@ -100,6 +99,8 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
         anoVendaText.setEnabled(false);
 
         jLabel8.setText("Valor da Venda:");
+
+        valorVendaText.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

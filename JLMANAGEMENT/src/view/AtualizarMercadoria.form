@@ -193,11 +193,6 @@
       <SubComponents>
         <Component class="javax.swing.JList" name="listaMercadorias">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder thickness="5"/>
-              </Border>
-            </Property>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="0"/>
             </Property>
@@ -256,6 +251,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="valorVendaText">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

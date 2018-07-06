@@ -158,11 +158,10 @@ public class CadastroMercadorias extends javax.swing.JPanel {
                 checkInfoAdiActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
+
 
         informacoesAdicionais.setEnabled(false);
-=======
->>>>>>> 03c292998ded4371bdf7b164baba12f56f67e177
+
 
         jLabel10.setText("Quantidade em Estoque:");
 
