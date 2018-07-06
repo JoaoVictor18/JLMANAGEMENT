@@ -147,6 +147,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
 
         sac.setBackground(new java.awt.Color(51, 153, 255));
         sac.setText("SAC");
+        sac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sacActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Segurança e Controle do seu Estoque!!");
 
@@ -254,6 +259,11 @@ public class TelaPrincipal extends javax.swing.JPanel {
         RelatorioDeVendas novoRelatorio = new RelatorioDeVendas(painelTrocas);
         this.painelTrocas.setViewportView(novoRelatorio);
     }//GEN-LAST:event_relatorioVendasActionPerformed
+
+    private void sacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sacActionPerformed
+        SAC telaSac = new SAC(this.painelTrocas);
+        this.painelTrocas.setViewportView(telaSac);
+    }//GEN-LAST:event_sacActionPerformed
 
 
 
