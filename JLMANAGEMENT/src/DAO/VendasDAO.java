@@ -40,7 +40,7 @@ public class VendasDAO {
                 double valor = resultado.getDouble("valorvendido");
                 int id = resultado.getInt("idvendas");
                 double qntvendida = resultado.getDouble("quantidadevendida");
-                Vendas novaVenda = new Vendas(nomeMercadoria, mes, Integer.parseInt(anoMercadoria), valor, qntvendida, id);
+                Vendas novaVenda = new Vendas(nomeMercadoria, mes, anoMercadoria, valor, qntvendida, id);
                 vendas.add(novaVenda);
             }
         } catch (Exception ex) {
