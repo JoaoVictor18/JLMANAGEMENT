@@ -1,8 +1,10 @@
 package view;
 
 import java.awt.Color;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import model.Vendas;
 
 public class EpocaDeMaiorVenda extends javax.swing.JPanel {
 
@@ -31,6 +33,11 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
             return false;
         }
         return true;
+    }
+    public static Vendas verificaMesVenda(Vector<Vendas> mesesVenda){
+        for(int i = 0; i < mesesVenda.size(); i++){
+            
+        }
     }
 
     @SuppressWarnings("unchecked")

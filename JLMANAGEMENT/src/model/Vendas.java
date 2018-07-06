@@ -8,15 +8,21 @@ public class Vendas {
    private String mesVenda;
    private int anoVenda;
    private double valorVenda;
+   private double quantidadeVendida;
 
     public Vendas() {
     }
 
-    public Vendas(String nomeMercadoria, String mesVenda, int anoVenda, double valorVenda) {
+    public Vendas(String nomeMercadoria, String mesVenda, int anoVenda, double valorVenda, double quantidadeVendida) {
         this.nomeMercadoria = nomeMercadoria;
         this.mesVenda = mesVenda;
         this.anoVenda = anoVenda;
         this.valorVenda = valorVenda;
+        this.quantidadeVendida = quantidadeVendida;
+    }
+
+    public double getQuantidadeVendida() {
+        return quantidadeVendida;
     }
 
     public String getNomeMercadoria() {
