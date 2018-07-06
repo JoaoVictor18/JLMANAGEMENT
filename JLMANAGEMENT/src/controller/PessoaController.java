@@ -6,9 +6,11 @@
 package controller;
 
 import DAO.PessoaDAO;
+import DAO.VendasDAO;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import model.Pessoa;
+import model.Vendas;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
@@ -45,4 +47,5 @@ public class PessoaController {
         usuario.setSenha(senha);
         PessoaDAO.insereNovaSenha(usuario);
     }
+    
 }
