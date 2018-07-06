@@ -2,6 +2,7 @@ package view;
 
 import controller.VendasController;
 import java.awt.Color;
+import java.util.Hashtable;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -47,6 +48,10 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
         encerrarBusca = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         anoText = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        maiorVendaText = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        qntText = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -77,31 +82,43 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
 
         jLabel3.setText("Ano:");
 
+        jLabel4.setText("Época com maior venda:");
+
+        jLabel5.setText("Quantidade vendida:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(211, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
                         .addComponent(efetuaBusca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addGap(95, 95, 95)
                         .addComponent(encerrarBusca))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
+                    .addComponent(jLabel1))
                 .addGap(290, 290, 290))
             .addGroup(layout.createSequentialGroup()
                 .addGap(156, 156, 156)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(qntText, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(maiorVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(anoText))
+                            .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(anoText))
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nomeMercadoriaText, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nomeMercadoriaText, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,11 +134,19 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(anoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(maiorVendaText, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(qntText, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(efetuaBusca)
                     .addComponent(encerrarBusca))
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(420, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -136,6 +161,21 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
         } else {
             //implementar
             Vector<Vendas> retornoVendas = VendasController.epocaMaiorVenda(nomeMercadoriaText.getText(), anoText.getText());
+            Hashtable<String, Integer> tabelaContagem = new Hashtable<>();
+            for (int i = 0; i < retornoVendas.size(); i++) {
+                String mes = retornoVendas.get(i).getMesVenda();
+                tabelaContagem.put(mes, tabelaContagem.containsKey(mes) ? tabelaContagem.get(mes) + 1 : 1);
+            }
+            int maior = 0;
+            String maiorMes = "";
+            for (String chave : tabelaContagem.keySet()) {
+                if (maior < tabelaContagem.get(chave)) {
+                    maior = tabelaContagem.get(chave);
+                    maiorMes = chave;
+                }
+            }
+            this.qntText.setText(maior + "");
+            this.maiorVendaText.setText(maiorMes);
         }
     }//GEN-LAST:event_efetuaBuscaActionPerformed
 
@@ -151,6 +191,10 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel maiorVendaText;
     private javax.swing.JTextField nomeMercadoriaText;
+    private javax.swing.JLabel qntText;
     // End of variables declaration//GEN-END:variables
 }
