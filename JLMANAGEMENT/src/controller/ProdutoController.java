@@ -38,7 +38,8 @@ public class ProdutoController {
     }
 
     public static void atualizaMercVenda(Produto mercadoria, String [] mes) {
-        ProdutoDAO.atualizaMercVenda(mercadoria, mes);
+        ProdutoDAO.atualizaMercVenda(mercadoria);
+        VendasController.cadastraVenda(mes, mercadoria);
     }
 
     public static Vector<Double> geraBalanco() {
