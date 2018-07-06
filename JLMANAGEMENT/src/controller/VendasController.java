@@ -12,7 +12,7 @@ public class VendasController {
         VendasDAO.cadastraVenda(info, mercadoria);
     }
     
-    public static Vendas epocaMaiorVenda(String nomeMerc, int ano){
+    public static Vector<Vendas> epocaMaiorVenda(String nomeMerc, String ano){
         Vector<Vendas> mesesVendaMerc  = VendasDAO.buscaVenda(nomeMerc, ano);
         return mesesVendaMerc;
     }
