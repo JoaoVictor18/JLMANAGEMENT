@@ -6,12 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import model.Produto;
+import model.Vendas;
 
 
 public class VendasDAO {
     public static void cadastraVenda(String[] info, Produto mercadoria){
         try (Connection con = FabricaConexao.criaConexao()) {
-            String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, qntvendida, valorvendido) values (?, ?, ?, ?, ?)";
+            String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, quantidadevendida, valorvendido) values (?, ?, ?, ?, ?)";
             PreparedStatement consultaInsert = con.prepareStatement(sqlVenda);
             consultaInsert.setString(1, info[1]);
             consultaInsert.setString(2, info[2]);
@@ -36,7 +37,7 @@ public class VendasDAO {
                 String anoMercadoria = resultado.getString("ano");
                 double valor = resultado.getDouble("valorvendido");
                 int id = resultado.getInt("idvendas");
-                
+                double qntvendida = resultado.getDouble("quantidadevendida");
             }
         } catch (Exception ex) {
             System.err.println("Erro de execução da SQL..");

@@ -218,7 +218,7 @@ public class AtualizarMercadoria extends javax.swing.JPanel {
             this.anoVendaText.setEnabled(true);
             this.valorVendaText.setEnabled(true);
             prodModificar.setQntEstoque(prodModificar.getQntCompra() - Double.parseDouble(qntVendidaText.getText()));
-            String[] mes = new String[4];
+            String[] mes = new String[5];
             mes[0] = this.qntVendidaText.getText();
             mes[1] = this.mesVendaText.getText();
             mes[2] = this.anoVendaText.getText();
