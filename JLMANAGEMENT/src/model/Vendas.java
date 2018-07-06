@@ -6,7 +6,7 @@ package model;
 public class Vendas {
    private String nomeMercadoria;
    private String mesVenda;
-   private int anoVenda;
+   private String anoVenda;
    private double valorVenda;
    private double quantidadeVendida;
    private int idVenda;
@@ -14,7 +14,7 @@ public class Vendas {
     public Vendas() {
     }
 
-    public Vendas(String nomeMercadoria, String mesVenda, int anoVenda, double valorVenda, double quantidadeVendida) {
+    public Vendas(String nomeMercadoria, String mesVenda, String anoVenda, double valorVenda, double quantidadeVendida) {
         this.nomeMercadoria = nomeMercadoria;
         this.mesVenda = mesVenda;
         this.anoVenda = anoVenda;
@@ -22,7 +22,7 @@ public class Vendas {
         this.quantidadeVendida = quantidadeVendida;
     }
 
-    public Vendas(String nomeMercadoria, String mesVenda, int anoVenda, double valorVenda, double quantidadeVendida, int idVenda) {
+    public Vendas(String nomeMercadoria, String mesVenda, String anoVenda, double valorVenda, double quantidadeVendida, int idVenda) {
         this.nomeMercadoria = nomeMercadoria;
         this.mesVenda = mesVenda;
         this.anoVenda = anoVenda;
@@ -47,7 +47,7 @@ public class Vendas {
         return mesVenda;
     }
 
-    public int getAnoVenda() {
+    public String getAnoVenda() {
         return anoVenda;
     }
 
