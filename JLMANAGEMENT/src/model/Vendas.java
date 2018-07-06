@@ -9,6 +9,7 @@ public class Vendas {
    private int anoVenda;
    private double valorVenda;
    private double quantidadeVendida;
+   private int idVenda;
 
     public Vendas() {
     }
@@ -19,6 +20,19 @@ public class Vendas {
         this.anoVenda = anoVenda;
         this.valorVenda = valorVenda;
         this.quantidadeVendida = quantidadeVendida;
+    }
+
+    public Vendas(String nomeMercadoria, String mesVenda, int anoVenda, double valorVenda, double quantidadeVendida, int idVenda) {
+        this.nomeMercadoria = nomeMercadoria;
+        this.mesVenda = mesVenda;
+        this.anoVenda = anoVenda;
+        this.valorVenda = valorVenda;
+        this.quantidadeVendida = quantidadeVendida;
+        this.idVenda = idVenda;
+    }
+
+    public int getIdVenda() {
+        return idVenda;
     }
 
     public double getQuantidadeVendida() {
