@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 import model.Pessoa;
 
@@ -220,6 +221,7 @@ public class TelaPrincipal extends javax.swing.JPanel {
     private void cadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioActionPerformed
         CadastroFuncionario novoFunc = new CadastroFuncionario(this.painelTrocas);
         this.painelTrocas.setViewportView(novoFunc);
+        
     }//GEN-LAST:event_cadastroFuncionarioActionPerformed
 
     private void cadastroMercadoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroMercadoriaActionPerformed

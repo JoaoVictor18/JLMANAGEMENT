@@ -6,6 +6,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
 import javax.swing.JScrollPane;
 
 /**
@@ -33,6 +34,7 @@ public void Teste(){
         this.add(this.painelTrocas, BorderLayout.CENTER);
         Login loginUsuario = new Login(this.painelTrocas);
         this.painelTrocas.setViewportView(loginUsuario);
+        //this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
     }
 
     @SuppressWarnings("unchecked")
@@ -45,11 +47,11 @@ public void Teste(){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 785, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 542, Short.MAX_VALUE)
         );
 
         pack();
