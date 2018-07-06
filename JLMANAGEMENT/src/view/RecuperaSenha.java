@@ -1,6 +1,8 @@
 package view;
 
+import controller.PessoaController;
 import java.awt.Color;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
@@ -15,6 +17,7 @@ public class RecuperaSenha extends javax.swing.JPanel {
     public RecuperaSenha(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
+         limpaCampos();
     }
 
     public boolean verificaCampos() {
@@ -29,6 +32,36 @@ public class RecuperaSenha extends javax.swing.JPanel {
             return false;
         }
         return true;
+    }
+
+    public boolean verificaInformacoes(Vector<String> verifica) {
+        boolean retorno = false;
+        for (int i = 0; i < verifica.size(); i++) {
+            if (verifica.get(i).equals(usuarioText.getText())) {
+                retorno = true;
+            } else {
+                retorno = false;
+                break;
+            }
+            if (verifica.get(i).equals((String)perguntaSeguranca.getSelectedItem())) {
+                retorno = true;
+            } else {
+                retorno = false;
+                break;
+            }
+            if (verifica.get(i).equals(respostaSegurancaText.getText())) {
+                retorno = true;
+            } else {
+                retorno = false;
+                break;
+            }
+        }
+        return retorno;
+    }
+    
+    public void limpaCampos(){
+        usuarioText.setText("");
+        respostaSegurancaText.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -140,14 +173,18 @@ public class RecuperaSenha extends javax.swing.JPanel {
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         //chamar metodo de verificação
-        if(!verificaCampos()){
+        if (!verificaCampos()) {
             JOptionPane.showMessageDialog(this, "Verifique as informações preenchidas!", "Erro de verificação!", JOptionPane.WARNING_MESSAGE);
-        }else{
-            .
+        } else {
+            Vector<String> retornoVerificaSenha = PessoaController.verificaSenha(usuarioText.getText());
+            if (!verificaInformacoes(retornoVerificaSenha)) {
+                JOptionPane.showMessageDialog(this, "Impossível recuperar senha. Informações inválidas!", "Informações inválidas!", JOptionPane.WARNING_MESSAGE);
+            } else {
+                RedefinirSenha telaRedefinir = new RedefinirSenha(this.painelTrocas, usuarioText.getText());
+                //mudar
+                this.painelTrocas.setViewportView(telaRedefinir);
+            }
         }
-
-        RedefinirSenha telaRedefinir = new RedefinirSenha(this.painelTrocas);
-        this.painelTrocas.setViewportView(telaRedefinir);
     }//GEN-LAST:event_confirmarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

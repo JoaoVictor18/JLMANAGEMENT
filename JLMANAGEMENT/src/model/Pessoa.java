@@ -24,11 +24,12 @@ public class Pessoa {
     protected String senha;
     protected boolean admin;
     protected String respSeguranca;
+    protected String pergSeguranca;
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String cpf, String rg, String numeroPis, String email, String telefone, Date dataNasc, Endereco moradia, String senha, String resp) {
+    public Pessoa(String nome, String cpf, String rg, String numeroPis, String email, String telefone, Date dataNasc, Endereco moradia, String senha, String resp, String pergSeg) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -40,6 +41,7 @@ public class Pessoa {
         this.senha = senha;
         this.admin = false;
         this.respSeguranca = resp;
+        this.pergSeguranca = pergSeg;
     }
 
     public String getNome() {
@@ -104,6 +106,10 @@ public class Pessoa {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public String getPergSeguranca() {
+        return pergSeguranca;
     }
 
     public String getRespSeguranca() {

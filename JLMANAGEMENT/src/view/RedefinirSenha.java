@@ -1,22 +1,24 @@
-
 package view;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-
 
 public class RedefinirSenha extends javax.swing.JPanel {
 
     private JScrollPane painelTrocas;
+    private String usuario;
+
     public RedefinirSenha() {
         initComponents();
     }
-    public RedefinirSenha(JScrollPane painelTrocas){
+
+    public RedefinirSenha(JScrollPane painelTrocas, String usuario) {
         initComponents();
         this.painelTrocas = painelTrocas;
-        .
+        this.usuario = usuario;
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,8 +41,18 @@ public class RedefinirSenha extends javax.swing.JPanel {
         jLabel3.setText("Confirmar Senha:");
 
         confirmarRedefina.setText("Confirmar");
+        confirmarRedefina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarRedefinaActionPerformed(evt);
+            }
+        });
 
         cancelarRedefir.setText("Cancelar");
+        cancelarRedefir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarRedefirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -89,6 +101,33 @@ public class RedefinirSenha extends javax.swing.JPanel {
                 .addContainerGap(475, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    public boolean verificaCampos() {
+        if (novaSenhaText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Verifique os campos preenchidos!", "Erro de preenchimento!", JOptionPane.WARNING_MESSAGE);
+            novaSenhaText.setBackground(Color.RED);
+            return false;
+        }
+        if (confirmarSenhaText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Verifique os campos preenchidos!", "Erro de preenchimento!", JOptionPane.WARNING_MESSAGE);
+            confirmarSenhaText.setBackground(Color.RED);
+            return false;
+        }
+        return true;
+    }
+    private void cancelarRedefirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarRedefirActionPerformed
+        RecuperaSenha telaRecupera = new RecuperaSenha(this.painelTrocas);
+        this.painelTrocas.setViewportView(telaRecupera);
+    }//GEN-LAST:event_cancelarRedefirActionPerformed
+
+    private void confirmarRedefinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarRedefinaActionPerformed
+        if(!verificaCampos()){
+            JOptionPane.showMessageDialog(this, "Verifique os campos preenchidos!", "Erro ao inserir a nova senha!", JOptionPane.WARNING_MESSAGE);
+        }else{
+            //chamar metodo controler
+            
+        }
+    }//GEN-LAST:event_confirmarRedefinaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

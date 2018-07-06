@@ -34,7 +34,13 @@ public class PessoaController {
         senha = new Md5Hash(senha).toString();
         return PessoaDAO.verificaUsuario(login, senha);
     }
-    public static Pessoa verificaSenha(String usuario){
-        
+
+    public static Pessoa verificaSenha(String usuario) {
+        Pessoa senhaPessoa = PessoaDAO.buscaUsuarioEmail(usuario);
+        return senhaPessoa;
+    }
+    
+    public boolean insereNovaSenha(String usuario, String senha){
+       
     }
 }
