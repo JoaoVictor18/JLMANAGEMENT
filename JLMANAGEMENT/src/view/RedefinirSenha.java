@@ -1,24 +1,26 @@
 package view;
 
+import controller.PessoaController;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import model.Pessoa;
 
 public class RedefinirSenha extends javax.swing.JPanel {
-
+    
     private JScrollPane painelTrocas;
-    private String usuario;
-
+    private Pessoa usuario;
+    
     public RedefinirSenha() {
         initComponents();
     }
-
-    public RedefinirSenha(JScrollPane painelTrocas, String usuario) {
+    
+    public RedefinirSenha(JScrollPane painelTrocas, Pessoa usuario) {
         initComponents();
         this.painelTrocas = painelTrocas;
         this.usuario = usuario;
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -115,16 +117,34 @@ public class RedefinirSenha extends javax.swing.JPanel {
         }
         return true;
     }
+
+    public boolean confirmaSenha() {
+        if (novaSenhaText.getText().equals(confirmarSenhaText.getText())) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao confirmar senha, favor digitar novamante!", "Erro de verificação!", JOptionPane.WARNING_MESSAGE);
+            novaSenhaText.setText("");
+            confirmarSenhaText.setText("");
+            return false;
+        }
+    }
     private void cancelarRedefirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarRedefirActionPerformed
         RecuperaSenha telaRecupera = new RecuperaSenha(this.painelTrocas);
         this.painelTrocas.setViewportView(telaRecupera);
     }//GEN-LAST:event_cancelarRedefirActionPerformed
 
     private void confirmarRedefinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarRedefinaActionPerformed
-        if(!verificaCampos()){
+        if (!verificaCampos()) {
             JOptionPane.showMessageDialog(this, "Verifique os campos preenchidos!", "Erro ao inserir a nova senha!", JOptionPane.WARNING_MESSAGE);
-        }else{
-            //chamar metodo controler
+        } else {
+            if (!confirmaSenha()) {
+                JOptionPane.showMessageDialog(this, "Erro ao confirmar a nova senha, preencha novamente!", "Erro de verificação!", JOptionPane.WARNING_MESSAGE);
+            } else {
+                PessoaController.insereNovaSenha(usuario, novaSenhaText.getText());
+                JOptionPane.showMessageDialog(this, "Senha alterada com sucesso!", "Alteração de senha!", JOptionPane.INFORMATION_MESSAGE);
+                Login telaLogin = new Login(this.painelTrocas);
+                this.painelTrocas.setViewportView(telaLogin);
+            }
             
         }
     }//GEN-LAST:event_confirmarRedefinaActionPerformed

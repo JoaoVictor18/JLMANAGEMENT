@@ -25,6 +25,7 @@ public class Pessoa {
     protected boolean admin;
     protected String respSeguranca;
     protected String pergSeguranca;
+    //criar atributo id
 
     public Pessoa() {
     }

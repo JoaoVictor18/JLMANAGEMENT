@@ -36,11 +36,13 @@ public class PessoaController {
     }
 
     public static Pessoa verificaSenha(String usuario) {
-        Pessoa senhaPessoa = PessoaDAO.buscaUsuarioEmail(usuario);
-        return senhaPessoa;
+        Pessoa usuarioRec = PessoaDAO.buscaUsuarioEmail(usuario);
+        return usuarioRec;
     }
-    
-    public boolean insereNovaSenha(String usuario, String senha){
-       
+
+    public static void insereNovaSenha(Pessoa usuario, String senha) {
+        senha = new Md5Hash(senha).toString();
+        usuario.setSenha(senha);
+        PessoaDAO.insereNovaSenha(usuario);
     }
 }

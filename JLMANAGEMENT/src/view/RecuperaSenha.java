@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import jdk.nashorn.internal.ir.BreakNode;
+import model.Pessoa;
 
 public class RecuperaSenha extends javax.swing.JPanel {
 
@@ -17,7 +19,7 @@ public class RecuperaSenha extends javax.swing.JPanel {
     public RecuperaSenha(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
-         limpaCampos();
+        limpaCampos();
     }
 
     public boolean verificaCampos() {
@@ -34,32 +36,28 @@ public class RecuperaSenha extends javax.swing.JPanel {
         return true;
     }
 
-    public boolean verificaInformacoes(Vector<String> verifica) {
-        boolean retorno = false;
-        for (int i = 0; i < verifica.size(); i++) {
-            if (verifica.get(i).equals(usuarioText.getText())) {
-                retorno = true;
-            } else {
-                retorno = false;
-                break;
-            }
-            if (verifica.get(i).equals((String)perguntaSeguranca.getSelectedItem())) {
-                retorno = true;
-            } else {
-                retorno = false;
-                break;
-            }
-            if (verifica.get(i).equals(respostaSegurancaText.getText())) {
-                retorno = true;
-            } else {
-                retorno = false;
-                break;
-            }
+    public boolean verificaInformacoes(Pessoa pessoaRec) {
+       boolean retorno = false;
+        if (pessoaRec.getEmail().equals(usuarioText.getText())) {
+            retorno =  true;
+        } else {
+            return false;
+        }
+        
+        if (pessoaRec.getPergSeguranca().equals((String) perguntaSeguranca.getSelectedItem())) {
+            retorno = true;
+        } else {
+           return false;
+        }
+        if (pessoaRec.getRespSeguranca().equals(respostaSegurancaText.getText())) {
+           retorno = true;
+        } else {
+           return false;
         }
         return retorno;
     }
-    
-    public void limpaCampos(){
+
+    public void limpaCampos() {
         usuarioText.setText("");
         respostaSegurancaText.setText("");
     }
@@ -176,11 +174,11 @@ public class RecuperaSenha extends javax.swing.JPanel {
         if (!verificaCampos()) {
             JOptionPane.showMessageDialog(this, "Verifique as informações preenchidas!", "Erro de verificação!", JOptionPane.WARNING_MESSAGE);
         } else {
-            Vector<String> retornoVerificaSenha = PessoaController.verificaSenha(usuarioText.getText());
-            if (!verificaInformacoes(retornoVerificaSenha)) {
+            Pessoa pessoaRecSenha = PessoaController.verificaSenha(usuarioText.getText());
+            if (!verificaInformacoes(pessoaRecSenha)) {
                 JOptionPane.showMessageDialog(this, "Impossível recuperar senha. Informações inválidas!", "Informações inválidas!", JOptionPane.WARNING_MESSAGE);
             } else {
-                RedefinirSenha telaRedefinir = new RedefinirSenha(this.painelTrocas, usuarioText.getText());
+                RedefinirSenha telaRedefinir = new RedefinirSenha(this.painelTrocas, pessoaRecSenha);
                 //mudar
                 this.painelTrocas.setViewportView(telaRedefinir);
             }
