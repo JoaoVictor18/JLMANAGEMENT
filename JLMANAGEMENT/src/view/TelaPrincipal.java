@@ -242,14 +242,17 @@ public class TelaPrincipal extends javax.swing.JPanel {
         this.painelTrocas.setViewportView(novoBalanco);
     }//GEN-LAST:event_balancoActionPerformed
 
+
     private void epocaMaiorVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_epocaMaiorVendaActionPerformed
         EpocaDeMaiorVenda epocaVenda = new EpocaDeMaiorVenda(this.painelTrocas);
         this.painelTrocas.setViewportView(epocaVenda);
     }//GEN-LAST:event_epocaMaiorVendaActionPerformed
+
     private void relatorioVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatorioVendasActionPerformed
         RelatorioDeVendas novoRelatorio = new RelatorioDeVendas(painelTrocas);
         this.painelTrocas.setViewportView(novoRelatorio);
     }//GEN-LAST:event_relatorioVendasActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
