@@ -1,5 +1,6 @@
 package view;
 
+import controller.VendasController;
 import java.awt.Color;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -26,18 +27,13 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
             nomeMercadoriaText.setBackground(Color.RED);
             return false;
         }
-        if(anoText.getText().isEmpty()){
+        if (anoText.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Verifique se os campos foram preenchidos corretamente!",
                     "Erro de preenchimento!", JOptionPane.WARNING_MESSAGE);
             anoText.setBackground(Color.RED);
             return false;
         }
         return true;
-    }
-    public static Vendas verificaMesVenda(Vector<Vendas> mesesVenda){
-        for(int i = 0; i < mesesVenda.size(); i++){
-            
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -135,11 +131,11 @@ public class EpocaDeMaiorVenda extends javax.swing.JPanel {
     }//GEN-LAST:event_encerrarBuscaActionPerformed
 
     private void efetuaBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_efetuaBuscaActionPerformed
-        if(!verificaCampos()){
+        if (!verificaCampos()) {
             JOptionPane.showMessageDialog(this, "Impossível efetuar busca!", "Verifique os campos obrigatórios!", JOptionPane.WARNING_MESSAGE);
-        }else{
+        } else {
             //implementar
-            .
+            Vector<Vendas> retornoVendas = VendasController.epocaMaiorVenda(nomeMercadoriaText.getText(), anoText.getText());
         }
     }//GEN-LAST:event_efetuaBuscaActionPerformed
 
