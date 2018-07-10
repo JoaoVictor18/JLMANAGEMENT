@@ -16,7 +16,7 @@ public class PessoaDAO {
 
     public static void criaPessoa(Pessoa novaPessoa) {
         try (Connection con = FabricaConexao.criaConexao()) {
-            String sql = "insert into pessoa (nome, dataNascimento, cpf, rg, numeroPis, email, telefone, "
+            String sql = "insert into pessoa (nome, datanascimento, cpf, rg, numeropis, email, telefone, "
                     + "senha, rua, numero, bairro, complemento, referencia, cep, cidade, estado, admin, respseguranca, pergseguranca) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement insere = con.prepareStatement(sql);
             insere.setString(1, novaPessoa.getNome());
@@ -66,10 +66,10 @@ public class PessoaDAO {
                     String nome = resultado.getString("nome");
                     String cpf = resultado.getString("cpf");
                     String rg = resultado.getString("rg");
-                    String pis = resultado.getString("numeroPis");
+                    String pis = resultado.getString("numeropis");
                     String email = resultado.getString("email");
                     String telefone = resultado.getString("telefone");
-                    Date dataNasc = resultado.getDate("dataNascimento");
+                    Date dataNasc = resultado.getDate("datanascimento");
                     String rua = resultado.getString("rua");
                     String bairro = resultado.getString("bairro");
                     int numero = resultado.getInt("numero");
@@ -121,10 +121,10 @@ public class PessoaDAO {
                 String nome = resultado.getString("nome");
                 String cpf = resultado.getString("cpf");
                 String rg = resultado.getString("rg");
-                String pis = resultado.getString("numeroPis");
+                String pis = resultado.getString("numeropis");
                 String email = resultado.getString("email");
                 String telefone = resultado.getString("telefone");
-                Date dataNasc = resultado.getDate("dataNascimento");
+                Date dataNasc = resultado.getDate("datanascimento");
                 String rua = resultado.getString("rua");
                 String bairro = resultado.getString("bairro");
                 int numero = resultado.getInt("numero");

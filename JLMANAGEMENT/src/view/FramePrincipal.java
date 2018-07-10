@@ -20,8 +20,8 @@ public class FramePrincipal extends javax.swing.JFrame {
     public FramePrincipal() {
         initComponents();
         this.painelTrocas = new JScrollPane();
-        //meuInicia();
-        Teste();
+        meuInicia();
+        //Teste();
 
     }
 public void Teste(){
