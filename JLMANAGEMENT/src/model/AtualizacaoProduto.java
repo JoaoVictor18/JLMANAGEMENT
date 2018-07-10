@@ -16,7 +16,7 @@ public class AtualizacaoProduto {
     private String nome;
     private double qntAtualizada;
     private Date dataAtualizacao;
-    private Administrador admin;
+    private Pessoa admin;
 
     public AtualizacaoProduto(String nome, double qntAtualizada, Date dataAtualizacao) {
         this.nome = nome;

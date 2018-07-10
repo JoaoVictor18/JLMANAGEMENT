@@ -5,7 +5,6 @@
  */
 package view;
 
-import controller.AdministradorController;
 import controller.PessoaController;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -133,7 +132,7 @@ public class Login extends javax.swing.JPanel {
                 TelaPrincipal telaPrincipal = new TelaPrincipal(novoUser, this.painelTrocas);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "O campo de usuário ou senha não foram preenchidos corretamente.", "Preenchimento incorreto!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "O usuário informado não está cadastrado no sistema.", "Usuário sem cadastro!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_entrarActionPerformed
 

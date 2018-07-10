@@ -7,23 +7,22 @@ import java.util.Date;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import model.Administrador;
 import model.Endereco;
 import model.Pessoa;
 
 public class CadastroFuncionario extends javax.swing.JPanel {
-
+    
     private JScrollPane painelTrocas;
-
+    
     public CadastroFuncionario() {
         initComponents();
     }
-
+    
     public CadastroFuncionario(JScrollPane painelTrocas) {
         initComponents();
         this.painelTrocas = painelTrocas;
     }
-
+    
     public boolean varreduraCampos() {
         if (nomeText.getText().isEmpty()) {
             nomeText.setBackground(Color.red);
@@ -112,7 +111,7 @@ public class CadastroFuncionario extends javax.swing.JPanel {
         }
         return true;
     }
-
+    
     public void limpaCampos() {
         nomeText.setText("");
         nascimentoText.setText("");
@@ -133,7 +132,7 @@ public class CadastroFuncionario extends javax.swing.JPanel {
         respSegText.setText("");
         checkAdmin.setEnabled(false);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -243,10 +242,25 @@ public class CadastroFuncionario extends javax.swing.JPanel {
         });
 
         cancelarFunc.setText("Cancelar");
+        cancelarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarFuncActionPerformed(evt);
+            }
+        });
 
         jLabel18.setText("Senha:");
 
         senhaText.setText("jPasswordField1");
+        senhaText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                senhaTextFocusGained(evt);
+            }
+        });
+        senhaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaTextActionPerformed(evt);
+            }
+        });
 
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
         jLabel19.setText("Sua senha pode possuir no máximo 15 caracteres.");
@@ -467,7 +481,7 @@ public class CadastroFuncionario extends javax.swing.JPanel {
         Pessoa novaPessoa = new Pessoa(nomeText.getText(), cpfText.getText(), rgText.getText(), pisText.getText(),
                 emailText.getText(), telefoneText.getText(), dataNascimento,
                 novoEnd = new Endereco(ruaText.getText(), bairroText.getText(), estadoText.getText(), cidadeText.getText(), cepText.getText(),
-                        complementoText.getText(), referenciaText.getText(), Integer.parseInt(numEnderecoText.getText())), senhaText.getText(), respSegText.getText(), (String)pergSegCombo.getSelectedItem());
+                        complementoText.getText(), referenciaText.getText(), Integer.parseInt(numEnderecoText.getText())), senhaText.getText(), respSegText.getText(), (String) pergSegCombo.getSelectedItem());
         if (checkAdmin.isSelected()) {
             novaPessoa.setAdmin(true);
         }
@@ -483,6 +497,19 @@ public class CadastroFuncionario extends javax.swing.JPanel {
     private void pergSegComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pergSegComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pergSegComboActionPerformed
+
+    private void senhaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaTextActionPerformed
+
+    private void senhaTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaTextFocusGained
+        this.senhaText.setText("");
+    }//GEN-LAST:event_senhaTextFocusGained
+
+    private void cancelarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarFuncActionPerformed
+        Login telaLogin = new Login(this.painelTrocas);
+        this.painelTrocas.setViewportView(telaLogin);
+    }//GEN-LAST:event_cancelarFuncActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

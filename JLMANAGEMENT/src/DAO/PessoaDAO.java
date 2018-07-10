@@ -148,7 +148,7 @@ public class PessoaDAO {
 
     public static void insereNovaSenha (Pessoa usuario) {
         try (Connection con = FabricaConexao.criaConexao()) {
-            String sql = "update from pessoa (senha) values = ? where cpf = ?";
+            String sql = "update pessoa set senha = ? where cpf = ?";
             PreparedStatement update = con.prepareStatement(sql);
             update.setString(1, usuario.getSenha());
             update.setString(2, usuario.getCpf());
