@@ -1,4 +1,4 @@
-body {
+body{
 	text-align: center;
 	width: 100%;
 }
@@ -8,17 +8,17 @@ body h2{
 	font-size: 120%;
 }
 
-..formRecSenha {
-	margin-top: 100px;
+body .formRedSenha{
 	display: block;
+	margin-top: 80px;
 }
 
-.formRecSenha div{
+body .formRedSenha div{
 	margin-bottom: 20px;
 }
 
-.formRecSenha div span{
-	font-size: 80%;
+#novaSenhaConf{
+	margin-left: -120px;
 }
 
 body a{
@@ -33,21 +33,9 @@ body a{
 	color: #000;
 }
 
-.usuario {
-	margin-left: 150px;
-}
-
-.novaSenha {
-	margin-left: 100px;
-}
-
-.novaSenhaConf {
-	margin-left: -10px;
-}
-
 footer{
 	font-size: 60%;
 	text-align: right;
 	margin-right: 10px;
-	margin-top: 45px;
+	margin-top: 170px;
 }
