@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tela de Login</title>
+		<meta charset="utf-8">
+		<link href="Css/estilo.css" rel="stylesheet">
+		<link href="Css/telaLogin.css" rel="stylesheet">
+	</head>
+
+	<body id="corpo">
+		<h2>Login</h2>
+		<form class="formLogin">
+			<div>
+				<span>Cpf: </span>
+				<input type="email" id="email" required onclick="limpa()" onkeypress="logar2(event)">
+			</div>
+			<div>
+				<span>Senha: </span>
+				<input type="password" id="senha" required>
+			</div>
+		</form>
+		<div class="botoesLogin">
+			<a href="#" id="entrar">Entrar</a>
+			<a href="#" id="cadastrar">Cadastrar</a>
+			<a href="#" id="recuperaSenha">Recuperar Senha</a>
+		</div>
+		<footer>Developed by JLManagement</footer>
+	</body>
+	<script src="JavaScript/script.js"></script>
+</html>

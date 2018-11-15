@@ -17,7 +17,8 @@ public class PessoaDAO {
     public static void criaPessoa(Pessoa novaPessoa) {
         try (Connection con = FabricaConexao.criaConexao()) {
             String sql = "insert into pessoa (nome, datanascimento, cpf, rg, numeropis, email, telefone, "
-                    + "senha, rua, numero, bairro, complemento, referencia, cep, cidade, estado, admin, respseguranca, pergseguranca) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "senha, rua, numero, bairro, complemento, referencia, cep, cidade, estado, admin, respseguranca, pergseguranca) "
+                    + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement insere = con.prepareStatement(sql);
             insere.setString(1, novaPessoa.getNome());
             insere.setTimestamp(2, new Timestamp(novaPessoa.getDataNasc().getTime()));
@@ -41,6 +42,7 @@ public class PessoaDAO {
             insere.execute();
         } catch (SQLException ex) {
             System.err.println("Erro na execução da sql!!");
+            ex.printStackTrace();
         }
     }
 
