@@ -1,0 +1,112 @@
+body{
+    width: 100%;
+    text-align: center;
+}
+.formCadastroFunc input,span{
+    margin-top: 30px;
+    font-size: 70%;
+}
+
+.formCadastroFunc div{
+    display: block;
+}
+
+.formCadastroFunc select{
+    font-size: 70%;
+}
+
+#nomeFunc {
+    
+}
+
+#nascFunc {
+    margin-right: 329px;
+}
+
+#cpfFunc {
+    margin-right: 142px;
+}
+
+.numero {
+    width: 10%;
+}
+
+#rgFunc {
+    margin-right: 135px;
+}
+
+#pisFunc {
+    margin-right: 210px;
+}
+
+#telFunc {
+    margin-right: 177px;
+}
+
+#ruaFunc {
+    margin-left: 41px;
+}
+
+#bairroFunc {
+    margin-right: 152px;
+}
+
+#compleFunc {
+    margin-right: 217px;
+}
+
+#refFunc {
+    margin-right: 186px;
+}
+
+#cepFunc {
+    margin-right: 132px;
+}
+
+#cidadeFunc {
+    margin-right: 152px;
+}
+
+#estadoFunc {
+    margin-right: 151px;
+}
+
+#emailFunc {
+    margin-right: 145px;
+}
+
+#senhaFunc {
+    margin-left: 277px;
+    margin-bottom: 20px;
+}
+
+#pergFunc {
+    margin-right: 296px;
+}
+
+#respFunc {
+    margin-right: 290px;
+    margin-bottom: 20px;
+}
+
+#sexoFunc {
+    margin-right: 265px;
+    margin-bottom: 40px;
+}
+
+.botao{
+    text-decoration: none;
+    margin-right: 25px;;
+    color: black;
+    padding: 3px 8px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 80%;
+}
+
+footer{
+    font-size: 60%;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 100px;
+}
