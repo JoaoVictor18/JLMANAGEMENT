@@ -10,5 +10,4 @@ discutir controle de estoque e consultaMercadoria
 
 
 
-
-adicionar atributo pergunta segurança e fazer as demais alterações
+verificar tela de cadastro de pessoa
