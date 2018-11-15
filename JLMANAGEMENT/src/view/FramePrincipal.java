@@ -20,13 +20,13 @@ public class FramePrincipal extends javax.swing.JFrame {
     public FramePrincipal() {
         initComponents();
         this.painelTrocas = new JScrollPane();
-        meuInicia();
-        //Teste();
+        //meuInicia();
+        Teste();
 
     }
 public void Teste(){
     this.setLayout(new BorderLayout());
-    CadastroMercadorias teste = new CadastroMercadorias(painelTrocas);
+    TelaPrincipal teste = new TelaPrincipal(painelTrocas);
     this.add(teste,BorderLayout.CENTER);
 }
     public void meuInicia() {

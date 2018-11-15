@@ -1,0 +1,53 @@
+body{
+	text-align: center;
+	margin-top: 50px;
+}
+
+body h2{
+	font-size: 160%;
+	margin-bottom: 150px;
+}
+
+.formLogin {
+	display: inline-block;
+	width: 70%;
+	
+}
+
+.formLogin div{
+	display: block;
+	margin-bottom: 50px;
+}
+
+.botoesLogin {
+	display: block;
+}
+
+.botoesLogin a{
+	text-decoration: none;
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin-bottom: 50px;
+	font-size: 80%;
+	color: black;
+	padding: 0 10px;
+}
+
+#recuperaSenha {
+	display: block;
+	width: 15%;
+	margin: auto;
+	margin-top: 40px;
+	padding: 0;
+}
+
+#entrar {
+	margin-right: 20px;
+}
+
+footer{
+	margin-top: 100px;
+	margin-right: 10px;
+	text-align: right;
+	font-size: 60%;
+}
