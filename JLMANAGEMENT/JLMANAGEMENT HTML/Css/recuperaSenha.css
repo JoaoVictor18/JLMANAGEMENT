@@ -1,0 +1,35 @@
+
+.corpo {
+	text-align: center;
+	width: 100%;
+}
+
+.corpo h2{
+	margin-top: 100px;
+	font-size: 120%;
+}
+
+.form1 {
+	margin-top: 100px;
+	display: block;
+}
+
+.form1 div{
+	margin-bottom: 20px;
+}
+
+.form1 div span{
+	font-size: 80%;
+}
+
+.corpo a{
+	display: inline-block;
+	margin-top: 60px;
+	margin-right: 20px;
+	text-decoration: none;
+	border: 1px solid #000;
+	border-radius: 5px;
+	padding: 3px 6px;
+	font-size: 70%;
+	color: #000;
+}
