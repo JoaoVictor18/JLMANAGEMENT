@@ -1,0 +1,64 @@
+body{
+    width: 100%;
+    text-align: center;
+}
+
+
+body h1{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 130%;
+}
+
+.exibicao{
+    width: 400px;
+    height: 300px;
+    border: 1px solid #000;
+    background-color: #c7bdbd;
+    /*float: right;*/
+    margin-left: 39%;
+}
+#nomeMerc {
+    margin-bottom: 20px;
+}
+
+#tipoMerc {
+    margin-right: 180px ;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#filtros {
+    margin-bottom: 20px;
+    margin-right: 70px;
+}
+ 
+#preco {
+    margin-right: 8px;
+    margin-bottom: 20px;
+}
+
+#fornecedor {
+    margin-right: 76px;
+    margin-bottom: 50px;
+}
+
+footer{
+    font-size: 60%;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+
+.botao{
+    text-decoration: none;
+    margin-right: 25px;;
+    color: black;
+    padding: 3px 8px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 80%;
+    margin-left: 15px;
+}
+
+
