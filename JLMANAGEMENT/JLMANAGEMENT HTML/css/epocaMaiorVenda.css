@@ -2,3 +2,46 @@ body{
     width: 100%;
     text-align: center;
 }
+.mostrarNum {
+    border: 1px solid #000;
+    width: 50px;
+    height: 30px;
+    display: inline-block;
+}
+
+
+.botao{
+    text-decoration: none;
+    margin-right: 25px;;
+    color: black;
+    padding: 3px 8px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 80%;
+}
+
+footer{
+    font-size: 60%;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+
+
+#nomeMerc {
+    margin-top: 20px;
+    margin-right: 60px;
+}
+
+#ano {
+    margin-top: 20px;
+}
+
+.epocaVenda {
+    margin-top: 20px;
+}
+
+.qntVend {
+    margin-top: 20px;
+    margin-bottom: 65px;
+}
