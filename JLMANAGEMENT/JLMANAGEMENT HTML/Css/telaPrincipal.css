@@ -21,20 +21,20 @@ body h2{
 	margin-top: 70px;
 	margin-right: 30px;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	padding: 2px 5px;
 	font-size: 80%;
-	color: #000;
+	color: white;
 }
 #botaoAtuali {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;;
 	width: 20%;
 	font-size: 80%;
 }
@@ -42,11 +42,11 @@ body h2{
 #botaoBalan {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -54,11 +54,11 @@ body h2{
 #botaoCadFunc {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -66,11 +66,11 @@ body h2{
 #botaoCadMerc {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -78,11 +78,11 @@ body h2{
 #botaoCons {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -90,11 +90,11 @@ body h2{
 #botaoEpoc {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -102,11 +102,11 @@ body h2{
 #botaoRel {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -114,11 +114,11 @@ body h2{
 #botaoSolic {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -126,11 +126,11 @@ body h2{
 #botaosac {
 	display: block;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	margin-left: 10px;
-	color: #000;
+	color: white;
 	width: 20%;
 	font-size: 80%;
 }
@@ -139,5 +139,5 @@ footer{
 	font-size: 60%;
 	text-align: right;
 	margin-right: 10px;
-	margin-top: 14mano0px;
+	margin-top: 140px;
 }

@@ -4,3 +4,24 @@
 	padding: 0;
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)), url(img/Software-de-Gerenciamento.jpg);/*definição
+	/*background-image: linear-gradient(to bottom right,#0b0b0b,#ff0505,#ffffff);*/
+	background-size: cover;/*ocupar toda a vizualização do user*/
+	background-attachment: fixed;/*efeito de rolagem*/
+	background-repeat: no-repeat;/*não deixar repetir imagem pequena*/
+	background-position: center;/*centralizando*/
+	height: 100vh;/*definindo tamanho*/
+    
+    color: white;
+}
+
+header{
+    background-color: #458cd6;
+}
+
+header h1{
+    font-size: 350%;
+    padding: 20px 0;
+}
