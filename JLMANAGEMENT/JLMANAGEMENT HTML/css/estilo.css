@@ -18,12 +18,21 @@ body{
 }
 
 header{
-    background-color: #458cd6;
+    background-color: #b1bfbb;
 }
 
 header h1{
-    font-size: 350%;
-    padding: 20px 0;
+    font-size: 250%;
+    font-family: 'Ranga', cursive;
+}
+
+body a{
+	transition: background-color 1.5s, border-color 1.5s
+}
+
+body a:hover{
+	background-color: #f1603d;
+	border-color: #ea3b11;
 }
 
 .tituloH1{
