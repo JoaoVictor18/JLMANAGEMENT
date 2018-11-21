@@ -2,3 +2,92 @@ body{
     width: 100%;
     text-align: center;
 }
+
+.divAtualizaMerc{
+    float: left;
+    margin-left: 50px;
+}
+
+.form1AtualizaMerc div{
+    margin-bottom: 20px;
+}
+
+.botao{
+    text-decoration: none;
+    margin-right: 25px;;
+    color: white;
+    padding: 3px 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    font-size: 80%;
+}
+
+#qntComprada {
+    margin-right: 343px;
+}
+
+#qntComprada input{
+    width: 98px;
+}
+
+#dataCompra {
+    margin-right: 157px;
+}
+
+#qntVendida {
+    margin-right: 308px;
+}
+
+#qntVendida input{
+    width: 100px;
+}
+
+#mesVenda {
+    margin-right: 108px;
+}
+
+#mesVenda input{
+    width: 220px;
+}
+
+#anoVenda {
+    margin-right: 224px;
+}
+
+#anoVenda input{
+    width: 100px;
+}
+
+#valorVenda {
+    margin-right: 18px;
+}
+
+#venda {
+    margin-right: 15px;
+    margin-top: 150px;
+}
+
+#nomeMerc {
+    margin-left: 23px;
+}
+
+footer{
+	font-size: 60%;
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 930px;
+}
+
+.tabela {
+    border: 1px solid white;
+    width: 30%;
+    height: 450px;
+    float: right;
+    margin-right: 80px;
+    background-color: white;
+    margin-top: 150px;
+}
+
+#compra {
+    margin-top: 150px;
+}
