@@ -4,7 +4,6 @@ body{
 }
 .formCadastroFunc input,span{
     margin-top: 30px;
-    font-size: 70%;
 }
 
 .formCadastroFunc div{
@@ -12,7 +11,6 @@ body{
 }
 
 .formCadastroFunc select{
-    font-size: 70%;
 }
 
 #nomeFunc {
@@ -20,27 +18,28 @@ body{
 }
 
 #nascFunc {
-    margin-right: 329px;
+    margin-right: 556px;
 }
 
 #cpfFunc {
-    margin-right: 142px;
+    margin-right: 175px;
 }
 
 .numero {
-    width: 10%;
+    width: 8%;
+    margin-right: 56px;
 }
 
 #rgFunc {
-    margin-right: 135px;
+    margin-right: 163px;
 }
 
 #pisFunc {
-    margin-right: 210px;
+    margin-right: 273px;
 }
 
 #telFunc {
-    margin-right: 177px;
+    margin-right: 231px;
 }
 
 #ruaFunc {
@@ -48,58 +47,58 @@ body{
 }
 
 #bairroFunc {
-    margin-right: 152px;
+    margin-right: 195px;
 }
 
 #compleFunc {
-    margin-right: 217px;
+    margin-right: 293px;
 }
 
 #refFunc {
-    margin-right: 186px;
+    margin-right: 243px;
 }
 
 #cepFunc {
-    margin-right: 132px;
+    margin-right: 160px;
 }
 
 #cidadeFunc {
-    margin-right: 152px;
+    margin-right: 195px;
 }
 
 #estadoFunc {
-    margin-right: 151px;
+    margin-right: 193px;
 }
 
 #emailFunc {
-    margin-right: 145px;
+    margin-right: 175px;
 }
 
 #senhaFunc {
-    margin-left: 277px;
+    margin-left: 304px;
     margin-bottom: 20px;
 }
 
 #pergFunc {
-    margin-right: 296px;
+    margin-right: 425px;
 }
 
 #respFunc {
-    margin-right: 290px;
+    margin-right: 383px;
     margin-bottom: 20px;
 }
 
 #sexoFunc {
-    margin-right: 265px;
-    margin-bottom: 40px;
+    margin-right: 354px;
+    margin-bottom: 50px;
 }
 
 .botao{
     text-decoration: none;
     margin-right: 25px;;
-    color: black;
+    color: white;
     padding: 3px 8px;
-    border: 1px solid #000;
+    border: 1px solid white;
     border-radius: 8px;
     font-size: 80%;
 }

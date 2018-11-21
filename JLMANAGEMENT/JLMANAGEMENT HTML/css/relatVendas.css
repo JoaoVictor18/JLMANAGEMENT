@@ -3,9 +3,12 @@ body{
     text-align: center; 
 }
 
+.tituloH1{
+    margin-top: 50px;
+}
 
 #mes {
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 30px;
 }
 
@@ -19,13 +22,14 @@ body{
 
 #ano input{
     width: 100px;
+    margin-bottom: 60px;
 }
 .botao{
     text-decoration: none;
     margin-right: 25px;;
-    color: black;
+    color: white;
     padding: 3px 8px;
-    border: 1px solid #000;
+    border: 1px solid white;
     border-radius: 8px;
     font-size: 80%;
 }
@@ -33,17 +37,17 @@ body{
 .botaoGerar{
     text-decoration: none;
     margin-right: 25px;;
-    color: black;
+    color: white;
     padding: 3px 25px;
-    border: 1px solid #000;
+    border: 1px solid white;
     border-radius: 8px;
     font-size: 80%;
-    margin-left: 100px;
+    margin-left: 50px;
     
 }
 footer{
     font-size: 60%;
     text-align: right;
     margin-right: 10px;
-    margin-top: 100px;
+    margin-top: 200px;
 }

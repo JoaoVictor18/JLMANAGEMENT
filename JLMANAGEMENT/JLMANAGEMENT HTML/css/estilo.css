@@ -25,3 +25,9 @@ header h1{
     font-size: 350%;
     padding: 20px 0;
 }
+
+.tituloH1{
+    font-size: 120%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

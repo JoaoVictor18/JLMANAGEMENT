@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Mercadoria</title>
+        <title>Mercadoria Exibida</title>
         <meta charset="utf-8">
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/mercExibidaConsulta.css" rel="stylesheet">
@@ -12,8 +12,8 @@
          <header>
             <h1>J&L</h1>
         </header>
-        <form>
-            <h1>Mercadoria</h1>
+        <form class="principal">
+            <h1 class="tituloH1">Mercadoria Exibida</h1>
             <div id="nomeMerc">
                 <span>Nome mercadoria: </span>
                 <input type="text">
@@ -51,19 +51,20 @@
             </div>
             <div id="qntEstoque">
                 <span>Quantidade em Estoque: </span>
-                <input type="number">
+                <input type="text">
             </div>
             <div id="qntMin">
                 <span>Quantidade Min. Estoque: </span>
-                <input type="number">
+                <input type="text">
             </div>
             <div id="refProd">
                 <span>Referência produto</span>
                 <input type="text">
             </div>
-        </form>
+            
         <a href="#" class="botao">Editar Informações</a>
         <a href="#" class="botao">Sair</a>
+        </form>
     </body>
     <footer>Developed by JLManagement</footer>
 </html>

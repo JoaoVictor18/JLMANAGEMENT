@@ -1,12 +1,8 @@
 body{
+    width: 100%;
 	text-align: center;
-	width: 100%;
 }
 
-body h2{
-	margin-top: 70px;
-	font-size: 120%;
-}
 .formCadMerc {
 	display: block;
 	margin-top: 30px;
@@ -19,64 +15,80 @@ body h2{
 
 
 #div1 {
-	margin-left: 305px;
+	/*margin-left: ;*/
 }
 
 #div2 {
-	margin-left: 140px;
+	margin-right: 163px;
 }
 
 #div3 {
-	margin-left: 110px;
+	margin-right: 208px;
 }
 
 #div4 {
-	margin-left: 200px;
+	margin-right: 108px;
 }
 
 #div5 {
-	margin-left: 250px;
+	margin-right: 55px;
 }
 
 #div6 {
-	margin-left: 290px;
+	margin-right: 16px;
 }
 
 #div7 {
-	margin-left: 110px;
+	margin-right: 298px;
 }
 
 #div8 {
-	margin-left: 120px;
+	margin-right: 480px;
+}
+
+#div8 input{
+    width: 100px;
 }
 
 #div9 {
-	margin-left: 90px;
+	margin-right: 220px;
 }
 
 #div10 {
-	margin-left: 100px;
+	margin-right: 493px;
 }
 
-#div11 {
-	margin-left: 120px;
+#div10 input{
+    width: 100px;
+}
+
+#div11{
+    margin-right: 590px;
+}
+
+#div11 input{
+    width: 100px;
+}
+
+#div12 {
+	margin-right: 190px;
 }
 
 body a{
 	display: inline-block;
-	margin-top: 60px;
-	margin-right: 20px;
+	margin-top: 50px;
+	margin-right: 100px;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	padding: 3px 6px;
 	font-size: 70%;
-	color: #000;
+	color: white;
 }
 
 footer{
 	font-size: 60%;
 	text-align: right;
 	margin-right: 10px;
-	margin-top: 170px;
+	margin-top: 140px;
 }

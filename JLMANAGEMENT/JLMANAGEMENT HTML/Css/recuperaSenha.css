@@ -6,6 +6,7 @@ body {
 body h2{
 	margin-top: 70px;
 	font-size: 120%;
+    margin-bottom: 50px;
 }
 
 ..formRecSenha {
@@ -18,7 +19,7 @@ body h2{
 }
 
 .formRecSenha div span{
-	font-size: 80%;
+	/*font-size: 80%;*/
 }
 
 body a{
@@ -26,23 +27,23 @@ body a{
 	margin-top: 60px;
 	margin-right: 20px;
 	text-decoration: none;
-	border: 1px solid #000;
+	border: 1px solid white;
 	border-radius: 5px;
 	padding: 3px 6px;
 	font-size: 70%;
-	color: #000;
+	color: white;
 }
 
 .usuario {
-	margin-left: 150px;
-}
-
-.novaSenha {
 	margin-left: 100px;
 }
 
+.novaSenha {
+	margin-left: 50px;
+}
+
 .novaSenhaConf {
-	margin-left: -10px;
+	margin-right: 85px;
 }
 
 footer{
@@ -50,4 +51,11 @@ footer{
 	text-align: right;
 	margin-right: 10px;
 	margin-top: 45px;
+}
+.respSeguranca {
+    margin-right: 90px;
+}
+
+.pergSeguranca {
+    margin-right: 90px;
 }
