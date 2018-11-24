@@ -1,5 +1,4 @@
 body{
-    font-size: 110%;
     width: 100%;
     text-align: center;
 }
@@ -18,20 +17,8 @@ body{
     overflow: hidden;
 }
 
-.sacGeral h1{
-    text-align: center;
-    font-size: 150%;
-}
-
 .sacGeral h3{
     text-align: center;
-    display: block;
-    font-size: 110%;
-}
-
-.contatoJv h4{
-    text-align: center;
-    font-size: 80%;
     display: block;
 }
 
@@ -39,30 +26,29 @@ body{
     margin-right: 30px;
     display: inline-block;
     text-align: center;
-    margin-left: 70vh;
+    float: left;
+    margin-left: 200px;
 }
 
-.contatoJv p{
-    text-align: center;
+.contatoJv span{
+    display: block;
 }
 
 .contatoL{
     display: inline-block;
     padding-bottom: 10px;
+    float: right;
+    margin-right: 200px;
 }
 
-.contatoL p{
-    text-align: center;
-}
-
-.contatoL h4{
-    text-align: center;
-    font-size: 80%;
+.contatoL span{
+    display: block;
 }
 
 .email{
     display: block;
     text-align: center;
+    margin-top: 150px;
 }
 
 .botao{
