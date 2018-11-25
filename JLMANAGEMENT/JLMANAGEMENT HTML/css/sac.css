@@ -51,6 +51,11 @@ body{
     margin-top: 150px;
 }
 
+.email .endEmail{
+	display: inline-block;
+	margin-left: 0;
+}
+
 .botao{
     text-decoration: none;
     margin-right: 25px;;
@@ -68,3 +73,7 @@ footer{
     text-align: right;
 }
 
+ion-icon{
+	margin-left: -10px;
+	font-size: 130px;
+}
