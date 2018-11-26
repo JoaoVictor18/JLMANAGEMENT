@@ -78,21 +78,18 @@ body{
     margin-left: 304px;
     margin-bottom: 20px;
 }
-#senhaFunc span{
-    max-width: 50px;
-}
 
 #pergFunc {
-    margin-right: 425px;
+    margin-right: 380px;
 }
 
 #respFunc {
-    margin-right: 383px;
+    margin-right: 395px;
     margin-bottom: 20px;
 }
 
 #sexoFunc {
-    margin-right: 354px;
+    margin-right: 310px;
     margin-bottom: 50px;
 }
 
