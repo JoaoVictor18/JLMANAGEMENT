@@ -43,7 +43,7 @@ body{
 }
 
 #mesVenda {
-    margin-right: 108px;
+    margin-right: 103px;
 }
 
 #mesVenda input{
@@ -59,7 +59,7 @@ body{
 }
 
 #valorVenda {
-    margin-right: 18px;
+    margin-left: 37px;
 }
 
 #venda {
@@ -68,14 +68,14 @@ body{
 }
 
 #nomeMerc {
-    margin-left: 23px;
+    margin-left: 33px;
 }
 
 footer{
 	font-size: 60%;
 	text-align: right;
 	margin-right: 10px;
-	margin-top: 930px;
+	margin-top: 1080px;
 }
 
 .tabela {
