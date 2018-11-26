@@ -18,7 +18,7 @@ body{
 }
 
 #nascFunc {
-    margin-right: 556px;
+    margin-right: 422px;
 }
 
 #cpfFunc {
@@ -77,6 +77,9 @@ body{
 #senhaFunc {
     margin-left: 304px;
     margin-bottom: 20px;
+}
+#senhaFunc span{
+    max-width: 50px;
 }
 
 #pergFunc {
