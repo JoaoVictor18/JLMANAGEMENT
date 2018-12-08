@@ -48,4 +48,8 @@ public class ProdutoController {
     public static Double relatorioVendas(Vector <String> info){
         return ProdutoDAO.relatorioVendas(info);
     }
+
+    public static void cadastraProdudo(Produto novoProduto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

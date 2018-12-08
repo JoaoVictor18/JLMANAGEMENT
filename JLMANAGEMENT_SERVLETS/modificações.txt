@@ -1,0 +1,2 @@
+Add no tabela produto no banco (quantidadeCompra) - verificado existe na tabela compra
+parei no cadastrar servlet - João Victor
