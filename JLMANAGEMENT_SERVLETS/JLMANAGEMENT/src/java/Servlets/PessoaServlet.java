@@ -1,7 +1,9 @@
 
 package Servlets;
 
+import com.sun.corba.se.spi.presentation.rmi.StubAdapter;
 import controller.PessoaController;
+import controller.ProdutoController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
@@ -18,6 +20,8 @@ import model.Pessoa;
 @WebServlet(name = "PessoaServlet", urlPatterns = {"/PessoaServlet"})
 public class PessoaServlet extends HttpServlet {
 
+    private static Pessoa userLogado;
+    
     public static void cadastraPessoa(HttpServletRequest request, PrintWriter out){
         String nome = request.getParameter("nome");
         String admin = request.getParameter("admin");
@@ -71,18 +75,36 @@ public class PessoaServlet extends HttpServlet {
         if(email == null || senha == null){
             out.print("Os parâmetros devem ser preenchidos corretamente!!");
         }else{
-            PessoaController.verificaUsuario(email, senha);
+            userLogado = PessoaController.verificaUsuario(email, senha);
         }
+    }
+    
+    public static void alteraSenha(HttpServletRequest request, PrintWriter out){
+        String novaSenha = request.getParameter("novaSenha");
+        PessoaController.insereNovaSenha(userLogado, novaSenha);
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            String servico = request.getParameter("serv");
+            switch(servico){
+                case "cadastra":{
+                    cadastraPessoa(request, out);
+                }break;
+                case "alteraSenha":{
+                    alteraSenha(request, out);
+                }break;
+                case "login":{
+                    login(request, out);
+                }break;
+                default:{
+                    out.print("Este comando não existe no sistema!");
+                }
+            }
         }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
