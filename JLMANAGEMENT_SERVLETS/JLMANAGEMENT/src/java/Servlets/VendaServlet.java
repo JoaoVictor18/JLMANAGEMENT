@@ -64,7 +64,8 @@ public class VendaServlet extends HttpServlet {
                     cadastraVenda(request, out);
                 }break;
                 default:{
-                    
+                    Resposta resultado = new Resposta(404, "O serviço requisitado não existe.(cadastra, buscaMercadoria)");
+                    out.print(resultado.toJSON());  
                 }
             }
         }

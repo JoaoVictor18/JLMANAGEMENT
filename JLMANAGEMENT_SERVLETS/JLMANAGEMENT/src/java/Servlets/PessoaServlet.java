@@ -112,7 +112,8 @@ public class PessoaServlet extends HttpServlet {
                     login(request, out);
                 }break;
                 default:{
-                    out.print("Este comando não existe no sistema!");
+                    Resposta resultado = new Resposta(404, "O serviço requisitado não existe.(cadastra, buscaMercadoria)");
+                    out.print(resultado.toJSON());
                 }
             }
         }
