@@ -10,7 +10,7 @@ import model.Vendas;
 
 public class VendasDAO {
 
-    public static void cadastraVenda(String[] info, Produto mercadoria) {
+    public static boolean cadastraVenda(String[] info, Produto mercadoria) {
         try (Connection con = FabricaConexao.criaConexao()) {
             String sqlVenda = "insert into vendas (mes, ano, nomemercadoria, quantidadevendida, valorvendido) values (?, ?, ?, ?, ?)";
             PreparedStatement consultaInsert = con.prepareStatement(sqlVenda);
@@ -20,8 +20,10 @@ public class VendasDAO {
             consultaInsert.setDouble(4, Double.parseDouble(info[0]));
             consultaInsert.setDouble(5, Double.parseDouble(info[3]));
             consultaInsert.execute();
+            return true;
         } catch (Exception ex) {
             System.err.println("Erro de execução da SQL..");
+            return false;
         }
     }
 

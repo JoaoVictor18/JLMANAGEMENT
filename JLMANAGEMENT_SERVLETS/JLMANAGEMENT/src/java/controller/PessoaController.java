@@ -42,10 +42,10 @@ public class PessoaController {
         return usuarioRec;
     }
 
-    public static void insereNovaSenha(Pessoa usuario, String senha) {
+    public static boolean insereNovaSenha(Pessoa usuario, String senha) {
         senha = new Md5Hash(senha).toString();
         usuario.setSenha(senha);
-        PessoaDAO.insereNovaSenha(usuario);
+        return PessoaDAO.insereNovaSenha(usuario);
     }
     
 }

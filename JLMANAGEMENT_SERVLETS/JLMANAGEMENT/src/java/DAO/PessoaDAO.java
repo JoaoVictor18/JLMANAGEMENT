@@ -148,15 +148,17 @@ public class PessoaDAO {
         return null;
     }
 
-    public static void insereNovaSenha (Pessoa usuario) {
+    public static boolean insereNovaSenha (Pessoa usuario) {
         try (Connection con = FabricaConexao.criaConexao()) {
             String sql = "update pessoa set senha = ? where cpf = ?";
             PreparedStatement update = con.prepareStatement(sql);
             update.setString(1, usuario.getSenha());
             update.setString(2, usuario.getCpf());
             update.execute();
+            return true;
         } catch (SQLException ex) {
             System.out.println("Erro de SQL");
+            return false;
         }
     }
 }
