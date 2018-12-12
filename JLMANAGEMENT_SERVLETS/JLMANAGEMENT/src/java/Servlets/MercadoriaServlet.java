@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Vector;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,10 +33,13 @@ public class MercadoriaServlet extends HttpServlet {
                 case "cadastra":{
                     cadastraMerc(request, out);
                 }break;
-                case "buscaMercadoria":{
+                case "atualiza":{
                     //chamar metodo busca
-                    buscaMerc(request, out);
+                    atualizaMerc(request, out);
                 }break;
+                case "consulta":{
+                    consultaMerc(request, out);
+                }
                 default:{
                     out.print("O serviço requisitado não existe.(cadastra, buscaMercadoria)");
                 }
@@ -112,7 +116,7 @@ public class MercadoriaServlet extends HttpServlet {
                     out.print("Cadastro efetuado com sucesso.");
                     //mensagem "deseja efetuar um novo cadastro?"
                 }else{
-                    out.print("Produto já cadastrado. Erro ao cadastrar!");
+                    out.print("Produto já cadastrado. Deseja atualizar a mercadoria?");
                     //limpar os campos, verificar como é feito
                 }
             }catch(NumberFormatException ex){
@@ -122,7 +126,116 @@ public class MercadoriaServlet extends HttpServlet {
         }    
     }
 
-    private void buscaMerc(HttpServletRequest request, PrintWriter out) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void atualizaMerc(HttpServletRequest request, PrintWriter out) {
+        Produto novoProd = new Produto();
+        String nome = request.getParameter("nome");
+        String quantidadeC = request.getParameter("quantcompra");
+        String dataC = request.getParameter("datacompra");
+        String quantidadeV = request.getParameter("quantVendida");
+        String mesV = request.getParameter("mesvenda");
+        String anoV = request.getParameter("anovenda");
+        String valorV = request.getParameter("valorvenda");
+        Vector<Produto> mercadorias = new Vector<>();
+        String nomeSelecao = "";
+        if(nome == null){
+            out.print("O parâmetro (nome) não pode ser nulo.");
+        }else{
+            try{
+            mercadorias = ProdutoController.buscaProduto(nome);
+            //compra = true fazer if
+                if(quantidadeC == null || dataC == null){
+                    out.print("Os parâmetros (nome, quantidadeC, dataC) não podem ser nulos.");
+                }else{
+                    double quantCompra = Double.parseDouble(quantidadeC);
+                    String []data = dataC.split("/");
+                    int dia = Integer.parseInt(data[0]);
+                    int mes = Integer.parseInt(data[1]);
+                    int ano = Integer.parseInt(data[2]);
+                    Calendar novoCalendar = Calendar.getInstance();
+                        novoCalendar.set(Calendar.DAY_OF_MONTH, dia);
+                        novoCalendar.set(Calendar.MONTH, mes);
+                        novoCalendar.set(Calendar.YEAR, ano);
+                        Date dateCompra = novoCalendar.getTime();
+                    
+                if(mercadorias.isEmpty()){
+                    out.print("Mercadoria não encontrada!");
+                }
+                //exibir na tela as opções encontradas
+                // apos selecionar o nome na tela de exibição atualizar a variável nomeSelecao
+                nomeSelecao = "";
+                for(int i = 0; i < mercadorias.size(); i++){
+                    if(mercadorias.get(i).getNome().equals(nomeSelecao)){
+                        mercadorias.get(i).setDataCompra(dateCompra);
+                        mercadorias.get(i).setQntCompra(quantCompra);
+                        ProdutoController.atualizaMercCompra(mercadorias.get(i));
+                    }
+                }
+            }
+            //código comentado será feito na venda
+            /*//outro if para venda = true
+            //atualizar a variável nomeSelecao
+            nomeSelecao = "";
+            if(quantidadeV == null || mesV == null || anoV == null || valorV == null){
+                out.print("Os parâmetros (quantidadeV, mesV, anoV, valorV) não podem ser nulos.");
+            }else{
+                mercadorias = ProdutoController.buscaProduto(nome);
+                double quantV = Double.parseDouble(quantidadeV);
+                double valorVenda = Double.parseDouble(valorV);
+                for(int i = 0; i< mercadorias.size(); i++){
+                    if(mercadorias.get(i).getNome().equals(nomeSelecao)){
+                        mercadorias.get(i).se
+                    }
+                }
+                
+            }*/
+            }catch(NumberFormatException ex){
+                out.print("O parâmetro (nome) informado não pode conter números ou carácteres especiais.");
+            }
+        }
+    }
+
+    private void consultaMerc(HttpServletRequest request, PrintWriter out) {
+       String nome = request.getParameter("nome");
+       String tipoM = request.getParameter("tipo");
+       String precoM = request.getParameter("preco");
+       String fornecedor = request.getParameter("fornecedor");
+       Vector<Produto> mercadorias = new Vector<>();
+       String nomeSelecao = "";
+       if(nome == null){
+           out.print("O parâmetro (nome) não pode ser nulo!");
+       }else{
+           try{
+                //filtros adicionais for == true
+                //chamada de método dentro do else
+                mercadorias = ProdutoController.buscaProduto(nome);
+                if(mercadorias.isEmpty()){
+                    out.print("Mercadoria não encontrada!");
+                }else{
+                    //exibir na tela web as mercadorias encontradas
+                }
+                if(tipoM == null || precoM == null || fornecedor == null){
+                    out.print("O parâmetros (tipoM,precoM e fornecedor) não podem ser nulos");
+                }else{
+                    double preco  = Double.parseDouble(precoM);
+                    mercadorias = ProdutoController.buscaProdutoInfAdd(nome, tipoM, preco, fornecedor);
+                    if(mercadorias.isEmpty()){
+                        out.print("Mercadoria não encontrada!");
+                    }else{
+                        //exibir na tela web as mercadorias encontradas
+                    }
+               //continuar aqui
+               nomeSelecao = "";
+               for(int i =0;i<mercadorias.size();i++){
+                   if(mercadorias.get(i).getNome().equals(nomeSelecao)){
+                       Produto exibicaoMerc = new Produto();
+                       exibicaoMerc = mercadorias.get(i);//variável global?
+                       //mandar para a página web as informações a serem exibidas.
+                   }
+               }
+               }
+           }catch(NumberFormatException ex){
+               out.print("O parâmetro (nome) não pode conter números.");
+           }
+       }
     }
 }
