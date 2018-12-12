@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Commons.Configuracao;
 import controller.ProdutoController;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +26,7 @@ public class MercadoriaServlet extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        Configuracao.configResponseRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
             String servico = request.getParameter("serv");
             
@@ -41,7 +42,8 @@ public class MercadoriaServlet extends HttpServlet {
                     consultaMerc(request, out);
                 }
                 default:{
-                    out.print("O serviço requisitado não existe.(cadastra, buscaMercadoria)");
+                    Resposta resultado = new Resposta(404, "O serviço requisitado não existe.(cadastra, buscaMercadoria)");
+                    out.print(resultado.toJSON());
                 }
             }
         }
@@ -86,8 +88,9 @@ public class MercadoriaServlet extends HttpServlet {
               || perImposto == null || perFrete == null || dataCompra == null ||
                 quantCompra == null || infAdd == null || qntEstoque == null ||
                 qntMinima == null || referenia == null){
-            out.print("Os parâmetros (nome, tipoMerc, fabricante, precoCus,perImposto,"
-                    + "perFrete,dataCompra,infAdd,qntEstoque,qntMinima,referencia");
+            Resposta resultado = new Resposta(301, "Os parâmetros (nome, tipoMerc, fabricante, precoCus,perImposto,"
+                    + "perFrete,dataCompra,infAdd,qntEstoque,qntMinima,referencia) devem ser informados");
+            out.print(resultado.toJSON());
         }else{
             try{
                 double precoCusto = Double.parseDouble(precoCus);
@@ -113,15 +116,18 @@ public class MercadoriaServlet extends HttpServlet {
                 //ProdutoController.cadastraProdudo(novoProduto);
                 boolean verificaRetorno = ProdutoController.buscaProdutoExistente(novoProduto);
                 if(verificaRetorno != false){
-                    out.print("Cadastro efetuado com sucesso.");
+                    Resposta resultado = new Resposta(200, "Cadastro efetuado com sucesso.");
+                    out.print(resultado.toJSON());
                     //mensagem "deseja efetuar um novo cadastro?"
                 }else{
-                    out.print("Produto já cadastrado. Deseja atualizar a mercadoria?");
+                    Resposta resultado = new Resposta(301, "Produto já cadastrado. Deseja atualizar a mercadoria?");
+                    out.print(resultado.toJSON());
                     //limpar os campos, verificar como é feito
                 }
             }catch(NumberFormatException ex){
-                out.print("Os parâmetros (precoCusto, perImp,percentFrete,qntCompra"
+                Resposta resultado = new Resposta(302, "Os parâmetros (precoCusto, perImp,percentFrete,qntCompra"
                         + "quantEstoque,qntMinima) não são números.");
+                out.print(resultado.toJSON());
             }
         }    
     }
@@ -138,13 +144,15 @@ public class MercadoriaServlet extends HttpServlet {
         Vector<Produto> mercadorias = new Vector<>();
         String nomeSelecao = "";
         if(nome == null){
-            out.print("O parâmetro (nome) não pode ser nulo.");
+            Resposta resultado = new Resposta(302, "O parâmetro (nome) não pode ser nulo.");
+            out.print(resultado.toJSON());
         }else{
             try{
             mercadorias = ProdutoController.buscaProduto(nome);
             //compra = true fazer if
                 if(quantidadeC == null || dataC == null){
-                    out.print("Os parâmetros (nome, quantidadeC, dataC) não podem ser nulos.");
+                    Resposta resultado = new Resposta(302, "Os parâmetros (nome, quantidadeC, dataC) não podem ser nulos.");
+                    out.print(resultado.toJSON());
                 }else{
                     double quantCompra = Double.parseDouble(quantidadeC);
                     String []data = dataC.split("/");
@@ -158,7 +166,8 @@ public class MercadoriaServlet extends HttpServlet {
                         Date dateCompra = novoCalendar.getTime();
                     
                 if(mercadorias.isEmpty()){
-                    out.print("Mercadoria não encontrada!");
+                    Resposta resultado = new Resposta(302, "Mercadoria não encontrada!");
+                    out.print(resultado.toJSON());
                 }
                 //exibir na tela as opções encontradas
                 // apos selecionar o nome na tela de exibição atualizar a variável nomeSelecao
@@ -189,7 +198,8 @@ public class MercadoriaServlet extends HttpServlet {
                 
             }*/
             }catch(NumberFormatException ex){
-                out.print("O parâmetro (nome) informado não pode conter números ou carácteres especiais.");
+                Resposta resultado = new Resposta(302, "O parâmetro (nome) informado não pode conter números ou carácteres especiais.");
+                out.print(resultado.toJSON());
             }
         }
     }
@@ -202,24 +212,28 @@ public class MercadoriaServlet extends HttpServlet {
        Vector<Produto> mercadorias = new Vector<>();
        String nomeSelecao = "";
        if(nome == null){
-           out.print("O parâmetro (nome) não pode ser nulo!");
+            Resposta resultado = new Resposta(302, "O parâmetro (nome) não pode ser nulo!");
+            out.print(resultado.toJSON());
        }else{
            try{
                 //filtros adicionais for == true
                 //chamada de método dentro do else
                 mercadorias = ProdutoController.buscaProduto(nome);
                 if(mercadorias.isEmpty()){
-                    out.print("Mercadoria não encontrada!");
+                    Resposta resultado = new Resposta(302, "Mercadoria não encontrada!");
+                    out.print(resultado.toJSON());
                 }else{
                     //exibir na tela web as mercadorias encontradas
                 }
                 if(tipoM == null || precoM == null || fornecedor == null){
-                    out.print("O parâmetros (tipoM,precoM e fornecedor) não podem ser nulos");
+                     Resposta resultado = new Resposta(302, "O parâmetros (tipoM,precoM e fornecedor) não podem ser nulos");
+                     out.print(resultado.toJSON());
                 }else{
                     double preco  = Double.parseDouble(precoM);
                     mercadorias = ProdutoController.buscaProdutoInfAdd(nome, tipoM, preco, fornecedor);
                     if(mercadorias.isEmpty()){
-                        out.print("Mercadoria não encontrada!");
+                         Resposta resultado = new Resposta(302, "Mercadoria não encontrada!");
+                         out.print(resultado.toJSON());
                     }else{
                         //exibir na tela web as mercadorias encontradas
                     }
@@ -234,7 +248,8 @@ public class MercadoriaServlet extends HttpServlet {
                }
                }
            }catch(NumberFormatException ex){
-               out.print("O parâmetro (nome) não pode conter números.");
+               Resposta resultado = new Resposta(302, "O parâmetro (nome) não pode conter números.");
+               out.print(resultado.toJSON());
            }
        }
     }
