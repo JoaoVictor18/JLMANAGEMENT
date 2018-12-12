@@ -1,6 +1,7 @@
 
 package Servlets;
 
+import Commons.Configuracao;
 import com.sun.corba.se.spi.presentation.rmi.StubAdapter;
 import controller.PessoaController;
 import controller.ProdutoController;
@@ -46,7 +47,8 @@ public class PessoaServlet extends HttpServlet {
         if(nome == null || admin == null || dataNasc == null || cpf == null || rg == null || pis == null || telefone == null || rua == null || numero == null ||
                 bairro == null || complemento == null || referencia == null || cep == null || cidade == null || estado == null || email == null || senha == null || 
                 pergSeg == null || respSeg == null || sexo == null){
-            out.print("Os campos devem todos ser preenchidos corretamente!!!");
+            Resposta resultado = new Resposta(301, "Erro no preenchimento de dados!!");
+            out.print(resultado.toJSON());
         }else{
             int num = Integer.parseInt(numero);
             //transformar string em date
@@ -63,9 +65,11 @@ public class PessoaServlet extends HttpServlet {
             Pessoa novaPessoa = new Pessoa(nome, cpf, rg, pis, email, telefone, dataNascimento, novoEndereco, senha, cep, pergSeg);
             boolean resposta = PessoaController.criaPessoa(novaPessoa); 
             if(resposta == true){
-                out.print(200);
+                Resposta resultado = new Resposta(200, "Usuário criado com sucesso!!");
+                out.print(resultado.toJSON());
             }else{
-                out.print(400);
+                Resposta resultado = new Resposta(400, "Usuário já cadastrado!!");
+                out.print(resultado.toJSON());
             }
         }
     }
@@ -73,7 +77,8 @@ public class PessoaServlet extends HttpServlet {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         if(email == null || senha == null){
-            out.print("Os parâmetros devem ser preenchidos corretamente!!");
+            Resposta resultado = new Resposta(301, "Os parâmetros devem ser preenchidos corretamente!!");
+            out.print(resultado.toJSON());
         }else{
             userLogado = PessoaController.verificaUsuario(email, senha);
         }
@@ -81,12 +86,19 @@ public class PessoaServlet extends HttpServlet {
     
     public static void alteraSenha(HttpServletRequest request, PrintWriter out){
         String novaSenha = request.getParameter("novaSenha");
-        PessoaController.insereNovaSenha(userLogado, novaSenha);
+        boolean retorno = PessoaController.insereNovaSenha(userLogado, novaSenha);
+        if(retorno == true){
+            Resposta resultado = new Resposta(200, "Senha alterada com sucesso!!");
+            out.print(resultado.toJSON());
+        }else{
+            Resposta resultado = new Resposta(301, "A sua senha não pode ser alterada, tente novamente!!");
+            out.print(resultado.toJSON());
+        }
     }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        Configuracao.configResponseRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
             String servico = request.getParameter("serv");
             switch(servico){
