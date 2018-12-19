@@ -18,72 +18,72 @@
         <form class="formCadastroFunc">
             <div id="nomeFunc">
                 <span>Nome: </span>
-                <input type="text" name="nome">
-                <input type="checkbox" name="admin">
+                <input type="text" name="nome" id="nome">
+                <input type="checkbox" name="admin" id="admin">
                 <span>Administrador</span>
             </div>    
             <div id="nascFunc">
                 <span>Data de Nascimento: </span>
-                <input type="date" name="dataNasc">
+                <input type="date" name="dataNasc" id="nasc">
             </div>
             <div id="cpfFunc">
                 <span>CPF: </span>
-                <input type="text" name="cpf">
+                <input type="text" name="cpf" id="cpf">
             </div>
             <div id="rgFunc">
                 <span>RG: </span>
-                <input type="text" name="rg">
+                <input type="text" name="rg" id="rg">
             </div>
             <div id="pisFunc">
                 <span>Número PIS: </span>
-                <input type="text" name="pis">
+                <input type="text" name="pis" id="pis">
             </div>
             <div id="telFunc">
                 <span>Telefone: </span>
-                <input type="tel" name="telefone">
+                <input type="tel" name="telefone" id="tel">
             </div>
             <div id="ruaFunc">
                 <span>Rua: </span>
-                <input type="text" name="rua">
+                <input type="text" name="rua" id="rua">
                 <span>N°: </span>
-                <input type="text" class="numero" name="numero">
+                <input type="text" class="numero" name="numero" id="numero">
             </div>
             <div id="bairroFunc">
                 <span>Bairro: </span>
-                <input type="text" name="bairro">
+                <input type="text" name="bairro" id="bairro">
             </div>
             <div id="compleFunc">
                 <span>Complemento: </span>
-                <input type="text" name="complemento">
+                <input type="text" name="complemento" id="complemento">
             </div>
             <div id="refFunc">
                 <span>Referência: </span>
-                <input type="text" name="referencia">
+                <input type="text" name="referencia" id="referencia">
             </div>
             <div id="cepFunc">
                 <span>CEP: </span>
-                <input type="text" name="cep">
+                <input type="text" name="cep" id="cep">
             </div>
             <div id="cidadeFunc">
                 <span>Cidade: </span>
-                <input type="text" name="cidade">
+                <input type="text" name="cidade" id="cidade">
             </div>
             <div id="estadoFunc">
                 <span>Estado: </span>
-                <input type="text" name="estado">
+                <input type="text" name="estado" id="estado">
             </div>
             <div id="emailFunc">
                 <span>Email: </span>
-                <input type="email" name="email">
+                <input type="email" name="email" id="email">
             </div>
             <div id="senhaFunc">
                 <span>Senha: </span>
-                <input type="password" name="senha">
+                <input type="password" name="senha" id="senha">
                 <span>Sua senha pode possuir no máximo 15 caracteres.</span>
             </div>
             <div id="pergFunc">
                 <span>Pergunta de segurança: </span>
-                <select name="pergSeg">
+                <select name="pergSeg" id="pergSeguranca">
                     <option value="amigo">Melhor amigo de infância</option>
                     <option value="animal">Animal de estimação</option>
                     <option value="comida">Comida preferida</option>
@@ -92,18 +92,18 @@
             </div>
             <div id="respFunc">
                 <span>Resposta de segurança: </span>
-                <input type="text" name="respSeg">
+                <input type="text" name="respSeg" id="respSeguranca">
             </div>
             <div id="sexoFunc">
                 <span>Sexo: </span>
-                <select name="sexo">
+                <select name="sexo" id="sexo">
                     <option value="masc">Masculino</option>
                     <option value="fem">Feminino</option>
                     <option value="nDeclarar">Não declarar</option>
                 </select>    
             </div>
         </form>
-        <a href="telaLogin.html" class="botao">Cadastrar</a>
+        <a href="#" class="botao" onclick="cadastraUsuario()">Cadastrar</a>
         <a href="telaLogin.html" class="botao">Cancelar</a>
     </body>
     <footer>Developed by JLManagement</footer>

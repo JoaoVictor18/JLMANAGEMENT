@@ -18,12 +18,12 @@
 		<form class="formRedSenha">
 			<div>
 				<span>Senha Atual: </span>
-				<input type="password">
+				<input type="password" id="antigaSenha" name="antigaSenha">
 			</div>
 			
 			<div>
 				<span>Nova Senha: </span>
-				<input type="password" name="novaSenha">
+				<input type="password" name="novaSenha" id="novaSenha">
 			</div>
 			
 			<div id="novaSenhaConf">
@@ -32,7 +32,7 @@
 			</div>
 		</form>
 		
-		<a href="#">Confirmar</a>
+		<a href="#" onclick="alteraSenha()">Confirmar</a>
 		<a href="telaPrincipal.html">Cancelar</a>
 		<footer>Developed by JLManagement</footer>
 	</body>
