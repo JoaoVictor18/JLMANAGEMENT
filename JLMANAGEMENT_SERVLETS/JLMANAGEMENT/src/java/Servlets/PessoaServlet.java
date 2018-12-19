@@ -1,4 +1,3 @@
-
 package Servlets;
 
 import Commons.Configuracao;
@@ -17,13 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 import model.Endereco;
 import model.Pessoa;
 
-
 @WebServlet(name = "PessoaServlet", urlPatterns = {"/PessoaServlet"})
 public class PessoaServlet extends HttpServlet {
 
     private static Pessoa userLogado;
-    
-    public static void cadastraPessoa(HttpServletRequest request, PrintWriter out){
+
+    public static void cadastraPessoa(HttpServletRequest request, PrintWriter out) {
         String nome = request.getParameter("nome");
         String admin = request.getParameter("admin");
         String dataNasc = request.getParameter("dataNasc");
@@ -44,15 +42,15 @@ public class PessoaServlet extends HttpServlet {
         String pergSeg = request.getParameter("pergSeg");
         String respSeg = request.getParameter("respSeg");
         String sexo = request.getParameter("sexo");
-        if(nome == null || admin == null || dataNasc == null || cpf == null || rg == null || pis == null || telefone == null || rua == null || numero == null ||
-                bairro == null || complemento == null || referencia == null || cep == null || cidade == null || estado == null || email == null || senha == null || 
-                pergSeg == null || respSeg == null || sexo == null){
+        if (nome == null || admin == null || dataNasc == null || cpf == null || rg == null || pis == null || telefone == null || rua == null || numero == null
+                || bairro == null || complemento == null || referencia == null || cep == null || cidade == null || estado == null || email == null || senha == null
+                || pergSeg == null || respSeg == null || sexo == null) {
             Resposta resultado = new Resposta(301, "Erro no preenchimento de dados!!");
             out.print(resultado.toJSON());
-        }else{
+        } else {
             int num = Integer.parseInt(numero);
             //transformar string em date
-            String []data = dataNasc.split("/");
+            String[] data = dataNasc.split("/");
             int dia = Integer.parseInt(data[0]);
             int mes = Integer.parseInt(data[1]);
             int ano = Integer.parseInt(data[2]);
@@ -63,61 +61,92 @@ public class PessoaServlet extends HttpServlet {
             Date dataNascimento = novoCalendar.getTime();
             Endereco novoEndereco = new Endereco(rua, bairro, estado, cidade, cep, complemento, referencia, num);
             Pessoa novaPessoa = new Pessoa(nome, cpf, rg, pis, email, telefone, dataNascimento, novoEndereco, senha, cep, pergSeg);
-            boolean resposta = PessoaController.criaPessoa(novaPessoa); 
-            if(resposta == true){
+            boolean resposta = PessoaController.criaPessoa(novaPessoa);
+            if (resposta == true) {
                 Resposta resultado = new Resposta(200, "Usuário criado com sucesso!!");
                 out.print(resultado.toJSON());
-            }else{
+            } else {
                 Resposta resultado = new Resposta(400, "Usuário já cadastrado!!");
                 out.print(resultado.toJSON());
             }
         }
     }
-    public static void login(HttpServletRequest request, PrintWriter out){
+
+    public static void login(HttpServletRequest request, PrintWriter out) {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        if(email == null || senha == null){
-            Resposta resultado = new Resposta(301, "Os parâmetros devem ser preenchidos corretamente!!");
+        if (email == null || senha == null) {
+            Resposta resultado = new Resposta(302, "Os parâmetros devem ser preenchidos corretamente!!");
+            out.print(resultado.toJSON());
+        } else {
+            userLogado = PessoaController.verificaUsuario(email, senha);
+            if (userLogado != null) {
+                Resposta resultado = new Resposta(200, "Login efetuado com sucesso!!");
+                out.print(resultado.toJSON());
+            } else {
+                Resposta resultado = new Resposta(301, "Email ou senha estão incorretos!!");
+                out.print(resultado.toJSON());
+            }
+        }
+    }
+
+    public static void alteraSenha(HttpServletRequest request, PrintWriter out) {
+        String novaSenha = request.getParameter("novaSenha");
+        String senhaAntiga = request.getParameter("antigaSenha");
+        if(senhaAntiga.equals(userLogado.getSenha())){
+            boolean retorno = PessoaController.insereNovaSenha(userLogado, novaSenha);
+            Resposta resultado = new Resposta(200, "Senha alterada com sucesso!!");
             out.print(resultado.toJSON());
         }else{
-            userLogado = PessoaController.verificaUsuario(email, senha);
+            Resposta resultado = new Resposta(301, "A sua senha atual digitada não confere com a atual, tente novamente!!");
+            out.print(resultado.toJSON());
         }
     }
     
-    public static void alteraSenha(HttpServletRequest request, PrintWriter out){
+    public static void recuperaSenha(HttpServletRequest request, PrintWriter out){
+        String email = request.getParameter("email");
+        String perSeg = request.getParameter("pergSeguranca");
+        String respSeg = request.getParameter("respSeguranca");
         String novaSenha = request.getParameter("novaSenha");
-        boolean retorno = PessoaController.insereNovaSenha(userLogado, novaSenha);
+        boolean retorno = PessoaController.recuperaSenha(email, perSeg, respSeg, novaSenha);
         if(retorno == true){
             Resposta resultado = new Resposta(200, "Senha alterada com sucesso!!");
             out.print(resultado.toJSON());
         }else{
-            Resposta resultado = new Resposta(301, "A sua senha não pode ser alterada, tente novamente!!");
+            Resposta resultado = new Resposta(301, "A sua senha não pode ser alterada, verifique sua resposta e pergunta de segurança!!");
             out.print(resultado.toJSON());
         }
     }
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Configuracao.configResponseRequest(request, response);
         try (PrintWriter out = response.getWriter()) {
             String servico = request.getParameter("serv");
-            switch(servico){
-                case "cadastra":{
+            switch (servico) {
+                case "cadastra": {
                     cadastraPessoa(request, out);
-                }break;
-                case "alteraSenha":{
+                }
+                break;
+                case "alteraSenha": {
                     alteraSenha(request, out);
-                }break;
-                case "login":{
+                }
+                break;
+                case "login": {
                     login(request, out);
-                }break;
-                default:{
+                }
+                case "recupera":{
+                    recuperaSenha(request, out);
+                }
+                break;
+                default: {
                     Resposta resultado = new Resposta(404, "O serviço requisitado não existe.(cadastra, buscaMercadoria)");
                     out.print(resultado.toJSON());
                 }
             }
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

@@ -47,5 +47,10 @@ public class PessoaController {
         usuario.setSenha(senha);
         return PessoaDAO.insereNovaSenha(usuario);
     }
+
+    public static boolean recuperaSenha(String email, String perSeg, String respSeg, String novaSenha) {
+        novaSenha = new Md5Hash(novaSenha).toString();
+        return PessoaDAO.recuperaSenha(email, perSeg, respSeg, novaSenha);
+    }
     
 }
