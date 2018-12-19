@@ -148,13 +148,28 @@ public class PessoaDAO {
         return null;
     }
 
-    public static boolean insereNovaSenha (Pessoa usuario) {
+    public static boolean insereNovaSenha(Pessoa usuario) {
         try (Connection con = FabricaConexao.criaConexao()) {
             String sql = "update pessoa set senha = ? where cpf = ?";
             PreparedStatement update = con.prepareStatement(sql);
             update.setString(1, usuario.getSenha());
             update.setString(2, usuario.getCpf());
             update.execute();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Erro de SQL");
+            return false;
+        }
+    }
+
+    public static boolean recuperaSenha(String email, String perSeg, String respSeg, String novaSenha) {
+        try (Connection con = FabricaConexao.criaConexao()) {
+            String sql = "update pessoa set senha = ? where email = ? and pergpseguranca = ? and respseguranca = ?";
+            PreparedStatement update = con.prepareStatement(sql);
+            update.setString(1, novaSenha);
+            update.setString(2, email);
+            update.setString(3, perSeg);
+            update.setString(4, respSeg);
             return true;
         } catch (SQLException ex) {
             System.out.println("Erro de SQL");
