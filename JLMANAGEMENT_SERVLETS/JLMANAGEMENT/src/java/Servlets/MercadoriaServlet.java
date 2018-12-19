@@ -85,45 +85,38 @@ public class MercadoriaServlet extends HttpServlet {
                 || perImposto == null || perFrete == null || dataCompra == null
                 || quantCompra == null || infAdd == null || qntEstoque == null
                 || qntMinima == null || referenia == null) {
-            Resposta resultado = new Resposta(301, "Os parâmetros (nome, tipoMerc, fabricante, precoCus,perImposto,"
-                    + "perFrete,dataCompra,infAdd,qntEstoque,qntMinima,referencia) devem ser informados");
+            Resposta resultado = new Resposta(301, "Os parâmetros (nome, tipo, fabricante, preco custo,percentual Imposto,"
+                    + "percentual frete,data compra,infAdd,quantidade estoque,quantidade minima,referencia) devem ser informados");
             out.print(resultado.toJSON());
         } else {
-            try {
-                double precoCusto = Double.parseDouble(precoCus);
-                double perImp = Double.parseDouble(perImposto);
-                double percentFrete = Double.parseDouble(perFrete);
-                double qntCompra = Double.parseDouble(quantCompra);
-                double quantEstoque = Double.parseDouble(qntEstoque);
-                double quantMinima = Double.parseDouble(qntMinima);
-                String[] data = dataCompra.split("/");
-                int dia = Integer.parseInt(data[0]);
-                int mes = Integer.parseInt(data[1]);
-                int ano = Integer.parseInt(data[2]);
-                Calendar novoCalendar = Calendar.getInstance();
-                novoCalendar.set(Calendar.DAY_OF_MONTH, dia);
-                novoCalendar.set(Calendar.MONTH, mes);
-                novoCalendar.set(Calendar.YEAR, ano);
-                Date dateCompra = novoCalendar.getTime();
+            double precoCusto = Double.parseDouble(precoCus);
+            double perImp = Double.parseDouble(perImposto);
+            double percentFrete = Double.parseDouble(perFrete);
+            double qntCompra = Double.parseDouble(quantCompra);
+            double quantEstoque = Double.parseDouble(qntEstoque);
+            double quantMinima = Double.parseDouble(qntMinima);
+            String[] data = dataCompra.split("/");
+            int dia = Integer.parseInt(data[0]);
+            int mes = Integer.parseInt(data[1]);
+            int ano = Integer.parseInt(data[2]);
+            Calendar novoCalendar = Calendar.getInstance();
+            novoCalendar.set(Calendar.DAY_OF_MONTH, dia);
+            novoCalendar.set(Calendar.MONTH, mes);
+            novoCalendar.set(Calendar.YEAR, ano);
+            Date dateCompra = novoCalendar.getTime();
 
-                Produto novoProduto = new Produto(nome, tipoMerc, precoCus, infAdd, percentFrete, percentFrete,
-                        quantEstoque, quantMinima, precoCusto,
-                        qntCompra, dateCompra, referenia);
-                //criar método cadastra no controller
-                //ProdutoController.cadastraProdudo(novoProduto);
-                boolean verificaRetorno = ProdutoController.buscaProdutoExistente(novoProduto);
-                if (verificaRetorno != false) {
-                    Resposta resultado = new Resposta(200, "Cadastro efetuado com sucesso.");
-                    out.print(resultado.toJSON());
-                    //mensagem "deseja efetuar um novo cadastro?"
-                } else {
-                    Resposta resultado = new Resposta(200, "Produto já cadastrado.");
-                    out.print(resultado.toJSON());
-                    //limpar os campos, verificar como é feito
-                }
-            } catch (NumberFormatException ex) {
-                Resposta resultado = new Resposta(302, "Os parâmetros (preco custo, percentual imposto,percentual frete,quantidade comprada"
-                        + "quantidade estoque,quantida minima) não são números.");
+            Produto novoProduto = new Produto(nome, tipoMerc, precoCus, infAdd, percentFrete, percentFrete,
+                    quantEstoque, quantMinima, precoCusto,
+                    qntCompra, dateCompra, referenia);
+            //criar método cadastra no controller
+            //ProdutoController.cadastraProdudo(novoProduto);
+            boolean verificaRetorno = ProdutoController.buscaProdutoExistente(novoProduto);
+            if (verificaRetorno != false) {
+                Resposta resultado = new Resposta(200, "Cadastro efetuado com sucesso.");
+                out.print(resultado.toJSON());
+                //mensagem "deseja efetuar um novo cadastro?"
+            } else {
+                Resposta resultado = new Resposta(200, "Produto já cadastrado.");
                 out.print(resultado.toJSON());
             }
         }
@@ -224,7 +217,7 @@ public class MercadoriaServlet extends HttpServlet {
                 if (mercadorias.isEmpty()) {
                     Resposta resultado = new Resposta(200, "Mercadoria não encontrada!");
                     out.print(resultado.toJSON());
-                }else{
+                } else {
                     Resposta saida = new Resposta(200, mercadorias.toArray());
                     out.print(saida.toJSON());
                 }
@@ -249,16 +242,5 @@ public class MercadoriaServlet extends HttpServlet {
                 }
             }
         }
-    }
-
-    private void exibicaoMerc(HttpServletRequest request, PrintWriter out) {
-        /*nomeSelecao = "";
-        for (int i = 0; i < mercadorias.size(); i++) {
-            if (mercadorias.get(i).getNome().equals(nomeSelecao)) {
-                Produto exibicaoMerc = mercadorias.get(i);//variável global?
-                //mandar para a página web as informações a serem exibidas.
-            }
-        }*/
-
     }
 }
