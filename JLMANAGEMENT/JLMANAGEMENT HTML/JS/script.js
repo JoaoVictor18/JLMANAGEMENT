@@ -165,6 +165,7 @@ function buscaProduto(){
     
     nomeProd.value = "";
 }*/
+
 function limpaCampos(){
     var formCadastra = document.forms["formCadMerc"];
     formCadastra["nome"].value = "";

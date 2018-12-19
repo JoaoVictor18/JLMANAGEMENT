@@ -41,9 +41,6 @@ public class MercadoriaServlet extends HttpServlet {
                 case "consulta": {
                     consultaMerc(request, out);
                 }
-                case "exibicao": {
-                    exibicaoMerc(request, out);
-                }
                 default: {
                     Resposta resultado = new Resposta(404, "O serviço requisitado não existe.(cadastra, buscaMercadoria)");
                     out.print(resultado.toJSON());
