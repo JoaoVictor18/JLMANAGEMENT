@@ -15,40 +15,41 @@
             <h1>J&L MANAGEMENT</h1>
         </header>
         <h1 class="tituloH1">Consulta Mercadorias</h1>
-        <form class="formConsulta">
+        <form class="formConsulta" name="consulta"> 
             <div id="nomeMerc">
                 <span>Nome mercadoria: </span>
-                <input type="text">
+                <input type="text" name="nome" id="nome">
                 <a href="#" class="botao">Consultar</a>
             </div>
             <div id="filtros">
-                <input type="checkbox">
+                <input type="checkbox" name="infadd" id="infadd">
                 <span>Filtros adicionais</span>
             </div>
             <div id="tipoMerc">
                 <span>Tipo de Mercadoria: </span>
-                <input type="text">
+                <input type="text" name="tipo" id="tipo">
             </div>
             <div id="preco">
                 <span>Preço: </span>
-                <input type="text">
+                <input type="text" name="preco" id="preco">
             </div>
             <div id="fornecedor">
                 <span>Fornecedor: </span>
-                <input type="text">
+                <input type="text" name="fornecedor" id="fornecedor">
             </div>
-            
-           
         </form>
          <div class="exibicao">
             <!-- verificar inserção de dados na exibição-->
+            <ul id="listaProd">
+                
+            </ul>
          </div>
         <div class="botoes">
-            <a href="mercExibidaConsulta.html" class="botao">Exibir</a>
+            <a href="mercExibidaConsulta.html" class="botao" onclick="exibicao()">Exibir</a>
             <a href="telaPrincipal.html" class="botao">Cancelar</a>
         </div>
     </body>
     
     <footer>Developed by JLManagement</footer>
-
+    <script src="JS/script.js"></script>
 </html>

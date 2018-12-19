@@ -91,3 +91,9 @@ footer{
 #compra {
     margin-top: 150px;
 }
+
+.selecionado{
+    background-color: darkorange;
+    text-decoration: underline;
+    text-decoration: underline;
+}

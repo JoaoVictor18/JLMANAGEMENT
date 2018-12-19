@@ -15,46 +15,46 @@
         
 		<h1 class="tituloH1">Atualização de Mercadoria</h1>
 		<div class="divAtualizaMerc">
-            <form class="form1AtualizaMerc">
+            <form class="form1AtualizaMerc" name="atualiza">
                 <div id="nomeMerc">
 			         <span>Nome da Mercadoria:</span>
-                    <input type="text">
-			         <a href="#" class="botao">Buscar</a>
+                    <input type="text" name="nome">
+			         <a href="#" class="botao" onclick="buscaProdutoAtualiza()">Buscar</a>
                 </div>
                 <div id="compra">
-				    <input type="checkbox">
+				    <input type="checkbox" name="compra">
 				    <span>Compra</span>
                 </div>
                 <div id="qntComprada">
 				    <span>Quantidade Comprada:</span>
-				    <input type="text">
+				    <input type="text" name="quantcompra">
                 </div>
                 <div id="dataCompra">		
                     <span>Data da Compra:</span>
-				    <input type="date">
+				    <input type="date" name="datacompra">
                 </div>
                 <div>
-                    <a href="#" class="botao">Confirmar</a>
+                    <a href="#" class="botao" onclick="atualizaProduto()">Confirmar</a>
                 </div>
                 <div id="venda">
-                    <input type="checkbox">
+                    <input type="checkbox" name="venda">
 				    <span>Venda</span>
                 </div>
                 <div id="qntVendida">
 				    <span>Quantidade Vendida:</span>
-				    <input type="text">
+				    <input type="text" name="quantvendida">
                 </div>
                 <div id="mesVenda">
 				    <span>Mês da Venda:</span>
-				    <input type="text">
+				    <input type="text" name="mesvenda">
                 </div>
                 <div id="anoVenda">
 				    <span>Ano da Venda:</span>
-				    <input type="text">
+				    <input type="text" name="anovenda">
                 </div>
                 <div id="valorVenda">
 				    <span>Valor da Venda:</span>
-				    <input type="text">
+				    <input type="text" name="valorvenda">
                 </div>
                 <div>
                     <a href="#" class="botao">Confirmar</a>
@@ -66,4 +66,5 @@
 		</div>
 	</body>
     <footer>Developed by JLManagement</footer>
+    <script src="JS/script.js"></script>
 </html>
