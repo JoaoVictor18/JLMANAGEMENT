@@ -218,4 +218,158 @@ function cadastraMerc(){
         limpaCampos();
     };
 }
+
+//metodos de PessoaServlet  
+function login(){
+	var con = new XMLHttpRequest();
+	//definindo o serviço que será executado
+	con.open("post","http://localhost:8080/JLMANAGEMENT/PessoaServlet", true);
+	//formato das informações
+	con.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	//função que será executada a cada mudança do readystate
+	con.onload = function(x){
+        var respostaServ = x.currentTarget.responseText;
+        var objetoServ = JSON.parse(respostaServ);
+        if(objetoServ.cod == 200){
+            window.location.href = "telaPrincipal.html";
+        }else{
+            alert(objetoServ.resultado);
+        }
+	}
+    var email = document.forms["formLogin"]["email"].value;
+    var senha = document.forms["formLogin"]["senha"].value;
+
+    con.send("serv=login&email="+email+"&senha="+senha);
+}
+
+function cadastraUsuario(){
+    var con = new XMLHttpRequest();
+	//definindo o serviço que será executado
+	con.open("post","http://localhost:8080/JLMANAGEMENT/PessoaServlet", true);
+	//formato das informações
+	con.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	//função que será executada a cada mudança do readystate
+	con.onload = function(x){
+		var respostaServ = x.currentTarget.responseText;
+        var objetoServ = JSON.parse(respostaServ);
+        if(objetoServ.cod == 200){
+            alert(objetoServ.resultado);
+        }else{
+            if(objetoServ.cod == 301){
+                alert(objetoServ.resultado);
+            }else{
+                alert(objetoServ.resultado);
+            }
+        }
+    }
+    var nome = document.forms["formCadastroFunc"]["nome"].value;
+    var admin = document.forms["formCadastroFunc"]["admin"].value;
+    var nasc = document.forms["formCadastroFunc"]["nasc"].value;
+    var cpf = document.forms["formCadastroFunc"]["cpf"].value;
+    var rg = document.forms["formCadastroFunc"]["rg"].value;
+    var pis = document.forms["formCadastroFunc"]["pis"].value;
+    var tel = document.forms["formCadastroFunc"]["tel"].value;
+    var rua = document.forms["formCadastroFunc"]["rua"].value;
+    var numero = document.form["formCadastroFunc"]["numero"].value;
+    var bairro = document.forms["formCadastroFunc"]["bairro"].value;
+    var complemento = document.forms["formCadastroFunc"]["complemento"].value;
+    var referencia = document.forms["formCadastroFunc"]["referencia"].value;
+    var cep = document.forms["formCadastroFunc"]["cep"].value;
+    var cidade = document.forms["formCadastroFunc"]["cidade"].value;
+    var estado = document.forms["formCadastroFunc"]["estado"].value;
+    var email = document.forms["formCadastroFunc"]["email"].value;
+    var senha = document.forms["formCadastroFunc"]["senha"].value;
+    var pergSeguranca = document.forms["formCadastroFunc"]["pergSeguranca"].value;
+    var respSeguranca = document.forms["formCadastroFunc"]["respSeguranca"].value;
+    var sexo = document.forms["formCadastroFunc"]["sexo"].value;
+
+    con.send("serv=cadastra&nome="+nome+"&admin="+admin+"&dataNasc="+nasc+"&cpf="+cpf+"&rg="+rg+
+    "&pis="+pis+"&telefone="+tel+"&rua="+rua+"&numero="+numero+"&bairro="+bairro+"&complemento="+complemento+"&referencia="+referencia+
+    "&cep="+cep+"&cidade="+cidade+"&estado="+estado+"&email="+email+"&senha="+senha+"&pergSeg="+pergSeguranca+
+    "&respSeg="+respSeguranca+"&sexo="+sexo);
+}
+
+function alteraSenha(){
+    var con = new XMLHttpRequest();
+	//definindo o serviço que será executado
+	con.open("post","http://localhost:8080/JLMANAGEMENT/PessoaServlet", true);
+	//formato das informações
+	con.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //colocar no netbeans a condição para verificar se a senha antiga está correta
+    var antigaSenha = document.forms["formRedSenha"]["antigaSenha"];
+    var novaSenha = document.forms["formRedSenha"]["novaSenha"];
+    var novaSenha2 = document.forms["formRedSenha"]["novaSenhaConf"];
+    while(novaSenha.value != novaSenha2.value){
+        novaSenha.value = "";
+        novaSenha2.value = "";
+        alert("Informe a senha de confirmação igual a senha desejada.")
+    }
+    //função que será executada a cada mudança do readystate
+	con.onload = function(x){
+		var respostaServ = x.currentTarget.responseText;
+        var objetoServ = JSON.parse(respostaServ);
+        if(objetoServ.cod == 200){
+            alert(objetoServ.resultado);
+            window.location.href = "telaPrincipal.html";
+        }else{
+            alert(objetoServ.resultado);
+            antigaSenha.value = "";
+            novaSenha.value = "";
+            novaSenha2.value = "";
+        }
+    }
+    con.send("serv=alteraSenha&antigaSenha="+antigaSenha.value+"&novaSenha="+novaSenha.value);
+}
+
+function recuperaSenha(){
+    var con = new XMLHttpRequest();
+	//definindo o serviço que será executado
+	con.open("post","http://localhost:8080/JLMANAGEMENT/PessoaServlet", true);
+	//formato das informações
+    con.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
+    var email = document.forms["formRecSenha"]["email"];
+    var perguntaSeguraca = document.forms["formRecSenha"]["pergSeguranca"];
+    var respostaSeguranca = document.forms["formRecSenha"]["respSeguranca"];
+    var novaSenha = document.forms["formRecSenha"]["novaSenha"];
+    var confNovaSenha = document.forms["formRecSenha"]["novaSenhaConf"];
+
+    //função que será executada a cada mudança do readystate
+	con.onload = function(x){
+		var respostaServ = x.currentTarget.responseText;
+        var objetoServ = JSON.parse(respostaServ);
+        if(objetoServ.cod == 200){
+            alert(objetoServ.resultado);
+            window.location.href = "telaLogin.html";
+        }else{
+            alert(objetoServ.resultado);
+            email.value = "";
+            perguntaSeguraca.value = "";
+            respostaSeguranca.value = "";
+            novaSenha.value = "";
+            confNovaSenha.value = "";
+        }
+    }
+    while(novaSenha != confNovaSenha){
+        alert("As novas senhas informadas não conferem, tente novamente.")
+        novaSenha.value = "";
+        confNovaSenha.value = "";
+    }
+    con.send("serv=recupera&email="+email.value+"&pergSeguranca="+perguntaSeguraca.value+"&respSeguranca="+respostaSeguranca.value+
+    "&novaSenha="+novaSenha.value);
+}
+
+//metodos de VendaServlet
+
+function epocaMaiorVenda(){
+    var con = new XMLHttpRequest();
+	//definindo o serviço que será executado
+	con.open("post","http://localhost:8080/JLMANAGEMENT/VendaServlet", true);
+	//formato das informações
+	con.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	//função que será executada a cada mudança do readystate
+	con.onload = function(x){
+		var respostaServ = x.currentTarget.responseText;
+		alert(respostaServ);
+    }
+}

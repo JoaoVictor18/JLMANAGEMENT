@@ -18,33 +18,32 @@
 		<form class="formRecSenha">
 			<div class="usuario">
 				<span>Usuário: </span>
-				<input type="text">
+				<input type="text" id="email" name="email">
 			</div>
 			
 			<div class="pergSeguranca">
 				<span>Pergunta de Segurança: </span>
-				<input type="text">
+				<input type="text" id="pergSeguranca" name="pergSeguranca">
 			</div>
 			
 			<div class="respSeguranca">
 				<span>Resposta de Segurança: </span>
-				<input type="text">
+				<input type="text" id="respSeguranca" name="respSeguranca">
 			</div>
 			
 			<div class="novaSenha">
 				<span>Nova Senha: </span>
-				<input type="password">
+				<input type="password" id="novaSenha" name="novaSenha">
 			</div>
 			
 			<div class="novaSenhaConf">
 				<span>Confirme a nova senha: </span>
-				<input type="password">
+				<input type="password" id="respSeguranca">
 			</div>
 		</form>
 		
-		<a href="telaLogin.html">Confirmar</a>
+		<a href="#" onclick="recuperaSenha()">Confirmar</a>
 		<a href="telaLogin.html">Cancelar</a>
 		<footer>Developed by JLManagement</footer>
 	</body>
-	<script src="JS/script.js"></script>
 </html>
